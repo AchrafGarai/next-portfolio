@@ -1,4 +1,5 @@
 import HeroSection from "@/components/sections/hero";
+import SecondSection from "@/components/sections/second";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       </div>
       <section>
         <HeroSection />
+        <SecondSection />
       </section>
     </>
   );
