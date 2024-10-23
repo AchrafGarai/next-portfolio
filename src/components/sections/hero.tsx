@@ -13,7 +13,7 @@ function HeroSection() {
 
       <div
         id="polygon-mask"
-        className="absolute top-0 left-0 w-full h-full bg-blue-700 "
+        className="absolute top-0 left-0 w-full h-full bg-red-500"
         style={{ clipPath: "polygon(20% 0%, 80% 0%, 86% 90%, 10% 57%)" }}
       >
         {/* Foreground titles  */}
