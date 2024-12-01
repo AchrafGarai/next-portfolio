@@ -27,8 +27,8 @@ function MasketContent({ className }: { className?: string }) {
         className
       )}
     >
-      <h2 className=" text-9xl font-tanker">Redefine gaming</h2>
       <p>Hello world</p>
+      <h2 className=" text-9xl font-tanker">Redefine gaming</h2>
     </div>
   );
 }
