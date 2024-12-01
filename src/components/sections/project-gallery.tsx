@@ -13,7 +13,9 @@ export function ProjectGallery() {
           Discover the world's largest shared adventure, crafted by everyone
         </h3>
       </div>
-      <Gallery />
+      <div className="h-screen w-full">
+        <Gallery />
+      </div>
     </section>
   );
 }

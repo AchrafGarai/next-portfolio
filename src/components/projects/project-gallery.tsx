@@ -90,15 +90,15 @@ declare module "@react-three/fiber" {
 
 export const Gallery = () => {
   return (
-    <Canvas camera={{ position: [0, 0, 100], fov: 15 }} className="h-screen ">
-      <fog attach="fog" args={["#a79", 8.5, 12]} />
+    <Canvas camera={{ position: [0, 0, 100], fov: 15 }}>
+      {/* <fog attach="fog" args={["#a79", 8.5, 12]} /> */}
       <ScrollControls pages={4} infinite>
         <Rig rotation={[0, 0, 0.15]}>
           <Carousel />
         </Rig>
         <Banner position={[0, -0.15, 0]} />
       </ScrollControls>
-      <Environment preset="dawn" background blur={0.5} />
+      {/* <Environment preset="dawn" background blur={0.5} /> */}
     </Canvas>
   );
 };
