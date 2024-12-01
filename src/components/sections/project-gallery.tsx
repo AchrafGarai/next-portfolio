@@ -1,19 +1,19 @@
-import React from 'react'
+import FirstScene from "../projects/first-scene";
+import { Gallery } from "../projects/project-gallery";
 
-function ProjectGallery() {
+export function ProjectGallery() {
   return (
-    <section className=' min-h-screen flex flex-col gap-6 justify-center items-center'>
-        <div className=' flex flex-col gap-6 justify-center items-center max-w-[600px]'>
+    <section className=" min-h-screen flex flex-col gap-6 justify-center items-center">
+      <div className=" flex flex-col gap-6 justify-center items-center max-w-[600px]">
         <p>
-        Lorem ipsum dolor sit amet consectetur. Sodales ac tellus eu velit. At vel 
-        </p> 
-        <h3 className='text-6xl font-tanker text-center'>
-            Discover the world's largest shared adventure, crafted by everyone
+          Lorem ipsum dolor sit amet consectetur. Sodales ac tellus eu velit. At
+          vel
+        </p>
+        <h3 className="text-6xl font-tanker text-center">
+          Discover the world's largest shared adventure, crafted by everyone
         </h3>
-            
-        </div>
+      </div>
+      <Gallery />
     </section>
-  )
+  );
 }
-
-export default ProjectGallery

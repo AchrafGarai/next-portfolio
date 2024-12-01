@@ -1,5 +1,5 @@
 import HeroSection from "@/components/sections/hero";
-import ProjectGallery from "@/components/sections/project-gallery";
+import { ProjectGallery } from "@/components/sections/project-gallery";
 import SecondSection from "@/components/sections/second";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -12,7 +12,7 @@ export default function Home() {
       <section>
         <HeroSection />
         <SecondSection />
-        <ProjectGallery/>
+        <ProjectGallery />
       </section>
     </>
   );
