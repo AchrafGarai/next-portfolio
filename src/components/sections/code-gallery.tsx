@@ -1,7 +1,10 @@
  
+'use client'
+import { Cylinder }  from "@/components/projects/cylinder-scroll";
 import { Gallery } from "../projects/project-gallery";
+import { Canvas } from "@react-three/fiber";
 
-export function ProjectGallery() {
+export function CodeGallery() {
   return (
     <section className=" min-h-screen flex flex-col gap-6 justify-center items-center">
       <div className=" flex flex-col gap-6 justify-center items-center max-w-[600px]">
@@ -14,7 +17,10 @@ export function ProjectGallery() {
         </h3>
       </div>
       <div className="h-screen w-full">
-        <Gallery />
+        <Canvas >
+            <Cylinder/>
+            <ambientLight />
+        </Canvas>
       </div>
     </section>
   );

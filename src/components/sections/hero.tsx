@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import React from "react";
 
 const LEFT_TITLE = "REDEFINE";
 const RIGHT_TITLE = "GAMING";

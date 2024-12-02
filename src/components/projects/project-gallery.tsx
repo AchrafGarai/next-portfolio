@@ -92,7 +92,8 @@ export const Gallery = () => {
   return (
     <Canvas camera={{ position: [0, 0, 100], fov: 15 }}>
       {/* <fog attach="fog" args={["#a79", 8.5, 12]} /> */}
-      <ScrollControls pages={4} infinite>
+      {/* <ScrollControls pages={4} infinite></ScrollControls> */}
+      <ScrollControls pages={0} infinite>
         <Rig rotation={[0, 0, 0.15]}>
           <Carousel />
         </Rig>
@@ -103,18 +104,17 @@ export const Gallery = () => {
   );
 };
 
-interface RigProps {
-  rotation?: [number, number, number];
-  [key: string]: any; // Allow additional props
-}
 
-function Rig(props: RigProps) {
+function Rig(props: {
+    rotation?: [number, number, number];
+    [key: string]: any; // Allow additional props
+  }) {
   const ref = useRef<THREE.Group>(null);
   const scroll = useScroll();
   useFrame((state, delta: number | undefined) => {
-    if (ref.current) {
+/*     if (ref.current) {
       ref.current.rotation.y = -scroll.offset * (Math.PI * 2); // Rotate contents
-    }
+    } */
     if (state.events.update) {
       state.events.update(); // Raycasts every frame rather than on pointer-move
       easing.damp3(

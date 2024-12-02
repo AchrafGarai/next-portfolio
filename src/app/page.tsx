@@ -1,3 +1,4 @@
+import { CodeGallery } from "@/components/sections/code-gallery";
 import HeroSection from "@/components/sections/hero";
 import { ProjectGallery } from "@/components/sections/project-gallery";
 import SecondSection from "@/components/sections/second";
@@ -13,6 +14,7 @@ export default function Home() {
         <HeroSection />
         <SecondSection />
         <ProjectGallery />
+        <CodeGallery/>
       </section>
     </>
   );
