@@ -1,5 +1,5 @@
 {
-    "components": ["../src/components/**/*.tsx"],
-    "files": ["../src/**/*.tsx"],
-    "provider": "./provider.tsx"
-  }
+	"components": ["../src/components/**/*.tsx"],
+	"files": ["../src/**/*.tsx"],
+	"provider": "./provider.tsx"
+}
