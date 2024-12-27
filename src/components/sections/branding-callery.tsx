@@ -15,7 +15,7 @@ function BrandingGalley() {
 		},
 	];
 	return (
-		<section className="flex flex-col items-center justify-center relative">
+		<section className="flex flex-col items-center justify-center relative h-[300vh] border-red-300">
 			<div className="min-h-screen sticky top-0 flex flex-col gap-6 justify-center items-center max-w-[600px] z-0">
 				<p>
 					Lorem ipsum dolor sit amet consectetur. Sodales ac tellus eu velit. At
