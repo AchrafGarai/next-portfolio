@@ -14,6 +14,17 @@ import { ChevronDownIcon, FigmaLogoIcon } from "@radix-ui/react-icons";
 import { PlayIcon, SidebarIcon } from "lucide-react";
 import type { ReactNode } from "react";
 
+const links = [
+	{
+		href: "aichor",
+		title: "Aichor",
+	},
+	{
+		href: "ai-hack",
+		title: "AI Hack",
+	},
+];
+
 function Layout({ children }: { children: ReactNode }) {
 	return (
 		<>
@@ -31,7 +42,7 @@ function Layout({ children }: { children: ReactNode }) {
 					<div className="p-4 border-b">
 						<p className="text-xs text-muted-foreground mb-2">Pages</p>
 						<ScrollArea className="h-40 text-xs">
-							<div className=" py-1">AIchor</div>
+							<div className="py-1">AIchor</div>
 							<div className=" py-1">AI Hack</div>
 						</ScrollArea>
 					</div>
