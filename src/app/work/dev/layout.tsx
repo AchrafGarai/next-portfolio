@@ -23,6 +23,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import BlogNavigation from "@/components/navigation/blog-navigation";
 
 function Layout({ children }: { children: ReactNode }) {
 	return (
@@ -109,6 +110,7 @@ function Layout({ children }: { children: ReactNode }) {
 							Radiant: A beautiful new marketing site template
 						</span>
 					</Link>
+					<BlogNavigation />
 					{/* 					<ul className="flex flex-col flex-grow max-w-64 gap-2">
 						{allPosts.map((post) => (
 							<Link

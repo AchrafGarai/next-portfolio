@@ -1,3 +1,4 @@
+import UiNavigation from "@/components/navigation/ui-navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -28,16 +29,13 @@ function Layout({ children }: { children: ReactNode }) {
 						<p className="text-sm">Achraf garai</p>
 						<p className="text-xs text-muted-foreground">Drafts</p>
 					</div>
-					<div className="p-4 border-b">
-						<p className="text-xs text-muted-foreground mb-2">Pages</p>
-						<ScrollArea className="h-40 text-xs">
-							<div className=" py-1">AIchor</div>
-							<div className=" py-1">AI Hack</div>
-						</ScrollArea>
+					<div className="border-b relative">
+						<p className=" p-4 pb-0 text-xs sticky top-0">Pages</p>
+						<UiNavigation />
 					</div>
 				</div>
 				{/* main section - canvas  */}
-				<div className="flex-grow h-full text-center p-4 ">{children}</div>
+				<div className="flex-grow h-sreen text-center p-4 ">{children}</div>
 
 				{/* right sidebar - inspector */}
 				<div className="sticky top-0 min-h-screen flex-grow max-w-64 h-full bg-accent border-l">

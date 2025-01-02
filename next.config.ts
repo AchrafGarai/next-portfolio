@@ -1,5 +1,7 @@
 import createMDX from "@next/mdx";
 import rehypeHighlight from "rehype-highlight";
+import remarkFrontmatter from "remark-frontmatter";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	// Configure `pageExtensions` to include markdown and MDX files
@@ -11,7 +13,7 @@ const withMDX = createMDX({
 	// Add markdown plugins here, as desired
 	// Add markdown plugins here, as desired
 	options: {
-		remarkPlugins: [],
+		remarkPlugins: [remarkFrontmatter],
 		rehypePlugins: [rehypeHighlight],
 	},
 });

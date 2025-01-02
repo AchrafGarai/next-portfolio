@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ReactLenis } from "@/components/smooth-scroll";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/navbar";
+import { Navbar } from "@/components/navigation/navbar";
 
 const satoshi = localFont({
 	src: "./fonts/Satoshi-Variable.woff2",
