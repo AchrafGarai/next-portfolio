@@ -1,6 +1,6 @@
+import "@/styles/highlight.css";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
 	Menubar,
 	MenubarContent,
@@ -26,8 +26,8 @@ import type { ReactNode } from "react";
 
 function Layout({ children }: { children: ReactNode }) {
 	return (
-		<div className="h-screen flex flex-col">
-			<div className="flex gap-4 bg-accent px-3 py-2 border-b justify-between items-center">
+		<div className="h-screen flex flex-col ">
+			<div className="flex gap-4 bg-background px-3 py-2 border-b justify-between items-center fixed top-0 w-full z-20">
 				<div className="flex flex-grow">
 					<Image
 						src="/vs-code.svg"
@@ -36,7 +36,7 @@ function Layout({ children }: { children: ReactNode }) {
 						height={32}
 						className="mr-6"
 					/>
-					<Menubar className="rounded-none bg-accent w-full border-none text-xs shadow-none">
+					<Menubar className="rounded-none bg-background w-full border-none text-xs shadow-none">
 						<MenubarMenu>
 							<MenubarTrigger className="text-sm">File</MenubarTrigger>
 							<MenubarContent>
@@ -67,7 +67,7 @@ function Layout({ children }: { children: ReactNode }) {
 
 			<div className="flex flex-grow w-full">
 				{/* Side navigation  */}
-				<div className="h-full bg-accent border-r flex flex-col gap-2 p-2 py-4 text-muted-foreground">
+				<div className=" bg-background border-r flex flex-col gap-2 p-2 py-4 text-muted-foreground h-screen pt-16 sticky top-0">
 					<div className="flex-grow flex  flex-col gap-2 ">
 						<Button size={"sm"} variant={"ghost"}>
 							<FileIcon />
@@ -92,7 +92,7 @@ function Layout({ children }: { children: ReactNode }) {
 					</div>
 				</div>
 				{/* secondary file nav section - file tree  */}
-				<div className="flex border-r flex-col flex-grow max-w-64 gap-2 p-4 h-full">
+				<div className="flex border-r flex-col flex-grow max-w-64 gap-2 p-4 h-screen sticky top-0 pt-16">
 					<Link
 						className="p-2 text-sm font-medium hover:text-muted-foreground "
 						href={""}
@@ -109,13 +109,26 @@ function Layout({ children }: { children: ReactNode }) {
 							Radiant: A beautiful new marketing site template
 						</span>
 					</Link>
+					{/* 					<ul className="flex flex-col flex-grow max-w-64 gap-2">
+						{allPosts.map((post) => (
+							<Link
+								key={post._meta.path}
+								className="p-2 text-sm font-medium text-muted-foreground"
+								href={`/work/dev/${post.slug}`}
+							>
+								<span className="truncate inline-block w-full">
+									{post.title}
+								</span>
+							</Link>
+						))}
+					</ul> */}
 				</div>
 
 				{/* main section - canvas  */}
-				<div className="flex-grow h-full p-6">{children}</div>
+				<div className="flex-grow h-full p-6 pt-16">{children}</div>
 
 				{/* right sidebar - inspector */}
-				<div className="flex flex-col h-full bg-accent border-l">
+				<div className="flex flex-col h-screen bg-background border-l pt-16 sticky top-0">
 					<div className="flex-grow flex  flex-col gap-2 px-2 py-2 ">
 						<Button size={"sm"} variant={"ghost"}>
 							<ChatBubbleIcon />
