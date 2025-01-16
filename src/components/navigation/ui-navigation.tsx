@@ -2,18 +2,16 @@ import Link from "next/link";
 import React from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-const posts = [
-	{
-		slug: "aichor",
-		title: "Aichor",
-	},
-	{
-		slug: "lofi-app",
-		title: "Lofi App",
-	},
-];
+type Post = {
+	slug: string;
+	title: string;
+};
 
-function UiNavigation() {
+export type Props = {
+	posts: Post[];
+};
+
+function UiNavigation({ posts }: Props) {
 	return (
 		<ScrollArea
 			className="p-4 pb-0 flex flex-col gap-6 h-64"

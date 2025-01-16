@@ -1,3 +1,5 @@
+import BrandingNavigation from "@/components/navigation/branding-navigation";
+import { ShareProject } from "@/components/projects/share-dialog";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,12 +12,9 @@ import {
 	MenubarShortcut,
 	MenubarTrigger,
 } from "@/components/ui/menubar";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 import {
 	BrushIcon,
-	EyeIcon,
-	LockIcon,
 	MousePointer2,
 	PenTool,
 	PipetteIcon,
@@ -24,6 +23,17 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import type { ReactNode } from "react";
+
+const posts = [
+	{
+		slug: "aichor",
+		title: "AIchor",
+	},
+	{
+		slug: "lofi-app",
+		title: "Lofi App",
+	},
+];
 
 function Layout({ children }: { children: ReactNode }) {
 	return (
@@ -60,15 +70,13 @@ function Layout({ children }: { children: ReactNode }) {
 					My Branding Projects.ai
 				</div>
 				<div className="flex flex-grow justify-end ">
-					<Button size={"sm"} className=" rounded-full">
-						Share
-					</Button>
+					<ShareProject />
 				</div>
 			</div>
 
 			<div className="flex flex-grow gap-6 w-full relative items-start">
 				{/* Side navigation  */}
-				<div className="bg-accent border flex flex-col gap-2 p-2 py-4 text-muted-foreground fixed top-20 left-6 rounded z-20">
+				<div className="bg-accent border flex flex-col gap-2 p-2 py-4 text-muted-foreground fixed top-20 left-6 rounded z-20 shadow-sm">
 					<Button size={"sm"} variant={"ghost"}>
 						<MousePointer2 />
 					</Button>
@@ -92,7 +100,7 @@ function Layout({ children }: { children: ReactNode }) {
 				<div className="flex-grow pt-14">{children}</div>
 
 				{/* right sidebar - inspector */}
-				<div className="flex flex-col flex-grow max-w-64 bg-accent border fixed right-6 top-20 rounded ">
+				<div className="flex flex-col flex-grow max-w-64 bg-accent border fixed right-6 top-20 rounded shadow-sm ">
 					<div className="flex gap-3 p-4 border-b">
 						<span className="text-sm">Layers</span>
 						<span className="text-sm text-muted-foreground">Artboards</span>
@@ -100,18 +108,8 @@ function Layout({ children }: { children: ReactNode }) {
 					<div className="p-3 border-b">
 						<Input placeholder="Search Layers" className="bg-background" />
 					</div>
-					<ScrollArea className="p-3 border-b h-40 text-xs">
-						<div className="py-2 flex gap-4 items-center">
-							<EyeIcon className=" text-muted-foreground" width={12} />
-							<span className="flex-grow">Project 1</span>
-							<LockIcon className=" text-muted-foreground" width={12} />
-						</div>
-						<div className="py-2 flex gap-4 items-center">
-							<EyeIcon className=" text-muted-foreground" width={12} />
-							<span className="flex-grow">Project 1</span>
-							<LockIcon className=" text-muted-foreground" width={12} />
-						</div>
-					</ScrollArea>
+
+					<BrandingNavigation posts={posts} />
 					<div className="flex-grow " />
 					<div className="p-4 py-1  flex items-center justify-between">
 						<span className="text-xs text-muted-foreground">Theme</span>
