@@ -2,6 +2,7 @@ import BrandingNavigation from "@/components/navigation/branding-navigation";
 import { ShareProject } from "@/components/projects/share-dialog";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
 import { Input } from "@/components/ui/input";
 import {
 	Menubar,
@@ -97,8 +98,9 @@ function Layout({ children }: { children: ReactNode }) {
 					</Button>
 				</div>
 				{/* main section - canvas  */}
-				<div className="flex-grow pt-14">{children}</div>
-
+				<div className="flex-grow pt-14">
+					<Container>{children}</Container>
+				</div>
 				{/* right sidebar - inspector */}
 				<div className="flex flex-col flex-grow max-w-64 bg-accent border fixed right-6 top-20 rounded shadow-sm ">
 					<div className="flex gap-3 p-4 border-b">
