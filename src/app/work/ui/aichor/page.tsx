@@ -1,5 +1,6 @@
 import Artboard from "@/components/projects/artboard";
 import Artbaord from "@/components/projects/artboard";
+import { Logo3d } from "@/components/projects/logo-3d";
 import ProjectHeader from "@/components/projects/project-header";
 import BrandingGalley from "@/components/sections/branding-callery";
 import { Container } from "@/components/ui/container";
@@ -12,6 +13,7 @@ const ImageSouurce = {
 function Page() {
 	return (
 		<>
+			<Logo3d title="aichor" color="#6cd0ff" />
 			<ProjectHeader
 				title={"Aichor-Building a next Gen AI Platform"}
 				description={

@@ -1,10 +1,12 @@
 import Artbaord from "@/components/projects/artboard";
+import { Logo3d } from "@/components/projects/logo-3d";
 import ProjectHeader from "@/components/projects/project-header";
 import BrandingGalley from "@/components/sections/branding-callery";
 
 function Page() {
 	return (
 		<>
+			<Logo3d title="lofiapp" color="#ffffff" />
 			<ProjectHeader
 				title={"Lo-fi Music"}
 				description={
@@ -28,6 +30,7 @@ function Page() {
 				<Artbaord title="Artboard 1" />
 				<Artbaord title="Artboard 1" />
 			</div>
+
 			<BrandingGalley />
 		</>
 	);
