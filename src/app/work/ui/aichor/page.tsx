@@ -48,7 +48,12 @@ function Page() {
 			</div>
 
 			<div className="grid grid-cols-2 gap-8 *:rounded-2xl *:min-h-[50vh] my-28">
-				<Artboard title="Home Page" className="col-span-2" />
+				<Artboard
+					title="Home Page"
+					className="col-span-2"
+					heading="Home Page"
+					subHeading="Home Page"
+				/>
 				<Artboard title="Home Page" className="row-span-2" />
 				<Artboard title="Home Page" className="" />
 				<Artboard title="Home Page" className="" />
