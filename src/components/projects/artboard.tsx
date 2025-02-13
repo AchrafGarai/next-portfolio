@@ -23,7 +23,7 @@ function Artbaord({
 		<>
 			<div className={`flex flex-col gap-2 items-start w-full  ${className}`}>
 				<span className=" text-xs text-muted-foreground">{title}</span>
-				<div className="flex justify-between border bg-accent w-full h-full min-h-[520px] rounded-lg hover:border-sky-500">
+				<div className="flex justify-between border bg-accent w-full h-full min-h-[520px] rounded-xl hover:border-sky-500 overflow-hidden relative">
 					<div className="p-8 text-left">
 						{heading && (
 							<h3 className="text-4xl font-tanker font-semibold">{heading}</h3>
@@ -39,7 +39,7 @@ function Artbaord({
 							width={700}
 							height={700}
 							alt=""
-							className=" shadow-2xl"
+							className="m-3 border-red-400 absolute w-full h-full object-cover"
 						/>
 					)}
 				</div>

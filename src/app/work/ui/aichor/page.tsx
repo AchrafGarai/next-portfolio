@@ -53,6 +53,7 @@ function Page() {
 					className="col-span-2"
 					heading="Home Page"
 					subHeading="Home Page"
+					href="/aichor/home.png"
 				/>
 				<Artboard title="Home Page" className="row-span-2" />
 				<Artboard title="Home Page" className="" />
