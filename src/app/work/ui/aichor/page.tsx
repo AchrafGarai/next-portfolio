@@ -22,7 +22,7 @@ function Page() {
 				imageSrc={ImageSouurce}
 			/>
 
-			<div className="min-h-screen flex items-center justify-center">
+			{/* <div className="min-h-screen flex items-center justify-center">
 				<Image
 					className="drop-shadow-[0px_0px_194px_#0ea5e9]"
 					width={128}
@@ -30,7 +30,7 @@ function Page() {
 					src={"/aichor/aichor-logo.png"}
 					alt=""
 				/>
-			</div>
+			</div> */}
 
 			<div className="text-2xl font-medium text-left my-96">
 				<div className=" pb-6 border-b flex ">
