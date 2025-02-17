@@ -24,7 +24,7 @@ function BrandingNavigation({ posts }: Props) {
 						href={`/work/branding/${post.slug}`}
 					>
 						<EyeIcon className=" text-muted-foreground" width={12} />
-						<span className="flex-grow">{post.title}</span>
+						<span className="grow">{post.title}</span>
 						<LockIcon className=" text-muted-foreground" width={12} />
 					</Link>
 				</div>

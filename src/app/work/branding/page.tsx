@@ -4,10 +4,10 @@ import BrandingGalley from "@/components/sections/branding-callery";
 function Page() {
 	return (
 		<>
-			<div className="flex flex-col flex-grow justify-center items-center py-12 ">
+			<div className="flex flex-col grow justify-center items-center py-12 ">
 				<div className="relative ">
 					<Artbaord title="Artboard 1" />
-					<div className="h-36 bg-gradient-to-t from-background w-full absolute bottom-0" />
+					<div className="h-36 bg-linear-to-t from-background w-full absolute bottom-0" />
 				</div>
 				<div className="max-w-2xl mb-9 ">
 					<div className=" flex flex-col gap-6 justify-center items-center">
@@ -19,7 +19,7 @@ function Page() {
 					</div>
 				</div>
 			</div>
-			<div className="flex flex-col flex-grow min-h-screen justify-center items-center gap-40">
+			<div className="flex flex-col grow min-h-screen justify-center items-center gap-40">
 				<Artbaord title="Artboard 1" />
 				<Artbaord title="Artboard 1" />
 			</div>

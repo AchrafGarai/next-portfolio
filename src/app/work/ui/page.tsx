@@ -1,7 +1,7 @@
 function Page() {
 	return (
 		<>
-			<div className="flex flex-grow  h-screen justify-center items-center ">
+			<div className="flex grow  h-screen justify-center items-center ">
 				<div className="max-w-2xl ">
 					<div className=" flex flex-col gap-6 justify-center items-center">
 						<p>
@@ -17,7 +17,7 @@ function Page() {
 			<div className="min-h-screen flex justify-center items-center">
 				<div className=" w-96 h-96 border" />
 			</div>
-			<div className="flex flex-grow  h-screen justify-center items-center ">
+			<div className="flex grow  h-screen justify-center items-center ">
 				<div className="max-w-2xl ">
 					<div className=" flex flex-col gap-6 justify-center items-center">
 						<p>

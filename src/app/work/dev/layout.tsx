@@ -29,7 +29,7 @@ function Layout({ children }: { children: ReactNode }) {
 	return (
 		<div className="h-screen flex flex-col ">
 			<div className="flex gap-4 bg-background px-3 py-2 border-b justify-between items-center fixed top-0 w-full z-20">
-				<div className="flex flex-grow">
+				<div className="flex grow">
 					<Image
 						src="/vs-code.svg"
 						alt=""
@@ -59,17 +59,17 @@ function Layout({ children }: { children: ReactNode }) {
 				<div className="font-medium text-sm text-muted-foreground">
 					My Web Dev Projects
 				</div>
-				<div className="flex flex-grow justify-end ">
+				<div className="flex grow justify-end ">
 					<Button size={"sm"} className=" rounded-full">
 						Share
 					</Button>
 				</div>
 			</div>
 
-			<div className="flex flex-grow w-full">
+			<div className="flex grow w-full">
 				{/* Side navigation  */}
 				<div className=" bg-background border-r flex flex-col gap-2 p-2 py-4 text-muted-foreground h-screen pt-16 sticky top-0">
-					<div className="flex-grow flex  flex-col gap-2 ">
+					<div className="grow flex  flex-col gap-2 ">
 						<Button size={"sm"} variant={"ghost"}>
 							<FileIcon />
 						</Button>
@@ -93,7 +93,7 @@ function Layout({ children }: { children: ReactNode }) {
 					</div>
 				</div>
 				{/* secondary file nav section - file tree  */}
-				<div className="flex border-r flex-col flex-grow max-w-64 gap-2 p-4 h-screen sticky top-0 pt-16">
+				<div className="flex border-r flex-col grow max-w-64 gap-2 p-4 h-screen sticky top-0 pt-16">
 					<Link
 						className="p-2 text-sm font-medium hover:text-muted-foreground "
 						href={""}
@@ -111,7 +111,7 @@ function Layout({ children }: { children: ReactNode }) {
 						</span>
 					</Link>
 					<BlogNavigation />
-					{/* 					<ul className="flex flex-col flex-grow max-w-64 gap-2">
+					{/* 					<ul className="flex flex-col grow max-w-64 gap-2">
 						{allPosts.map((post) => (
 							<Link
 								key={post._meta.path}
@@ -127,11 +127,11 @@ function Layout({ children }: { children: ReactNode }) {
 				</div>
 
 				{/* main section - canvas  */}
-				<div className="flex-grow h-full p-6 pt-16">{children}</div>
+				<div className="grow h-full p-6 pt-16">{children}</div>
 
 				{/* right sidebar - inspector */}
 				<div className="flex flex-col h-screen bg-background border-l pt-16 sticky top-0">
-					<div className="flex-grow flex  flex-col gap-2 px-2 py-2 ">
+					<div className="grow flex  flex-col gap-2 px-2 py-2 ">
 						<Button size={"sm"} variant={"ghost"}>
 							<ChatBubbleIcon />
 						</Button>

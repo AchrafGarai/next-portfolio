@@ -1,7 +1,10 @@
+import { AboutProject } from "@/components/projects/about-project";
 import Artbaord from "@/components/projects/artboard";
+import { Browser } from "@/components/projects/browser";
 import { Logo3d } from "@/components/projects/logo-3d";
 import ProjectHeader from "@/components/projects/project-header";
 import BrandingGalley from "@/components/sections/branding-callery";
+import LightboxImage from "@/components/ui/lightbox";
 
 function Page() {
 	return (
@@ -13,7 +16,22 @@ function Page() {
 					"Lorem ipsum dolor sit amet consectetur. Sodales ac tellus eu velit. At vel"
 				}
 			/>
-			<div className="flex flex-grow  h-screen justify-center items-center ">
+
+			<AboutProject title="Lofi Music App" tag="Web App" />
+
+			<div className="grid grid-cols-2 gap-24">
+				<Browser className="col-span-2 " imageSrc="/lofi-app/home.png" />
+				<Browser imageSrc="/lofi-app/home.png" />
+				<Browser />
+				<Browser />
+				<Browser />
+				<Browser />
+				<Browser />
+				<LightboxImage key="aichor1" />
+				<LightboxImage key="aichor2" />
+			</div>
+
+			<div className="flex grow  h-screen justify-center items-center ">
 				<div className="max-w-2xl ">
 					<div className=" flex flex-col gap-6 justify-center items-center">
 						<p>
@@ -26,7 +44,8 @@ function Page() {
 					</div>
 				</div>
 			</div>
-			<div className="flex flex-col flex-grow min-h-screen justify-center items-center gap-40">
+
+			<div className="flex flex-col grow min-h-screen justify-center items-center gap-40">
 				<Artbaord title="Artboard 1" />
 				<Artbaord title="Artboard 1" />
 			</div>

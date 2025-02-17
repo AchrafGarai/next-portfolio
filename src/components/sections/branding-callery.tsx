@@ -25,7 +25,7 @@ function BrandingGalley() {
 					Discover the world's largest shared adventure, crafted by everyone
 				</h3>
 			</div>
-			<div className="h-screen flex-grow w-full max-w-4xl p-6 z-10">
+			<div className="h-screen grow w-full max-w-4xl p-6 z-10">
 				{images.map((image, index) => (
 					<div
 						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>

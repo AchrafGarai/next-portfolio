@@ -17,8 +17,8 @@ export function CodeGallery() {
 			</div>
 
 			<div className="h-screen w-full absolute z-0">
-				<div className="absolute top-0 z-20 bg-gradient-to-b from-background h-36 w-full" />
-				<div className="absolute bottom-0 z-20 bg-gradient-to-t from-background h-36 w-full" />
+				<div className="absolute top-0 z-20 bg-linear-to-b from-background h-36 w-full" />
+				<div className="absolute bottom-0 z-20 bg-linear-to-t from-background h-36 w-full" />
 				<Canvas>
 					<Cylinder />
 					<ambientLight />

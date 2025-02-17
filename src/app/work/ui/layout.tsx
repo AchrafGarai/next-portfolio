@@ -32,7 +32,7 @@ function Layout({ children }: { children: ReactNode }) {
 		<>
 			<div className="min-h-screen flex relative">
 				{/* Side navigation  */}
-				<div className="sticky top-0 min-h-screen w-full flex-grow max-w-64 h-full bg-background border-r">
+				<div className="sticky top-0 min-h-screen w-full grow max-w-64 h-full bg-background border-r">
 					<div className=" p-4 pb-0 flex justify-between items-center">
 						<FigmaLogoIcon width={18} />
 						<SidebarIcon width={16} />
@@ -48,12 +48,12 @@ function Layout({ children }: { children: ReactNode }) {
 				</div>
 				{/* main section - canvas  */}
 
-				<div className="flex-grow h-sreen text-center p-4 ">
+				<div className="grow h-sreen text-center p-4 ">
 					<Container>{children}</Container>
 				</div>
 
 				{/* right sidebar - inspector */}
-				<div className="sticky top-0 min-h-screen flex-grow w-full max-w-64 h-full bg-background border-l">
+				<div className="sticky top-0 min-h-screen grow w-full max-w-64 h-full bg-background border-l">
 					<div className="p-4 flex justify-between items-center border-b">
 						<div className="flex gap-1 items-center">
 							<Avatar className="w-8 h-8">

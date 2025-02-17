@@ -17,7 +17,7 @@ function Page() {
 				}
 				imageSrc={ImageSouurce}
 			/>
-			<div className="flex flex-col flex-grow min-h-screen justify-center items-center gap-40">
+			<div className="flex flex-col grow min-h-screen justify-center items-center gap-40">
 				<Artbaord title="Artboard 1" />
 				<Artbaord title="Artboard 1" />
 			</div>

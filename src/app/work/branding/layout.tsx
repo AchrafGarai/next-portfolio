@@ -38,9 +38,9 @@ const posts = [
 
 function Layout({ children }: { children: ReactNode }) {
 	return (
-		<div className="h-screen flex flex-col flex-grow relative">
+		<div className="h-screen flex flex-col grow relative">
 			<div className="flex gap-4 bg-accent px-3 py-2 border-b justify-between items-center fixed min-h-14 w-full top-0 z-20">
-				<div className="flex flex-grow">
+				<div className="flex grow">
 					<Image
 						src="/adobe-illustrator.svg"
 						alt=""
@@ -70,14 +70,14 @@ function Layout({ children }: { children: ReactNode }) {
 				<div className="font-medium text-sm text-muted-foreground">
 					My Branding Projects.ai
 				</div>
-				<div className="flex flex-grow justify-end ">
+				<div className="flex grow justify-end ">
 					<ShareProject />
 				</div>
 			</div>
 
-			<div className="flex flex-grow gap-6 w-full relative items-start">
+			<div className="flex grow gap-6 w-full relative items-start">
 				{/* Side navigation  */}
-				<div className="bg-accent border flex flex-col gap-2 p-2 py-4 text-muted-foreground fixed top-20 left-6 rounded z-20 shadow-sm">
+				<div className="bg-accent border flex flex-col gap-2 p-2 py-4 text-muted-foreground fixed top-20 left-6 rounded z-20 shadow-xs">
 					<Button size={"sm"} variant={"ghost"}>
 						<MousePointer2 />
 					</Button>
@@ -98,11 +98,11 @@ function Layout({ children }: { children: ReactNode }) {
 					</Button>
 				</div>
 				{/* main section - canvas  */}
-				<div className="flex-grow pt-14">
+				<div className="grow pt-14">
 					<Container>{children}</Container>
 				</div>
 				{/* right sidebar - inspector */}
-				<div className="flex flex-col flex-grow max-w-64 bg-accent border fixed right-6 top-20 rounded shadow-sm ">
+				<div className="flex flex-col grow max-w-64 bg-accent border fixed right-6 top-20 rounded shadow-xs ">
 					<div className="flex gap-3 p-4 border-b">
 						<span className="text-sm">Layers</span>
 						<span className="text-sm text-muted-foreground">Artboards</span>
@@ -112,7 +112,7 @@ function Layout({ children }: { children: ReactNode }) {
 					</div>
 
 					<BrandingNavigation posts={posts} />
-					<div className="flex-grow " />
+					<div className="grow " />
 					<div className="p-4 py-1  flex items-center justify-between">
 						<span className="text-xs text-muted-foreground">Theme</span>
 						<ThemeToggle />
