@@ -1,3 +1,4 @@
+import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
 import BrandingGalley from "@/components/sections/branding-callery";
 import { CodeGallery } from "@/components/sections/code-gallery";
 import Footer from "@/components/sections/footer";
@@ -19,6 +20,13 @@ export default function Home() {
 				<ProjectGallery />
 				<CodeGallery />
 				<BrandingGalley />
+				<div className="relative flex w-full flex-col items-center justify-center overflow-hidden uppercase min-h-screen">
+					<VelocityScroll defaultVelocity={1}>
+						From Vision to Interaction * Seamlessly Engineered
+					</VelocityScroll>
+					<div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background " />
+					<div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
+				</div>
 				<SkillTags />
 				<Footer />
 			</section>

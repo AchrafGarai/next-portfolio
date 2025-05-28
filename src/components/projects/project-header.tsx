@@ -3,6 +3,7 @@ import Artbaord from "@/components/projects/artboard";
 import Image from "next/image";
 import ThemedImage from "./themed-image";
 import { TextReveal } from "@/components/magicui/text-reveal";
+import { Container } from "../ui/container";
 
 function ProjectHeader({
 	title,
@@ -14,26 +15,24 @@ function ProjectHeader({
 	imageSrc?: { lightSrc: string; darkSrc: string };
 }) {
 	return (
-		<div className="flex flex-col grow justify-center items-center py-12 min-h-screen ">
-			<div className="relative mb-12">
-				{/* <Artbaord title="Artboard 1" /> */}
-				{/* <div className="h-96 bg-linear-to-t from-background via-50% w-full absolute bottom-0" /> */}
+		<>
+			{/* <div className="flex flex-col grow justify-center items-center py-12 min-h-screen ">
+			
 
-				{imageSrc && (
-					<div className="p-2 bg-linear-to-b from-accent  rounded-3xl backdrop-blur-sm border absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[960px] z-0 opacity-30 ">
-						<ThemedImage
-							srcLight={imageSrc.lightSrc}
-							srcDark={imageSrc.darkSrc}
-							alt={title}
-							width={960}
-							height={540}
-							className="border-4 rounded-2xl shadow-2xl "
-						/>
-					</div>
-				)}
-			</div>
+			{imageSrc && (
+				<>
+					<Image
+						src={"/aichor/aichor-hero.png"}
+						alt={title}
+						width={1920}
+						height={1080}
+						className="mb-8 shadow-3xl"
+					/>
+					<div className=" bg-zinc-800  h-36  " />
+				</>
+			)}
 
-			<div className="max-w-3xl mb-9 absolute z-30 ">
+			<div className="max-w-3xl mb-9 ">
 				<div className=" flex flex-col gap-6 justify-center items-center">
 					<p className="text-muted-foreground">Case Study</p>
 					<h3 className="text-8xl font-tanker text-center">
@@ -44,7 +43,32 @@ function ProjectHeader({
 					</h3>
 				</div>
 			</div>
-		</div>
+		</div> */}
+			<Container>
+				<div className="flex flex-col grow py-12 min-h-screen ">
+					<div className="mb-9 text-left max-w-3xl pl-10  ">
+						<div className=" flex flex-col gap-6">
+							<p className="text-muted-foreground">Case Study</p>
+							<h3 className="text-9xl font-tanker md:leading-[7rem]">
+								Aichor -{" "}
+								<span className=" text-muted-foreground">
+									Building a next Gen AI Platform
+								</span>
+							</h3>
+						</div>
+					</div>
+					{imageSrc && (
+						<Image
+							src={"/aichor/aichor-hero.png"}
+							alt={title}
+							width={1280}
+							height={720}
+							className="mb-8 drop-shadow-3xl mt-[-8rem]"
+						/>
+					)}
+				</div>
+			</Container>
+		</>
 	);
 }
 

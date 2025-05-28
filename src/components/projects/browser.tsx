@@ -10,7 +10,7 @@ export const Browser = ({
 			<span className=" text-xs text-muted-foreground">Aichor</span>
 			<div
 				className={
-					" dark bg-zinc-900 shadow-2xl relative hover:shadow-lg transition-all border p-1 rounded-xl "
+					" dark bg-zinc-900 shadow-2xl relative hover:shadow-lg transition-all border p-0.5 rounded-lg "
 				}
 			>
 				<Safari

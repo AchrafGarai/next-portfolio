@@ -7,19 +7,23 @@ import { MeshTransmissionMaterial, useGLTF, Text } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { useControls } from "leva";
-import { color } from "motion/react";
+import { useTheme } from "next-themes";
 
 export function Logo3d({ title, color }: { title: string; color: string }) {
+	const { theme } = useTheme();
+	const bg = theme === "light" ? "hsl(0,0%, 97%)" : "hsl(0 ,0%, 3.9%)";
 	return (
-		<Canvas style={{ height: "75vh" }}>
+		<Canvas style={{ height: "85vh" }}>
 			<Model title={title} matColor={color} />
 			<directionalLight intensity={2} position={[0, 2, 3]} />
 			<Environment preset="city" />
+			<color attach="background" args={[bg]} />
 		</Canvas>
 	);
 }
 
 function Model({ title, matColor }: { title: string; matColor: string }) {
+	const { theme } = useTheme();
 	const { nodes } = useGLTF(`/medias/${title}.glb`);
 	const { viewport } = useThree();
 	const object = useRef<THREE.Mesh>(null);
@@ -56,7 +60,7 @@ function Model({ title, matColor }: { title: string; matColor: string }) {
 				font={"/fonts/Tanker-Regular.ttf"}
 				position={[0, 0, -1]}
 				fontSize={1}
-				color="white"
+				color={theme === "light" ? "black" : "white"}
 				anchorX="center"
 				anchorY="middle"
 			>

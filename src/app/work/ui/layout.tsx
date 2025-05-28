@@ -1,9 +1,9 @@
+import { Pointer } from "@/components/magicui/pointer";
 import UiNavigation from "@/components/navigation/ui-navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import {
 	Select,
 	SelectContent,
@@ -32,7 +32,7 @@ function Layout({ children }: { children: ReactNode }) {
 		<>
 			<div className="min-h-screen flex relative">
 				{/* Side navigation  */}
-				<div className="sticky top-0 min-h-screen w-full grow max-w-64 h-full bg-background border-r">
+				<div className="sticky top-0 min-h-screen w-full grow max-w-64 h-full bg-background border-r z-50">
 					<div className=" p-4 pb-0 flex justify-between items-center">
 						<FigmaLogoIcon width={18} />
 						<SidebarIcon width={16} />
@@ -49,11 +49,12 @@ function Layout({ children }: { children: ReactNode }) {
 				{/* main section - canvas  */}
 
 				<div className="grow h-sreen text-center p-4 ">
+					<Pointer className="fill-blue-500" />
 					<Container>{children}</Container>
 				</div>
 
 				{/* right sidebar - inspector */}
-				<div className="sticky top-0 min-h-screen grow w-full max-w-64 h-full bg-background border-l">
+				<div className="sticky top-0 min-h-screen grow w-full max-w-64 h-full bg-background border-l z-50">
 					<div className="p-4 flex justify-between items-center border-b">
 						<div className="flex gap-1 items-center">
 							<Avatar className="w-8 h-8">
