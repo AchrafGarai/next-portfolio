@@ -5,6 +5,7 @@ import { ReactLenis } from "@/components/smooth-scroll";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navigation/navbar";
 
+
 const satoshi = localFont({
 	src: "./fonts/Satoshi-Variable.woff2",
 	variable: "--font-satoshi",
@@ -26,18 +27,20 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body className={`${satoshi.variable} ${tanker.variable} antialiased`}>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
-				>
-					<ReactLenis root>{children}</ReactLenis>
-				</ThemeProvider>
-				<Navbar />
-			</body>
-		</html>
+
+			<html lang="en">
+				<body className={`${satoshi.variable} ${tanker.variable} antialiased`}>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="system"
+						enableSystem
+						disableTransitionOnChange
+					>
+						<ReactLenis root>{children}</ReactLenis>
+					</ThemeProvider>
+					<Navbar />
+				</body>
+			</html>
+	
 	);
 }
