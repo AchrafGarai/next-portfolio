@@ -9,6 +9,7 @@ import AnimatedImageList from "@/components/test/animated-list";
 import Link from "next/link";
 import { unstable_ViewTransition as ViewTransition } from "react";
 import Image from "next/image";
+import ScrollImage from "@/components/projects/scroll-image";
 
 const ImageSouurce = {
 	lightSrc: "/aichor/aichor-experiments.png",
@@ -73,6 +74,8 @@ function Page() {
 					className="mb-8 shadow-3xl rounded-4xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
 				/>
 			</div>
+
+			<ScrollImage />
 
 			<div className="min-h-screen flex flex-col gap-6 items-center justify-center text-2xl font-medium text-left *:w-full">
 				<div className="max-w-2xl">

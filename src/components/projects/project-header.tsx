@@ -50,10 +50,7 @@ function ProjectHeader({
 						<div className=" flex flex-col gap-6">
 							<p className="text-muted-foreground">Case Study</p>
 							<h3 className="text-9xl font-tanker md:leading-[7rem]">
-								Aichor -{" "}
-								<span className=" text-muted-foreground">
-									Building a next Gen AI Platform
-								</span>
+								Aichor - Building a next Gen AI Platform
 							</h3>
 						</div>
 					</div>

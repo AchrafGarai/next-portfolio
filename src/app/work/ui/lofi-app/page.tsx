@@ -4,9 +4,6 @@ import { Browser } from "@/components/projects/browser";
 import { Logo3d } from "@/components/projects/logo-3d";
 import ProjectHeader from "@/components/projects/project-header";
 import BrandingGalley from "@/components/sections/branding-callery";
-import ExpandableCard from "@/components/ui/lightbox";
-import LightboxImage from "@/components/ui/lightbox";
-import ExpandableGrid from "@/components/ui/lightbox2";
 
 function Page() {
 	return (
@@ -29,13 +26,7 @@ function Page() {
 				<Browser />
 				<Browser />
 				<Browser />
-				<ExpandableCard layoutId="expandable-card" />
-				<ExpandableCard layoutId="expandable-card 2" />
-				<ExpandableCard layoutId="expandable-card3" />
-				<ExpandableCard layoutId="expandable-card 4" />
 			</div>
-
-			<ExpandableGrid />
 
 			<div className="flex grow  h-screen justify-center items-center ">
 				<div className="max-w-2xl ">
