@@ -1,4 +1,4 @@
-import { AboutProject } from "@/components/projects/about-project";
+import { AboutProject } from "@/components/projects/section-title";
 import Artbaord from "@/components/projects/artboard";
 import { Browser } from "@/components/projects/browser";
 import { Logo3d } from "@/components/projects/logo-3d";

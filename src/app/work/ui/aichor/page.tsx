@@ -1,11 +1,8 @@
-import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
-import { AboutProject } from "@/components/projects/about-project";
-import Artboard from "@/components/projects/artboard";
+import { SectionTitle } from "@/components/projects/section-title";
 import { Browser } from "@/components/projects/browser";
 import { Logo3d } from "@/components/projects/logo-3d";
 import ProjectHeader from "@/components/projects/project-header";
 import BrandingGalley from "@/components/sections/branding-callery";
-import AnimatedImageList from "@/components/test/animated-list";
 import Link from "next/link";
 import { unstable_ViewTransition as ViewTransition } from "react";
 import Image from "next/image";
@@ -21,7 +18,17 @@ function Page() {
 	return (
 		<>
 			<Logo3d title="aichor" color="#6cd0ff" />
-			<AboutProject title="Aichor" tag="Saas" />
+			<SectionTitle
+				title="Aichor"
+				subtitle="About"
+				tag="SaaS"
+				className="my-64"
+			>
+				<p className="mt-6 text-2xl">
+					Designing a forward-looking, branded UI system to support AIchor’s
+					intelligent interface for technical researchers and developers.
+				</p>
+			</SectionTitle>
 			<ProjectHeader
 				title={"Aichor-Building a next Gen AI Platform"}
 				description={
@@ -101,13 +108,11 @@ function Page() {
 				</div>
 			</StudyStep>
 
-			<div className=" pb-6 border-b flex text-xl mb-12 ">
-				<div className="grow flex  items-start gap-4">
-					<span className=" text-muted-foreground">UI Showcase</span>
-					<span className=" text-muted-foreground"> / </span>
-					<span>An everr evolving UI</span>
-				</div>
-			</div>
+			<SectionTitle
+				title={"An ever evolving UI"}
+				tag={""}
+				subtitle={"UI Showcase"}
+			/>
 
 			<div className="grid grid-cols-2 gap-24">
 				<ViewTransition name="experimental-label">
@@ -123,6 +128,18 @@ function Page() {
 				<Browser />
 				<Browser />
 			</div>
+
+			<section className=" my-48">
+				<SectionTitle
+					subtitle={"Design System"}
+					title={"A Flexible System For The Web"}
+					tag={""}
+				/>
+				<div className="grid grid-cols-2 gap-24">
+					<Browser imageSrc="/aichor/home.png" />
+					<Browser />
+				</div>
+			</section>
 
 			<BrandingGalley />
 			{/* <AnimatedImageList /> */}
