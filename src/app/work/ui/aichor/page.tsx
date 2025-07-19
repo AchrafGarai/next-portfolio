@@ -8,6 +8,11 @@ import { unstable_ViewTransition as ViewTransition } from "react";
 import Image from "next/image";
 import ScrollImage from "@/components/projects/scroll-image";
 import StudyStep from "@/components/projects/study-step";
+import ListSection from "@/components/sections/list-section";
+import Testimonial from "@/components/projects/testimonial";
+import ThemedImage from "@/components/projects/themed-image";
+import TransitionCard from "@/components/projects/transition-card";
+import { cards } from "./data";
 
 const ImageSouurce = {
 	lightSrc: "/aichor/aichor-experiments.png",
@@ -17,7 +22,7 @@ const ImageSouurce = {
 function Page() {
 	return (
 		<>
-			<Logo3d title="aichor" color="#6cd0ff" />
+			<Logo3d title="aichor" color="#6cd0ff" content="AIchor" />
 			<SectionTitle
 				title="Aichor"
 				subtitle="About"
@@ -29,13 +34,28 @@ function Page() {
 					intelligent interface for technical researchers and developers.
 				</p>
 			</SectionTitle>
+
 			<ProjectHeader
-				title={"Aichor-Building a next Gen AI Platform"}
-				description={
-					"Designing a forward-looking, branded UI system to support AIchor’s intelligent interface for technical researchers and developers."
-				}
-				imageSrc={ImageSouurce}
+				title={"Aichor - Building a next Gen AI Platform"}
+				imageSrc={"/aichor/aichor-hero.png"}
 			/>
+
+			<div className="flex gap-6 justify-center text-xl font-medium text-left *:w-full mx-8 mb-32  border-t pt-6  ">
+				<div className="flex flex-col gap-2">
+					<span className="text-muted-foreground">My Role</span>
+					<p>Design Engineering </p>
+					<p>Brand Identity Design</p>
+				</div>
+				<div className="flex flex-col gap-2">
+					<span className="text-muted-foreground">Team Size</span>
+					<p>60</p>
+				</div>
+				<div className="flex flex-col gap-2">
+					<span className="text-muted-foreground">Timeline</span>
+					<p>2022 - Present</p>
+				</div>
+			</div>
+
 			<div className="min-h-screen flex flex-col gap-6 items-center justify-center text-2xl font-medium text-left *:w-full">
 				<div className="max-w-2xl">
 					<span className=" text-muted-foreground">Challenge</span>
@@ -48,17 +68,17 @@ function Page() {
 				</div>
 			</div>
 
-			<div className="relative h-[480px] ">
-				<Image
-					src={"/aichor/aichor-mockup.jpg"}
-					fill
-					alt="Aichor "
-					className=" rounded-4xl object-cover"
-				/>
-			</div>
+			<Image
+				src={"/aichor/aichor-mockup-3.jpg"}
+				width={1280}
+				height={720}
+				quality={100}
+				alt="Aichor "
+				className=" rounded-4xl object-cover"
+			/>
 
 			<StudyStep title="Process">
-				<p className=" text-muted-foreground">
+				<p className=" text-muted-foreground text-2xl">
 					The process began with exploring visual themes and layout systems that
 					aligned with the brand’s AI focus. I collaborated closely with
 					designers and developers to translate these ideas into reusable
@@ -115,18 +135,15 @@ function Page() {
 			/>
 
 			<div className="grid grid-cols-2 gap-24">
-				<ViewTransition name="experimental-label">
-					<Link href={"/work/ui/aichor/experimental-label"}>
-						<Browser className="col-span-2" imageSrc="/aichor/home.png" />
-					</Link>
-				</ViewTransition>
-
-				<Browser imageSrc="/aichor/home.png" />
-				<Browser />
-				<Browser />
-				<Browser />
-				<Browser />
-				<Browser />
+				{cards.map(({ key, title }) => (
+					<TransitionCard
+						key={key}
+						href={`/work/ui/aichor/${key}`}
+						transitionName={key}
+					>
+						<Browser imageSrc={`/aichor/screens/${key}.png`} title={title} />
+					</TransitionCard>
+				))}
 			</div>
 
 			<section className=" my-48">
@@ -135,16 +152,51 @@ function Page() {
 					title={"A Flexible System For The Web"}
 					tag={""}
 				/>
-				<div className="grid grid-cols-2 gap-24">
-					<Browser imageSrc="/aichor/home.png" />
-					<Browser />
-				</div>
+				<p className="text-2xl mb-12 text-left ">
+					To build the design system for AIchor
+					<span className=" text-muted-foreground">
+						, I started by identifying common UI patterns and aligning them with
+						the brand’s tone intelligent, minimal, and responsive. I focused on
+						creating scalable components with a consistent layout grid, clear
+						spacing rules, and accessible color and typography choices.
+					</span>
+				</p>
+				<ThemedImage
+					lightSrc={"/aichor/design-system-light.png"}
+					darkSrc={"/aichor/design-system.png"}
+					width={1280}
+					height={720}
+					alt="Aichor "
+					className=" rounded-2xl object-cover border"
+				/>
 			</section>
 
-			<BrandingGalley />
-			{/* <AnimatedImageList /> */}
+			<ListSection
+				title="Every pixel is built with user’s feedback in mind"
+				subtitle="Every feature in AIchor is shaped by real feedback, helping us build a tool people actually enjoy using every day."
+				components={[
+					<Testimonial
+						text="Saved me hours reading dense papers."
+						imgSrc="/aichor/avatar.png"
+						key="testimonial-1"
+					/>,
+					<Testimonial
+						text="I love using this platform!"
+						imgSrc="/aichor/avatar.png"
+						key="testimonial-2"
+					/>,
+					<Testimonial
+						text="I love using this platform!"
+						imgSrc="/aichor/avatar.png"
+						key="testimonial-3"
+					/>,
+				]}
+			/>
 
-			<ScrollImage />
+			<ScrollImage
+				text="Aichor - The AI platform"
+				src={"/aichor/aichor-mockup.jpg"}
+			/>
 
 			<div className="min-h-screen flex flex-col gap-6 items-center justify-center text-2xl font-medium text-left *:w-full">
 				<div className="max-w-2xl">

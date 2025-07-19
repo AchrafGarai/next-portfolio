@@ -9,12 +9,36 @@ import * as THREE from "three";
 import { useControls } from "leva";
 import { useTheme } from "next-themes";
 
-export function Logo3d({ title, color }: { title: string; color: string }) {
+type MaterialProps = {
+	thickness: number;
+	roughness: number;
+	transmission: number;
+	ior: number;
+	chromaticAberration: number;
+	backside: boolean;
+};
+
+export function Logo3d({
+	title,
+	content,
+	color,
+	material,
+}: {
+	content: string;
+	title: string;
+	color: string;
+	material?: MaterialProps;
+}) {
 	const { theme } = useTheme();
 	const bg = theme === "light" ? "hsl(0,0%, 97%)" : "hsl(0 ,0%, 3.9%)";
 	return (
 		<Canvas style={{ height: "85vh" }}>
-			<Model title={title} matColor={color} />
+			<Model
+				title={title}
+				matColor={color}
+				text={content}
+				material={material}
+			/>
 			<directionalLight intensity={2} position={[0, 2, 3]} />
 			<Environment preset="city" />
 			<color attach="background" args={[bg]} />
@@ -22,7 +46,17 @@ export function Logo3d({ title, color }: { title: string; color: string }) {
 	);
 }
 
-function Model({ title, matColor }: { title: string; matColor: string }) {
+function Model({
+	title,
+	matColor,
+	text,
+	material,
+}: {
+	text: string;
+	title: string;
+	matColor: string;
+	material?: MaterialProps;
+}) {
 	const { theme } = useTheme();
 	const { nodes } = useGLTF(`/medias/${title}.glb`);
 	const { viewport } = useThree();
@@ -44,15 +78,17 @@ function Model({ title, matColor }: { title: string; matColor: string }) {
 		color: { value: matColor },
 	});
 
-	const material = {
-		thickness: 0.6,
-		roughness: 0.1,
-		transmission: 1,
-		ior: 0.9,
-		chromaticAberration: 0.08,
-		backside: false,
-		color: new THREE.Color(matColor),
-	};
+	const overrideMaterial = material
+		? { ...material, color: new THREE.Color(matColor) }
+		: {
+				thickness: 0.6,
+				roughness: 0.1,
+				transmission: 1,
+				ior: 0.9,
+				chromaticAberration: 0.08,
+				backside: false,
+				color: new THREE.Color(matColor),
+			};
 
 	return (
 		<group scale={viewport.width / 3.75}>
@@ -64,10 +100,10 @@ function Model({ title, matColor }: { title: string; matColor: string }) {
 				anchorX="center"
 				anchorY="middle"
 			>
-				{title}
+				{text}
 			</Text>
 			<mesh ref={object} {...nodes[title]}>
-				<MeshTransmissionMaterial {...material} />
+				<MeshTransmissionMaterial {...overrideMaterial} />
 			</mesh>
 		</group>
 	);

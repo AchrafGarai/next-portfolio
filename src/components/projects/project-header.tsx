@@ -7,12 +7,11 @@ import { Container } from "../ui/container";
 
 function ProjectHeader({
 	title,
-	description,
+
 	imageSrc,
 }: {
 	title: string;
-	description: string;
-	imageSrc?: { lightSrc: string; darkSrc: string };
+	imageSrc?: string;
 }) {
 	return (
 		<>
@@ -22,13 +21,13 @@ function ProjectHeader({
 						<div className=" flex flex-col gap-6">
 							<p className="text-muted-foreground">Case Study</p>
 							<h3 className="text-9xl font-tanker md:leading-[7rem]">
-								Aichor - Building a next Gen AI Platform
+								{title}
 							</h3>
 						</div>
 					</div>
 					{imageSrc && (
 						<Image
-							src={"/aichor/aichor-hero.png"}
+							src={imageSrc}
 							alt={title}
 							width={1280}
 							height={720}

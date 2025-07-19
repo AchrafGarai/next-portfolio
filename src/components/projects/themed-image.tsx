@@ -1,37 +1,30 @@
 "use client";
-import { useTheme } from "next-themes";
-import Image from "next/image";
 
-interface ThemedImageProps {
-	srcLight: string;
-	srcDark: string;
-	alt: string;
-	width: number;
-	height: number;
-	className?: string;
+import Image, { type ImageProps } from "next/image";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+
+interface ThemedImageProps extends Omit<ImageProps, "src"> {
+	lightSrc: string;
+	darkSrc?: string;
 }
 
-const ThemedImage = ({
-	srcLight,
-	srcDark,
+export default function ThemedImage({
+	lightSrc,
+	darkSrc,
 	alt,
-	width,
-	height,
-	className,
-}: ThemedImageProps) => {
-	const { theme } = useTheme();
+	...rest
+}: ThemedImageProps) {
+	const { theme, systemTheme } = useTheme();
+	const [mounted, setMounted] = useState(false);
 
-	const imageSrc = theme === "light" ? srcLight : srcDark;
+	// Avoid hydration mismatch
+	useEffect(() => setMounted(true), []);
 
-	return (
-		<Image
-			src={imageSrc}
-			alt={alt}
-			width={width}
-			height={height}
-			className={className}
-		/>
-	);
-};
+	if (!mounted) return null;
 
-export default ThemedImage;
+	const currentTheme = theme === "system" ? systemTheme : theme;
+	const selectedSrc = currentTheme === "dark" && darkSrc ? darkSrc : lightSrc;
+
+	return <Image src={selectedSrc} alt={alt} {...rest} />;
+}
