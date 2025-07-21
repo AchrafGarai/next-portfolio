@@ -22,7 +22,7 @@ const posts = [
 		title: "AIchor",
 	},
 	{
-		slug: "lofi-app",
+		slug: "lofiapp",
 		title: "Lofi App",
 	},
 ];

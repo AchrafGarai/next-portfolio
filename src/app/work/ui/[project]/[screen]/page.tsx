@@ -7,16 +7,15 @@ import { unstable_ViewTransition as ViewTransition } from "react";
 export default async function BlogPostPage({
 	params,
 }: {
-	params: Promise<{ src: string }>;
+	params: Promise<{ screen: string; project: string }>;
 }) {
-	const { src } = await params;
+	const { screen, project } = await params;
 
-	const imageSrc = `/aichor/screens/${src}.png`;
-	const linkHref = `/work/ui/aichor/${src}`;
+	const imageSrc = `/${project}/screens/${screen}.png`;
 	return (
 		<>
 			<BackButton />
-			<ViewTransition name={src}>
+			<ViewTransition name={screen}>
 				<Browser className="col-span-2" imageSrc={imageSrc} />
 			</ViewTransition>
 		</>

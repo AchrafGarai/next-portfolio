@@ -1,63 +1,61 @@
-import { Logo3d } from "@/components/projects/logo-3d";
-import ProjectHeader from "@/components/projects/project-header";
+import type { ProjectMetadata } from "..";
 import { SectionTitle } from "@/components/projects/section-title";
+import { Browser } from "@/components/projects/browser";
+import Image from "next/image";
+import ScrollImage from "@/components/projects/scroll-image";
 import StudyStep from "@/components/projects/study-step";
 import TransitionCard from "@/components/projects/transition-card";
+import ProjectInfo from "@/components/projects/project-info";
+import ProjectHighlight from "@/components/projects/project-highlight";
+import React from "react";
 
-import Image from "next/image";
-import { cards } from "./data";
-import { Browser } from "@/components/projects/browser";
-import ScrollImage from "@/components/projects/scroll-image";
+export const metaData: ProjectMetadata = {
+	slug: "hackages",
+	title: "Hackages",
+	slogan: "A Content-Driven Web Strategy",
+	color: "#3ef2da",
+	tag: "Website",
+	description:
+		"Designing a forward-looking, branded UI system to support AIchor's intelligent interface for technical researchers and developers.",
+	coverImage: "/lofi-app/hero.png",
+	intro: "Biometric login redesign using WebAuthn.",
+	screens: [
+		{ key: "home-lime", title: "Home" },
+		{
+			key: "home-sky",
+			title: "Home theme blue",
+		},
+	],
+};
 
-function Page() {
+export function Content() {
 	return (
 		<>
-			<Logo3d title="lofiapp" color="#ffffff" content="Lo-Fi App" />
-
-			<SectionTitle
-				title="Lofi Music"
-				subtitle="About"
-				tag="SaaS"
-				className="my-64"
-			>
-				<p className="mt-6 text-2xl">
-					Designing a forward-looking, branded UI system to support AIchor’s
-					intelligent interface for technical researchers and developers.
-				</p>
-			</SectionTitle>
-
-			<ProjectHeader
-				title={"A Relaxing Music Experience"}
-				imageSrc="/lofi-app/hero.png"
+			<ProjectInfo
+				items={[
+					{
+						label: "My Role",
+						values: ["Design Engineering", "Brand Identity Design"],
+					},
+					{
+						label: "Team Size",
+						values: ["08"],
+					},
+					{
+						label: "Timeline",
+						values: ["2022"],
+					},
+				]}
 			/>
 
-			<div className="flex gap-6 justify-center text-xl font-medium text-left *:w-full mx-8 mb-32  border-t pt-6  ">
-				<div className="flex flex-col gap-2">
-					<span className="text-muted-foreground">My Role</span>
-					<p>Design Engineering </p>
-					<p>Brand Identity Design</p>
-				</div>
-				<div className="flex flex-col gap-2">
-					<span className="text-muted-foreground">Team Size</span>
-					<p>8</p>
-				</div>
-				<div className="flex flex-col gap-2">
-					<span className="text-muted-foreground">Timeline</span>
-					<p>2023</p>
-				</div>
-			</div>
-
-			<div className="min-h-screen flex flex-col gap-6 items-center justify-center text-2xl font-medium text-left *:w-full">
-				<div className="max-w-2xl">
-					<span className=" text-muted-foreground">Challenge</span>
-					<p className="mt-6 font mb-10">
-						The aim was to create a unique visual identity that reflects
-						intelligence and reliability, while building a scalable,
-						developer-friendly UI system. We also focused on consistent motion,
-						accessibility, and responsive performance across devices.
-					</p>
-				</div>
-			</div>
+			<ProjectHighlight title="Challenge">
+				<p>
+					The aim was to create a unique visual identity that reflects
+					intelligence and reliability, while building a scalable,
+					developer-friendly UI system. We also focused on consistent motion,
+					accessibility, and responsive performance across devices.
+				</p>
+			</ProjectHighlight>
 
 			<Image
 				src={"/lofi-app/mockup-1.jpg"}
@@ -126,7 +124,7 @@ function Page() {
 			/>
 
 			<div className="grid grid-cols-2 gap-24">
-				{cards.map(({ key, title }) => (
+				{metaData.screens.map(({ key, title }) => (
 					<TransitionCard
 						key={key}
 						href={`/work/ui/lofi-app/${key}`}
@@ -141,18 +139,13 @@ function Page() {
 				text="A Relaxing Music Experience"
 				src={"/lofi-app/mockup-3.jpg"}
 			/>
-			<div className="min-h-screen flex flex-col gap-6 items-center justify-center text-2xl font-medium text-left *:w-full">
-				<div className="max-w-2xl">
-					<span className=" text-muted-foreground">Result</span>
-					<p className="mt-6 font">
-						Lorem ipsum dolor sit amet consectetur. Maecenas ac turpis semper
-						cras velit vulputate congue viverra. Maecenas nulla odio fringilla
-						mi arcu faucibus ultrices cras. Tempus phasellus urna.
-					</p>
-				</div>
-			</div>
+			<ProjectHighlight title="Result">
+				<p>
+					Lorem ipsum dolor sit amet consectetur. Maecenas ac turpis semper cras
+					velit vulputate congue viverra. Maecenas nulla odio fringilla mi arcu
+					faucibus ultrices cras. Tempus phasellus urna.222
+				</p>
+			</ProjectHighlight>
 		</>
 	);
 }
-
-export default Page;

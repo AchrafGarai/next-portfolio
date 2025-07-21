@@ -1,10 +1,6 @@
+import type { ProjectMetadata } from "..";
 import { SectionTitle } from "@/components/projects/section-title";
 import { Browser } from "@/components/projects/browser";
-import { Logo3d } from "@/components/projects/logo-3d";
-import ProjectHeader from "@/components/projects/project-header";
-import BrandingGalley from "@/components/sections/branding-callery";
-import Link from "next/link";
-import { unstable_ViewTransition as ViewTransition } from "react";
 import Image from "next/image";
 import ScrollImage from "@/components/projects/scroll-image";
 import StudyStep from "@/components/projects/study-step";
@@ -12,61 +8,63 @@ import ListSection from "@/components/sections/list-section";
 import Testimonial from "@/components/projects/testimonial";
 import ThemedImage from "@/components/projects/themed-image";
 import TransitionCard from "@/components/projects/transition-card";
-import { cards } from "./data";
+import ProjectInfo from "@/components/projects/project-info";
+import ProjectHighlight from "@/components/projects/project-highlight";
+import React from "react";
 
-const ImageSouurce = {
-	lightSrc: "/aichor/aichor-experiments.png",
-	darkSrc: "/aichor/aichor-experiments-dark.png",
+export const metaData: ProjectMetadata = {
+	slug: "aichor",
+	title: "AIchor",
+	slogan: "Aichor - Building a next Gen AI Platform",
+	color: "#6cd0ff",
+	tag: "Saas",
+	description:
+		"Designing a forward-looking, branded UI system to support AIchor's intelligent interface for technical researchers and developers.",
+	coverImage: "/aichor/aichor-hero.png",
+	intro: "Biometric login redesign using WebAuthn.",
+	screens: [
+		{ key: "login", title: "Login" },
+		{ key: "project", title: "Project" },
+		{ key: "project-list", title: "Projects" },
+		{ key: "vcs", title: "VCS" },
+		{ key: "logs", title: "Logs" },
+		{ key: "experiment-list", title: "Experiments" },
+		{ key: "admins", title: "Admins" },
+		{ key: "back-end-management", title: "Back-End Management" },
+		{ key: "finops", title: "FinOps" },
+		{ key: "resources", title: "Resources" },
+		{ key: "storage", title: "Storage" },
+		{ key: "users", title: "Users" },
+	],
 };
 
-function Page() {
+export function Content() {
 	return (
 		<>
-			<Logo3d title="aichor" color="#6cd0ff" content="AIchor" />
-			<SectionTitle
-				title="Aichor"
-				subtitle="About"
-				tag="SaaS"
-				className="my-64"
-			>
-				<p className="mt-6 text-2xl">
-					Designing a forward-looking, branded UI system to support AIchor’s
-					intelligent interface for technical researchers and developers.
-				</p>
-			</SectionTitle>
-
-			<ProjectHeader
-				title={"Aichor - Building a next Gen AI Platform"}
-				imageSrc={"/aichor/aichor-hero.png"}
+			<ProjectInfo
+				items={[
+					{
+						label: "My Role",
+						values: ["Design Engineering", "Brand Identity Design"],
+					},
+					{
+						label: "Team Size",
+						values: ["60"],
+					},
+					{
+						label: "Timeline",
+						values: ["2022 - Present"],
+					},
+				]}
 			/>
-
-			<div className="flex gap-6 justify-center text-xl font-medium text-left *:w-full mx-8 mb-32  border-t pt-6  ">
-				<div className="flex flex-col gap-2">
-					<span className="text-muted-foreground">My Role</span>
-					<p>Design Engineering </p>
-					<p>Brand Identity Design</p>
-				</div>
-				<div className="flex flex-col gap-2">
-					<span className="text-muted-foreground">Team Size</span>
-					<p>60</p>
-				</div>
-				<div className="flex flex-col gap-2">
-					<span className="text-muted-foreground">Timeline</span>
-					<p>2022 - Present</p>
-				</div>
-			</div>
-
-			<div className="min-h-screen flex flex-col gap-6 items-center justify-center text-2xl font-medium text-left *:w-full">
-				<div className="max-w-2xl">
-					<span className=" text-muted-foreground">Challenge</span>
-					<p className="mt-6 font mb-10">
-						The aim was to create a unique visual identity that reflects
-						intelligence and reliability, while building a scalable,
-						developer-friendly UI system. We also focused on consistent motion,
-						accessibility, and responsive performance across devices.
-					</p>
-				</div>
-			</div>
+			<ProjectHighlight title="Challenge">
+				<p>
+					The aim was to create a unique visual identity that reflects
+					intelligence and reliability, while building a scalable,
+					developer-friendly UI system. We also focused on consistent motion,
+					accessibility, and responsive performance across devices.
+				</p>
+			</ProjectHighlight>
 
 			<Image
 				src={"/aichor/aichor-mockup-3.jpg"}
@@ -135,7 +133,7 @@ function Page() {
 			/>
 
 			<div className="grid grid-cols-2 gap-24">
-				{cards.map(({ key, title }) => (
+				{metaData.screens.map(({ key, title }) => (
 					<TransitionCard
 						key={key}
 						href={`/work/ui/aichor/${key}`}
@@ -197,19 +195,13 @@ function Page() {
 				text="Aichor - The AI platform"
 				src={"/aichor/aichor-mockup.jpg"}
 			/>
-
-			<div className="min-h-screen flex flex-col gap-6 items-center justify-center text-2xl font-medium text-left *:w-full">
-				<div className="max-w-2xl">
-					<span className=" text-muted-foreground">Result</span>
-					<p className="mt-6 font">
-						Lorem ipsum dolor sit amet consectetur. Maecenas ac turpis semper
-						cras velit vulputate congue viverra. Maecenas nulla odio fringilla
-						mi arcu faucibus ultrices cras. Tempus phasellus urna.
-					</p>
-				</div>
-			</div>
+			<ProjectHighlight title="Result">
+				<p>
+					Lorem ipsum dolor sit amet consectetur. Maecenas ac turpis semper cras
+					velit vulputate congue viverra. Maecenas nulla odio fringilla mi arcu
+					faucibus ultrices cras. Tempus phasellus urna.222
+				</p>
+			</ProjectHighlight>
 		</>
 	);
 }
-
-export default Page;
