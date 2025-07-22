@@ -17,14 +17,18 @@ export const metaData: ProjectMetadata = {
 	tag: "Website",
 	description:
 		"Designing a forward-looking, branded UI system to support AIchor's intelligent interface for technical researchers and developers.",
-	coverImage: "/lofi-app/hero.png",
+	coverImage: "/hackages/hero.png",
 	intro: "Biometric login redesign using WebAuthn.",
 	screens: [
-		{ key: "home-lime", title: "Home" },
-		{
-			key: "home-sky",
-			title: "Home theme blue",
-		},
+		{ key: "home", title: "Home" },
+		{ key: "topics", title: "Topics" },
+		{ key: "trainings", title: "Trainings" },
+		{ key: "footer", title: "Footer" },
+		{ key: "training-list", title: "Training List" },
+		{ key: "training-page", title: "Training Page" },
+		{ key: "tutorials", title: "Tutorials" },
+		{ key: "tutorials-list", title: "Tutorials list" },
+		{ key: "webinars", title: "Webinars" },
 	],
 };
 
@@ -58,7 +62,7 @@ export function Content() {
 			</ProjectHighlight>
 
 			<Image
-				src={"/lofi-app/mockup-1.jpg"}
+				src={"/hackages/mockup.jpg"}
 				width={1280}
 				height={720}
 				quality={100}
@@ -127,17 +131,17 @@ export function Content() {
 				{metaData.screens.map(({ key, title }) => (
 					<TransitionCard
 						key={key}
-						href={`/work/ui/lofi-app/${key}`}
+						href={`/work/ui/hackages/${key}`}
 						transitionName={key}
 					>
-						<Browser imageSrc={`/lofi-app/screens/${key}.png`} title={title} />
+						<Browser imageSrc={`/hackages/screens/${key}.png`} title={title} />
 					</TransitionCard>
 				))}
 			</div>
 
 			<ScrollImage
 				text="A Relaxing Music Experience"
-				src={"/lofi-app/mockup-3.jpg"}
+				src={"/hackages/mockup-2.jpg"}
 			/>
 			<ProjectHighlight title="Result">
 				<p>

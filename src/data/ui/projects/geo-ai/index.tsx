@@ -12,7 +12,7 @@ import React from "react";
 export const metaData: ProjectMetadata = {
 	slug: "geo-ai",
 	title: "GeoAI Hack",
-	slogan: "A Relaxing Music Experience",
+	slogan: "A Beautiful Event Registration Experience",
 	color: "#c49ef9",
 	material: {
 		thickness: 0.6,
@@ -25,14 +25,21 @@ export const metaData: ProjectMetadata = {
 	tag: "Website",
 	description:
 		"Designing a forward-looking, branded UI system to support AIchor's intelligent interface for technical researchers and developers.",
-	coverImage: "/lofi-app/hero.png",
+	coverImage: "/geo-ai/hero.png",
 	intro: "Biometric login redesign using WebAuthn.",
 	screens: [
-		{ key: "home-lime", title: "Home" },
+		{ key: "home", title: "Home" },
 		{
-			key: "home-sky",
-			title: "Home theme blue",
+			key: "about",
+			title: "About",
 		},
+		{ key: "intro", title: "Introduction" },
+		{ key: "challenge", title: "Challenge" },
+		{ key: "awards", title: "Awards" },
+		{ key: "guests", title: "Gests" },
+		{ key: "why", title: "Why Participate" },
+		{ key: "program", title: "Program" },
+		{ key: "faq", title: "FAQ" },
 	],
 };
 
@@ -66,12 +73,11 @@ export function Content() {
 			</ProjectHighlight>
 
 			<Image
-				src={"/lofi-app/mockup-1.jpg"}
-				width={1280}
-				height={720}
-				quality={100}
+				src={"/geo-ai/mockup-2.jpg"}
+				width={1920}
+				height={1080}
 				alt="Aichor "
-				className=" rounded-4xl object-cover"
+				className="rounded-xl"
 			/>
 
 			<StudyStep title="Process">
@@ -90,6 +96,14 @@ export function Content() {
 					responsiveness, and smooth interactions across the app.
 				</p>
 			</StudyStep>
+
+			<Image
+				src={"/geo-ai/phone-mockup.png"}
+				width={1920}
+				height={1080}
+				alt="Aichor "
+				className="drop-shadow-3xl"
+			/>
 
 			<StudyStep title="Action">
 				<div className="flex flex-col gap-4 mt-2">
@@ -135,18 +149,15 @@ export function Content() {
 				{metaData.screens.map(({ key, title }) => (
 					<TransitionCard
 						key={key}
-						href={`/work/ui/lofi-app/${key}`}
+						href={`/work/ui/geo-ai/${key}`}
 						transitionName={key}
 					>
-						<Browser imageSrc={`/lofi-app/screens/${key}.png`} title={title} />
+						<Browser imageSrc={`/geo-ai/screens/${key}.png`} title={title} />
 					</TransitionCard>
 				))}
 			</div>
 
-			<ScrollImage
-				text="A Relaxing Music Experience"
-				src={"/lofi-app/mockup-3.jpg"}
-			/>
+			<ScrollImage text={metaData.slogan} src={"/geo-ai/mockup.jpg"} />
 			<ProjectHighlight title="Result">
 				<p>
 					Lorem ipsum dolor sit amet consectetur. Maecenas ac turpis semper cras

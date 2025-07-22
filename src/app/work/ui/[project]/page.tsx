@@ -1,7 +1,8 @@
 import { Logo3d } from "@/components/projects/logo-3d";
 import ProjectHeader from "@/components/projects/project-header";
 import { SectionTitle } from "@/components/projects/section-title";
-import { projectMap } from "@/data/ui/projects";
+import { projectContentMap, projectMap } from "@/data/ui/projects";
+import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import React from "react";
 
@@ -12,11 +13,10 @@ async function Page({
 }) {
 	const { project } = await params;
 
-	const projectData = projectMap[project];
+	const metadata = projectMap.find((p) => p.slug === project);
 
-	if (!projectData) return notFound();
-	const ProjectComponent = projectData.content;
-	const metadata = projectData.metadata;
+	if (!metadata) return notFound();
+	const Content = dynamic(projectContentMap[project]);
 
 	return (
 		<>
@@ -36,7 +36,7 @@ async function Page({
 			</SectionTitle>
 
 			<ProjectHeader title={metadata.slogan} imageSrc={metadata.coverImage} />
-			<ProjectComponent />
+			<Content />
 		</>
 	);
 }

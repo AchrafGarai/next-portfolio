@@ -16,17 +16,6 @@ import { ChevronDownIcon, FigmaLogoIcon } from "@radix-ui/react-icons";
 import { PlayIcon, SidebarIcon } from "lucide-react";
 import type { ReactNode } from "react";
 
-const posts = [
-	{
-		slug: "aichor",
-		title: "AIchor",
-	},
-	{
-		slug: "lofiapp",
-		title: "Lofi App",
-	},
-];
-
 function Layout({ children }: { children: ReactNode }) {
 	return (
 		<>
@@ -43,7 +32,7 @@ function Layout({ children }: { children: ReactNode }) {
 					</div>
 					<div className="border-b relative">
 						<p className=" p-4 pb-0 text-xs sticky top-0">Pages</p>
-						<UiNavigation posts={posts} />
+						<UiNavigation />
 					</div>
 				</div>
 				{/* main section - canvas  */}

@@ -16,7 +16,7 @@ export default async function BlogPostPage({
 		<>
 			<BackButton />
 			<ViewTransition name={screen}>
-				<Browser className="col-span-2" imageSrc={imageSrc} />
+				<Browser className="col-span-2" imageSrc={imageSrc} title={screen} />
 			</ViewTransition>
 		</>
 	);
