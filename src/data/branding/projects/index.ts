@@ -1,8 +1,6 @@
 import * as aichor from "./aichor";
 import * as lofiapp from "./lofi-app";
 import * as geoAI from "./geo-ai";
-import * as hackages from "./hackages";
-import dynamic from "next/dynamic";
 
 type screen = {
 	key: string;
@@ -30,7 +28,7 @@ export type ProjectMetadata = {
 	screens: screen[];
 };
 
-export const UIProjectMap: ProjectMetadata[] = [
+export const BrandingProjectMap: ProjectMetadata[] = [
 	{
 		...aichor.metaData,
 	},
@@ -40,17 +38,11 @@ export const UIProjectMap: ProjectMetadata[] = [
 	{
 		...geoAI.metaData,
 	},
-	{
-		...hackages.metaData,
-	},
 ];
 
-export const UIprojectContentMap: Record<
+export const BrandingprojectContentMap: Record<
 	string,
 	() => Promise<React.ComponentType>
 > = {
 	aichor: () => import("./aichor").then((m) => m.Content),
-	lofiapp: () => import("./lofi-app").then((m) => m.Content),
-	"geo-ai": () => import("./geo-ai").then((m) => m.Content),
-	hackages: () => import("./hackages").then((m) => m.Content),
 };

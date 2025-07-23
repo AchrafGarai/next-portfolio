@@ -13,6 +13,7 @@ import {
 	MenubarShortcut,
 	MenubarTrigger,
 } from "@/components/ui/menubar";
+import { DownloadIcon, FramerLogoIcon } from "@radix-ui/react-icons";
 
 import {
 	BrushIcon,
@@ -38,8 +39,8 @@ const posts = [
 
 function Layout({ children }: { children: ReactNode }) {
 	return (
-		<div className="h-screen flex flex-col grow relative">
-			<div className="flex gap-4 bg-accent px-3 py-2 border-b justify-between items-center fixed min-h-14 w-full top-0 z-20">
+		<div className="flex  grow relative">
+			{/* <div className="flex gap-4 bg-accent px-3 py-2 border-b justify-between items-center fixed min-h-14 w-full top-0 z-20">
 				<div className="flex grow">
 					<Image
 						src="/adobe-illustrator.svg"
@@ -73,36 +74,11 @@ function Layout({ children }: { children: ReactNode }) {
 				<div className="flex grow justify-end ">
 					<ShareProject />
 				</div>
-			</div>
+			</div> */}
 
 			<div className="flex grow gap-6 w-full relative items-start">
 				{/* Side navigation  */}
-				<div className="bg-accent border flex flex-col gap-2 p-2 py-4 text-muted-foreground fixed top-20 left-6 rounded z-20 shadow-xs">
-					<Button size={"sm"} variant={"ghost"}>
-						<MousePointer2 />
-					</Button>
-					<Button size={"sm"} variant={"ghost"}>
-						<TypeIcon />
-					</Button>
-					<Button size={"sm"} variant={"ghost"}>
-						<SquareIcon />
-					</Button>
-					<Button size={"sm"} variant={"ghost"}>
-						<PenTool />
-					</Button>
-					<Button size={"sm"} variant={"ghost"}>
-						<BrushIcon />
-					</Button>
-					<Button size={"sm"} variant={"ghost"}>
-						<PipetteIcon />
-					</Button>
-				</div>
-				{/* main section - canvas  */}
-				<div className="grow pt-14">
-					<Container>{children}</Container>
-				</div>
-				{/* right sidebar - inspector */}
-				<div className="flex flex-col grow max-w-64 bg-accent border fixed right-6 top-20 rounded shadow-xs ">
+				<div className="flex flex-col grow w-40  bg-background border sticky right-0 top-0 h-screen rounded shadow-xs ">
 					<div className="flex gap-3 p-4 border-b">
 						<span className="text-sm">Layers</span>
 						<span className="text-sm text-muted-foreground">Artboards</span>
@@ -116,6 +92,56 @@ function Layout({ children }: { children: ReactNode }) {
 					<div className="p-4 py-1  flex items-center justify-between">
 						<span className="text-xs text-muted-foreground">Theme</span>
 						<ThemeToggle />
+					</div>
+				</div>
+				{/* main section - canvas  */}
+				<div className="grow pt-14">
+					<div className="mx-auto max-w-[1280px]">{children}</div>
+				</div>
+				{/* right sidebar - inspector */}
+				<div className="bg-background border-l w-40 text-muted-foreground sticky top-0 h-screen left-0 z-20 shadow-x flex flex-col justify-between">
+					<div>
+						<div className=" p-4 py-4 border-b w-full">
+							<FramerLogoIcon />
+						</div>
+						<div className="flex flex-wrap gap-2 mb-4  p-2 ">
+							<span>
+								<Button size={"sm"} variant={"ghost"}>
+									<MousePointer2 />
+								</Button>
+							</span>
+							<span>
+								<Button size={"sm"} variant={"ghost"}>
+									<TypeIcon />
+								</Button>
+							</span>
+							<span>
+								<Button size={"sm"} variant={"ghost"}>
+									<SquareIcon />
+								</Button>
+							</span>
+							<span>
+								<Button size={"sm"} variant={"ghost"}>
+									<PenTool />
+								</Button>
+							</span>
+							<span>
+								<Button size={"sm"} variant={"ghost"}>
+									<BrushIcon />
+								</Button>
+							</span>
+							<span>
+								<Button size={"sm"} variant={"ghost"}>
+									<PipetteIcon />
+								</Button>
+							</span>
+						</div>
+					</div>
+					<div className=" flex gap-2 px-4 py-2 text-xs items-center text-muted-foreground border-t">
+						<span className="flex-grow">Export</span>
+						<Button size={"sm"} variant={"ghost"}>
+							<DownloadIcon />
+						</Button>
 					</div>
 				</div>
 			</div>
