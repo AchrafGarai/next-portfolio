@@ -1,6 +1,7 @@
 import BrandingNavigation from "@/components/navigation/branding-navigation";
 import { ShareProject } from "@/components/projects/share-dialog";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Input } from "@/components/ui/input";
@@ -13,7 +14,11 @@ import {
 	MenubarShortcut,
 	MenubarTrigger,
 } from "@/components/ui/menubar";
-import { DownloadIcon, FramerLogoIcon } from "@radix-ui/react-icons";
+import {
+	ChevronDownIcon,
+	DownloadIcon,
+	FramerLogoIcon,
+} from "@radix-ui/react-icons";
 
 import {
 	BrushIcon,
@@ -78,7 +83,7 @@ function Layout({ children }: { children: ReactNode }) {
 
 			<div className="flex grow gap-6 w-full relative items-start">
 				{/* Side navigation  */}
-				<div className="flex flex-col grow w-40  bg-background border sticky right-0 top-0 h-screen rounded shadow-xs ">
+				<div className="flex flex-col grow w-64  bg-background border sticky right-0 top-0 h-screen rounded shadow-xs ">
 					<div className="flex gap-3 p-4 border-b">
 						<span className="text-sm">Layers</span>
 						<span className="text-sm text-muted-foreground">Artboards</span>
@@ -99,10 +104,24 @@ function Layout({ children }: { children: ReactNode }) {
 					<div className="mx-auto max-w-[1280px]">{children}</div>
 				</div>
 				{/* right sidebar - inspector */}
-				<div className="bg-background border-l w-40 text-muted-foreground sticky top-0 h-screen left-0 z-20 shadow-x flex flex-col justify-between">
+				<div className="bg-background border-l w-56 text-muted-foreground sticky top-0 h-screen left-0 z-20 shadow-x flex flex-col justify-between">
 					<div>
-						<div className=" p-4 py-4 border-b w-full">
-							<FramerLogoIcon />
+						<div className="p-4 flex justify-between items-center border-b">
+							<div className="flex gap-1 items-center">
+								<Avatar className="w-8 h-8">
+									<AvatarImage src="https://github.com/shadcn.png" />
+									<AvatarFallback>CN</AvatarFallback>
+								</Avatar>
+								<ChevronDownIcon width={12} />
+							</div>
+							<div className="flex items-center gap-2">
+								<Button
+									size={"sm"}
+									className=" rounded-full bg-blue-500 text-white hover:bg-blue-600"
+								>
+									Share
+								</Button>
+							</div>
 						</div>
 						<div className="flex flex-wrap gap-2 mb-4  p-2 ">
 							<span>
