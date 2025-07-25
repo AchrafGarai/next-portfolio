@@ -2,10 +2,10 @@ import type { ProjectMetadata } from "..";
 import Image from "next/image";
 import ScrollImage from "@/components/projects/scroll-image";
 import StudyStep from "@/components/projects/study-step";
-
-import ProjectInfo from "@/components/projects/project-info";
 import ProjectHighlight from "@/components/projects/project-highlight";
 import React from "react";
+import Artbaord from "@/components/projects/artboard";
+import { SectionTitle } from "@/components/projects/section-title";
 
 export const metaData: ProjectMetadata = {
 	slug: "aichor",
@@ -33,12 +33,11 @@ export function Content() {
 			</ProjectHighlight>
 
 			<Image
-				src={"/aichor/aichor-mockup-3.jpg"}
-				width={1280}
-				height={720}
+				src={"/branding/aichor/banner.png"}
+				width={2000}
+				height={488}
 				quality={100}
 				alt="Aichor "
-				className=" rounded-4xl object-cover"
 			/>
 
 			<StudyStep title="Process">
@@ -57,6 +56,28 @@ export function Content() {
 					responsiveness, and smooth interactions across the app.
 				</p>
 			</StudyStep>
+			<Image
+				src={"/branding/aichor/mockup-2.jpg"}
+				width={2250}
+				height={1500}
+				alt="Aichor "
+			/>
+
+			<SectionTitle
+				subtitle={"Logo Showcase"}
+				title={"Aichor"}
+				tag={""}
+				className="mt-32"
+			/>
+
+			<Artbaord title={"Aichor mark"}>
+				<Image
+					src={"/branding/aichor/logo-mark.svg"}
+					width={180}
+					height={180}
+					alt="Aichor "
+				/>
+			</Artbaord>
 
 			<StudyStep title="Action">
 				<div className="flex flex-col gap-4 mt-2">

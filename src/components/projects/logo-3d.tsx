@@ -1,7 +1,7 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
 
-import { Environment } from "@react-three/drei";
+import { Environment, PerspectiveCamera } from "@react-three/drei";
 import React, { useRef } from "react";
 import { MeshTransmissionMaterial, useGLTF, Text } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";

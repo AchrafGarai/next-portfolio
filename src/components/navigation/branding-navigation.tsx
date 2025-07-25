@@ -14,7 +14,7 @@ export type Props = {
 function BrandingNavigation({ posts }: Props) {
 	return (
 		<ScrollArea
-			className="p-4 pb-0 flex flex-col gap-2 h-48 border-b"
+			className="p-4 pb-0 flex flex-col gap-2 min-h-48 border-b"
 			data-lenis-prevent
 		>
 			{posts.map((post) => (

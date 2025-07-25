@@ -23,7 +23,7 @@ function Artbaord({
 		<>
 			<div className={`flex flex-col gap-2 items-start w-full  ${className}`}>
 				<span className=" text-xs text-muted-foreground">{title}</span>
-				<div className="flex flex-col justify-between border bg-background hover:bg-accent w-full h-full min-h-[520px] rounded-xl hover:border-sky-500 overflow-hidden relative">
+				<div className=" flex flex-col justify-center items-center border bg-accent w-full h-full min-h-[520px] rounded-xl hover:border-sky-500 overflow-hidden relative">
 					{href && (
 						<Image
 							src={href}
@@ -33,6 +33,14 @@ function Artbaord({
 							className=" w-full object-cover z-0"
 						/>
 					)}
+					{children}
+					<Image
+						className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+						src={"/grid.svg"}
+						width={360}
+						height={360}
+						alt="Aichor "
+					/>
 				</div>
 			</div>
 		</>

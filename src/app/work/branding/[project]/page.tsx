@@ -9,7 +9,6 @@ import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import React from "react";
-import { Container } from "@/components/ui/container";
 
 async function Page({
 	params,
@@ -31,6 +30,7 @@ async function Page({
 				content={metadata.title}
 				material={metadata?.material}
 			/>
+
 			<SectionTitle
 				title={metadata.title}
 				subtitle="About"

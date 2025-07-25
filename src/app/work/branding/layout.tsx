@@ -83,28 +83,55 @@ function Layout({ children }: { children: ReactNode }) {
 
 			<div className="flex grow gap-6 w-full relative items-start">
 				{/* Side navigation  */}
-				<div className="flex flex-col grow w-64  bg-background border sticky right-0 top-0 h-screen rounded shadow-xs ">
-					<div className="flex gap-3 p-4 border-b">
-						<span className="text-sm">Layers</span>
-						<span className="text-sm text-muted-foreground">Artboards</span>
-					</div>
-					<div className="p-3 border-b">
-						<Input placeholder="Search Layers" className="bg-background" />
-					</div>
 
-					<BrandingNavigation posts={posts} />
-					<div className="grow " />
-					<div className="p-4 py-1  flex items-center justify-between">
-						<span className="text-xs text-muted-foreground">Theme</span>
-						<ThemeToggle />
+				<div className="flex flex-col   bg-background border-r sticky right-0 top-0 h-screen  shadow-xs ">
+					<div className="flex flex-col w-fit gap-2  p-2 ">
+						{/* <Image
+							src="/adobe-illustrator.svg"
+							alt=""
+							width={32}
+							height={32}
+							className="mx-auto mb-4"
+						/> */}
+						<div className="mx-auto mb-4  rounded-md flex items-center justify-center font-semibold bg-[#330000] text-[#FF9A00] w-8 h-8">
+							Ag
+						</div>
+						<span>
+							<Button size={"sm"} variant={"ghost"}>
+								<MousePointer2 />
+							</Button>
+						</span>
+						<span>
+							<Button size={"sm"} variant={"ghost"}>
+								<TypeIcon />
+							</Button>
+						</span>
+						<span>
+							<Button size={"sm"} variant={"ghost"}>
+								<SquareIcon />
+							</Button>
+						</span>
+						<span>
+							<Button size={"sm"} variant={"ghost"}>
+								<PenTool />
+							</Button>
+						</span>
+						<span>
+							<Button size={"sm"} variant={"ghost"}>
+								<BrushIcon />
+							</Button>
+						</span>
+						<span>
+							<Button size={"sm"} variant={"ghost"}>
+								<PipetteIcon />
+							</Button>
+						</span>
 					</div>
 				</div>
 				{/* main section - canvas  */}
-				<div className="grow pt-14">
-					<div className="mx-auto max-w-[1280px]">{children}</div>
-				</div>
+				<Container>{children}</Container>
 				{/* right sidebar - inspector */}
-				<div className="bg-background border-l w-56 text-muted-foreground sticky top-0 h-screen left-0 z-20 shadow-x flex flex-col justify-between">
+				<div className="bg-background border-l w-56  sticky top-0 h-screen left-0 z-20 shadow-x flex flex-col justify-between">
 					<div>
 						<div className="p-4 flex justify-between items-center border-b">
 							<div className="flex gap-1 items-center">
@@ -123,44 +150,18 @@ function Layout({ children }: { children: ReactNode }) {
 								</Button>
 							</div>
 						</div>
-						<div className="flex flex-wrap gap-2 mb-4  p-2 ">
-							<span>
-								<Button size={"sm"} variant={"ghost"}>
-									<MousePointer2 />
-								</Button>
-							</span>
-							<span>
-								<Button size={"sm"} variant={"ghost"}>
-									<TypeIcon />
-								</Button>
-							</span>
-							<span>
-								<Button size={"sm"} variant={"ghost"}>
-									<SquareIcon />
-								</Button>
-							</span>
-							<span>
-								<Button size={"sm"} variant={"ghost"}>
-									<PenTool />
-								</Button>
-							</span>
-							<span>
-								<Button size={"sm"} variant={"ghost"}>
-									<BrushIcon />
-								</Button>
-							</span>
-							<span>
-								<Button size={"sm"} variant={"ghost"}>
-									<PipetteIcon />
-								</Button>
-							</span>
+
+						<div className="flex gap-3 p-4 border-b">
+							<span className="text-sm">Projects</span>
+							<span className="text-sm text-m ">Artboards</span>
 						</div>
+
+						<BrandingNavigation posts={posts} />
+						<div className="grow " />
 					</div>
-					<div className=" flex gap-2 px-4 py-2 text-xs items-center text-muted-foreground border-t">
-						<span className="flex-grow">Export</span>
-						<Button size={"sm"} variant={"ghost"}>
-							<DownloadIcon />
-						</Button>
+					<div className="p-4 py-1  flex items-center justify-between border-t">
+						<span className="text-xs ">Theme</span>
+						<ThemeToggle />
 					</div>
 				</div>
 			</div>
