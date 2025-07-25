@@ -1,10 +1,17 @@
 import * as aichor from "./aichor";
 import * as lofiapp from "./lofi-app";
 import * as geoAI from "./geo-ai";
+import type { ComponentType, SVGProps } from "react";
 
-type screen = {
+type Screen = {
 	key: string;
 	title: string;
+};
+
+export type ThemedImageType = {
+	title: string;
+	src: string;
+	themed: boolean;
 };
 
 type MaterialProps = {
@@ -25,7 +32,7 @@ export type ProjectMetadata = {
 	description: string;
 	coverImage: string;
 	intro: string;
-	screens: screen[];
+	logos: ThemedImageType[];
 };
 
 export const BrandingProjectMap: ProjectMetadata[] = [
