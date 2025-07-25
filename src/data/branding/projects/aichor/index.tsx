@@ -6,6 +6,7 @@ import ProjectHighlight from "@/components/projects/project-highlight";
 import React from "react";
 import Artbaord from "@/components/projects/artboard";
 import { SectionTitle } from "@/components/projects/section-title";
+import ThemedImage from "@/components/projects/themed-image";
 
 export const metaData: ProjectMetadata = {
 	slug: "aichor",
@@ -70,14 +71,36 @@ export function Content() {
 				className="mt-32"
 			/>
 
-			<Artbaord title={"Aichor mark"}>
-				<Image
-					src={"/branding/aichor/logo-mark.svg"}
-					width={180}
-					height={180}
-					alt="Aichor "
-				/>
-			</Artbaord>
+			<div className="grid gap-8 grid-cols-2">
+				<Artbaord title={"Aichor mark"} className="col-span-2">
+					<Image
+						src={"/branding/aichor/logo-mark.svg"}
+						width={180}
+						height={180}
+						alt="Aichor "
+					/>
+				</Artbaord>
+
+				<Artbaord title={"Aichor mark"}>
+					<ThemedImage
+						lightSrc={"/branding/aichor/aichor-h-light.svg"}
+						darkSrc={"/branding/aichor/aichor-h.svg"}
+						width={256}
+						height={180}
+						alt="Aichor "
+					/>
+				</Artbaord>
+
+				<Artbaord title={"Aichor mark"}>
+					<ThemedImage
+						lightSrc={"/branding/aichor/aichor-v-light.svg"}
+						darkSrc={"/branding/aichor/aichor-v.svg"}
+						width={180}
+						height={180}
+						alt="Aichor "
+					/>
+				</Artbaord>
+			</div>
 
 			<StudyStep title="Action">
 				<div className="flex flex-col gap-4 mt-2">

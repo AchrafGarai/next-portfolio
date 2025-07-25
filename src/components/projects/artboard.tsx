@@ -33,10 +33,10 @@ function Artbaord({
 							className=" w-full object-cover z-0"
 						/>
 					)}
-					{children}
+					<div className="z-10">{children}</div>
 					<Image
-						className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-						src={"/grid.svg"}
+						className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 Z-0 "
+						src={"/grid.png"}
 						width={360}
 						height={360}
 						alt="Aichor "
