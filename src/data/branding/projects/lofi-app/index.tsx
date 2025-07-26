@@ -1,58 +1,37 @@
 import type { ProjectMetadata } from "..";
-import { SectionTitle } from "@/components/projects/section-title";
-import { Browser } from "@/components/projects/browser";
 import Image from "next/image";
 import ScrollImage from "@/components/projects/scroll-image";
 import StudyStep from "@/components/projects/study-step";
-import TransitionCard from "@/components/projects/transition-card";
-import ProjectInfo from "@/components/projects/project-info";
 import ProjectHighlight from "@/components/projects/project-highlight";
 import React from "react";
+import { SectionTitle } from "@/components/projects/section-title";
+import LogoGrid from "@/components/projects/logo-grid";
 
 export const metaData: ProjectMetadata = {
 	slug: "lofiapp",
-	title: "Lo-Fi App",
-	slogan: "A Relaxing Music Experience",
+	title: "Lofi-App",
+	slogan: "A relaxing music experience",
 	color: "#ffffff",
-	tag: "SaaS",
+	tag: "App",
 	description:
 		"Designing a forward-looking, branded UI system to support AIchor's intelligent interface for technical researchers and developers.",
-	coverImage: "/lofi-app/hero.png",
+	coverImage: "/branding/lofiapp/mockup-1.jpg",
 	intro: "Biometric login redesign using WebAuthn.",
-	screens: [
-		{ key: "home-lime", title: "Home" },
+	logos: [
 		{
-			key: "home-sky",
-			title: "Home theme blue",
+			title: "Lofi-app Mark",
+			src: "lofi-app-mark",
+			themed: true,
 		},
 		{
-			key: "home-green",
-			title: "Home theme green",
+			title: "Lofi-app Horizontal",
+			src: "lofi-app-v",
+			themed: true,
 		},
 		{
-			key: "home-light",
-			title: "Home theme light",
-		},
-		{
-			key: "home-purple",
-			title: "Home theme purple",
-		},
-		{ key: "playlist-lime", title: "Playlist theme lime" },
-		{
-			key: "playlist-sky",
-			title: "Playlist theme blue",
-		},
-		{
-			key: "playlist-green",
-			title: "Playlist theme green",
-		},
-		{
-			key: "playlist-light",
-			title: "Playlist theme light",
-		},
-		{
-			key: "playlist-pink",
-			title: "Playlist theme pink",
+			title: "Aichor Vertical",
+			src: "lofi-app-h",
+			themed: true,
 		},
 	],
 };
@@ -60,23 +39,6 @@ export const metaData: ProjectMetadata = {
 export function Content() {
 	return (
 		<>
-			<ProjectInfo
-				items={[
-					{
-						label: "My Role",
-						values: ["Design Engineering", "Brand Identity Design"],
-					},
-					{
-						label: "Team Size",
-						values: ["08"],
-					},
-					{
-						label: "Timeline",
-						values: ["2022"],
-					},
-				]}
-			/>
-
 			<ProjectHighlight title="Challenge">
 				<p>
 					The aim was to create a unique visual identity that reflects
@@ -87,12 +49,11 @@ export function Content() {
 			</ProjectHighlight>
 
 			<Image
-				src={"/lofi-app/mockup-1.jpg"}
-				width={1280}
-				height={720}
+				src={"/branding/lofiapp/covers.png"}
+				width={2000}
+				height={488}
 				quality={100}
 				alt="Aichor "
-				className=" rounded-4xl object-cover"
 			/>
 
 			<StudyStep title="Process">
@@ -111,6 +72,23 @@ export function Content() {
 					responsiveness, and smooth interactions across the app.
 				</p>
 			</StudyStep>
+			<Image
+				src={"/branding/lofiapp/mockup-2.jpg"}
+				width={2250}
+				height={1500}
+				alt="Aichor "
+			/>
+
+			<SectionTitle
+				subtitle={"Logo Showcase"}
+				title={"Aichor"}
+				tag={""}
+				className="mt-32"
+			/>
+
+			<div className="grid gap-8 grid-cols-2  ">
+				<LogoGrid logos={metaData.logos} projectName={metaData.slug} />
+			</div>
 
 			<StudyStep title="Action">
 				<div className="flex flex-col gap-4 mt-2">
@@ -146,33 +124,15 @@ export function Content() {
 				</div>
 			</StudyStep>
 
-			<SectionTitle
-				title={"An ever evolving UI"}
-				tag={""}
-				subtitle={"UI Showcase"}
-			/>
-
-			<div className="grid grid-cols-2 gap-24">
-				{metaData.screens.map(({ key, title }) => (
-					<TransitionCard
-						key={key}
-						href={`/work/ui/lofi-app/${key}`}
-						transitionName={key}
-					>
-						<Browser imageSrc={`/lofi-app/screens/${key}.png`} title={title} />
-					</TransitionCard>
-				))}
-			</div>
-
 			<ScrollImage
-				text="A Relaxing Music Experience"
-				src={"/lofi-app/mockup-3.jpg"}
+				text="Aichor - The AI platform"
+				src={"/branding/lofiapp/mockup-3.jpg"}
 			/>
 			<ProjectHighlight title="Result">
 				<p>
 					Lorem ipsum dolor sit amet consectetur. Maecenas ac turpis semper cras
 					velit vulputate congue viverra. Maecenas nulla odio fringilla mi arcu
-					faucibus ultrices cras. Tempus phasellus urna.222
+					faucibus ultrices cras. Tempus phasellus urna.
 				</p>
 			</ProjectHighlight>
 		</>

@@ -91,7 +91,7 @@ export function Content() {
 			/>
 
 			<div className="grid gap-8 grid-cols-2  ">
-				<LogoGrid logos={metaData.logos} />
+				<LogoGrid logos={metaData.logos} projectName={metaData.slug} />
 			</div>
 
 			<StudyStep title="Action">
@@ -130,13 +130,13 @@ export function Content() {
 
 			<ScrollImage
 				text="Aichor - The AI platform"
-				src={"/aichor/aichor-mockup.jpg"}
+				src={"/branding/aichor/mockup-3.jpg"}
 			/>
 			<ProjectHighlight title="Result">
 				<p>
 					Lorem ipsum dolor sit amet consectetur. Maecenas ac turpis semper cras
 					velit vulputate congue viverra. Maecenas nulla odio fringilla mi arcu
-					faucibus ultrices cras. Tempus phasellus urna.222
+					faucibus ultrices cras. Tempus phasellus urna.
 				</p>
 			</ProjectHighlight>
 		</>

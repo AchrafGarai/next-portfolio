@@ -4,7 +4,10 @@ import Artbaord from "./artboard";
 import ThemedImage from "./themed-image";
 import Image from "next/image";
 
-function LogoGrid({ logos }: { logos: ThemedImageType[] }) {
+function LogoGrid({
+	projectName,
+	logos,
+}: { logos: ThemedImageType[]; projectName: string }) {
 	return logos.map(({ title, src, themed }, index) => {
 		return (
 			<Artbaord
@@ -14,15 +17,15 @@ function LogoGrid({ logos }: { logos: ThemedImageType[] }) {
 			>
 				{themed ? (
 					<ThemedImage
-						lightSrc={`/branding/aichor/${src}-light.svg`}
-						darkSrc={`/branding/aichor/${src}.svg`}
+						lightSrc={`/branding/${projectName}/${src}-light.svg`}
+						darkSrc={`/branding/${projectName}/${src}.svg`}
 						height={360}
 						width={360}
 						alt={title}
 					/>
 				) : (
 					<Image
-						src={`/branding/aichor/${src}.svg`}
+						src={`/branding/${projectName}/${src}.svg`}
 						alt={title}
 						height={360}
 						width={360}

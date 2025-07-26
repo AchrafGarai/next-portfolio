@@ -52,4 +52,5 @@ export const BrandingprojectContentMap: Record<
 	() => Promise<React.ComponentType>
 > = {
 	aichor: () => import("./aichor").then((m) => m.Content),
+	lofiapp: () => import("./lofi-app").then((m) => m.Content),
 };
