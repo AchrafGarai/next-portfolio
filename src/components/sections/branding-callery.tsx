@@ -38,7 +38,7 @@ function BrandingGalley() {
 							}`,
 						)}
 					>
-						<div className=" bg-card border rounded h-80 w-52" />
+						<div className=" bg-accent border rounded h-80 w-52" />
 					</div>
 				))}
 			</div>

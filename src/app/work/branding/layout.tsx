@@ -53,6 +53,7 @@ function Layout({ children }: { children: ReactNode }) {
 								<SquareIcon />
 							</Button>
 						</span>
+
 						<GridToggle />
 						<span>
 							<Button size={"sm"} variant={"ghost"}>
