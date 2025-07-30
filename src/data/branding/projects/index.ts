@@ -1,6 +1,9 @@
 import * as aichor from "./aichor";
 import * as lofiapp from "./lofi-app";
 import * as geoAI from "./geo-ai";
+import * as jumanji from "./jumanji";
+import * as mava from "./mava";
+import * as qdax from "./qdax";
 import type { ComponentType, SVGProps } from "react";
 
 type Screen = {
@@ -45,6 +48,15 @@ export const BrandingProjectMap: ProjectMetadata[] = [
 	{
 		...geoAI.metaData,
 	},
+	{
+		...jumanji.metaData,
+	},
+	{
+		...mava.metaData,
+	},
+	{
+		...qdax.metaData,
+	},
 ];
 
 export const BrandingprojectContentMap: Record<
@@ -53,4 +65,8 @@ export const BrandingprojectContentMap: Record<
 > = {
 	aichor: () => import("./aichor").then((m) => m.Content),
 	lofiapp: () => import("./lofi-app").then((m) => m.Content),
+	jumanji: () => import("./jumanji").then((m) => m.Content),
+	"geo-ai": () => import("./geo-ai").then((m) => m.Content),
+	mava: () => import("./mava").then((m) => m.Content),
+	qdax: () => import("./qdax").then((m) => m.Content),
 };

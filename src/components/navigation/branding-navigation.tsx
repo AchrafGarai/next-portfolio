@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { EyeIcon, LockIcon } from "lucide-react";
+import { BrandingProjectMap } from "@/data/branding/projects";
 type Post = {
 	slug: string;
 	title: string;
@@ -14,10 +15,10 @@ export type Props = {
 function BrandingNavigation({ posts }: Props) {
 	return (
 		<ScrollArea
-			className="p-4 pb-0 flex flex-col gap-2 min-h-48 border-b"
+			className="p-4 pb-0 flex flex-col gap-2 min-h-32 border-b"
 			data-lenis-prevent
 		>
-			{posts.map((post) => (
+			{BrandingProjectMap.map((post) => (
 				<div key={post.slug}>
 					<Link
 						className="py-2 flex gap-4 items-center text-xs text-muted-foreground"

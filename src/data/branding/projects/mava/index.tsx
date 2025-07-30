@@ -1,47 +1,44 @@
 import type { ProjectMetadata } from "..";
-import { SectionTitle } from "@/components/projects/section-title";
-import { Browser } from "@/components/projects/browser";
 import Image from "next/image";
 import ScrollImage from "@/components/projects/scroll-image";
 import StudyStep from "@/components/projects/study-step";
-import TransitionCard from "@/components/projects/transition-card";
-import ProjectInfo from "@/components/projects/project-info";
 import ProjectHighlight from "@/components/projects/project-highlight";
 import React from "react";
+import { SectionTitle } from "@/components/projects/section-title";
 import LogoGrid from "@/components/projects/logo-grid";
 
 export const metaData: ProjectMetadata = {
-	slug: "geo-ai",
-	title: "GeoAI Hack",
-	slogan: "A Beautiful Event Registration Experience",
-	color: "#c49ef9",
+	slug: "mava",
+	title: "Mava",
+	slogan: "A thrilling adventure awaits",
+	color: "#fa9a78",
+	tag: "Library",
 	material: {
-		thickness: 0.6,
+		thickness: 0.8,
 		roughness: 0.1,
 		transmission: 1,
-		ior: 0.7,
-		chromaticAberration: 0.3,
+		ior: 0.8,
+		chromaticAberration: 0.19,
 		backside: false,
 	},
-	tag: "Website",
 	description:
 		"Designing a forward-looking, branded UI system to support AIchor's intelligent interface for technical researchers and developers.",
-	coverImage: "/branding/geo-ai/mockup-3.jpg",
+	coverImage: "/branding/mava/mockup-1.jpg",
 	intro: "Biometric login redesign using WebAuthn.",
 	logos: [
 		{
-			title: "GeoAI Mark",
-			src: "geo-ai-mark",
+			title: "Mava Mark",
+			src: "mava-mark",
 			themed: false,
 		},
 		{
-			title: "GeoAI Horizontal",
-			src: "geo-ai-h",
+			title: "Mava Horizontal",
+			src: "mava-h",
 			themed: true,
 		},
 		{
-			title: "GeoAI Vertical",
-			src: "geo-ai-v",
+			title: "Mava Vertical",
+			src: "mava-v",
 			themed: true,
 		},
 	],
@@ -58,8 +55,9 @@ export function Content() {
 					accessibility, and responsive performance across devices.
 				</p>
 			</ProjectHighlight>
+
 			<Image
-				src={"/branding/geo-ai/covers.png"}
+				src={"/branding/mava/cover.png"}
 				width={2250}
 				height={1500}
 				alt="Aichor "
@@ -81,13 +79,15 @@ export function Content() {
 					responsiveness, and smooth interactions across the app.
 				</p>
 			</StudyStep>
+
 			<Image
-				src={"/branding/geo-ai/mockup-2.jpg"}
+				src={"/branding/mava/mockup-2.jpg"}
 				width={2000}
 				height={488}
 				quality={100}
 				alt="Aichor "
 			/>
+
 			<SectionTitle
 				subtitle={"Logo Showcase"}
 				title={"Aichor"}
@@ -135,7 +135,7 @@ export function Content() {
 
 			<ScrollImage
 				text="Aichor - The AI platform"
-				src={"/branding/geo-ai/mockup-1.jpg"}
+				src={"/branding/mava/mockup-3.jpg"}
 			/>
 			<ProjectHighlight title="Result">
 				<p>

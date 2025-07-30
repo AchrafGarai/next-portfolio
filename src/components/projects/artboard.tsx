@@ -1,4 +1,5 @@
 import Image from "next/image";
+import LogoGuides from "../branding/logo-guides";
 interface ArtboardProps extends React.HTMLAttributes<HTMLDivElement> {
 	title: string;
 	href?: string;
@@ -34,13 +35,7 @@ function Artbaord({
 						/>
 					)}
 					<div className="z-10">{children}</div>
-					<Image
-						className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 Z-0 "
-						src={"/grid.png"}
-						width={360}
-						height={360}
-						alt="Aichor "
-					/>
+					<LogoGuides />
 				</div>
 			</div>
 		</>

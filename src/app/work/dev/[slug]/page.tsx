@@ -15,7 +15,8 @@ export default Page;
 
 export function generateStaticParams() {
 	const posts = getBlogPosts();
-	return posts.map((post) => ({ params: { slug: post.slug } }));
+	const postMap = posts.map((post) => ({ slug: post.slug }));
+	return postMap;
 }
 
 export const dynamicParams = false;
