@@ -1,7 +1,6 @@
 "use client";
 import { useUIStore } from "@/lib/store";
-import { Button } from "@/components/ui/button";
-import { GridIcon } from "lucide-react";
+import { Search } from "lucide-react";
 import { Toggle } from "@/components/ui/toggle";
 import {
 	Tooltip,
@@ -9,19 +8,19 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-export function GridToggle() {
-	const toggleGrid = useUIStore((s) => s.toggleGrid);
+export function LensToggle() {
+	const toggleLens = useUIStore((s) => s.toggleLens);
 	return (
 		<Tooltip delayDuration={800}>
 			<TooltipTrigger asChild>
 				<div className="flex items-center justify-center">
-					<Toggle onClick={toggleGrid} size={"sm"} variant={"ghost"}>
-						<GridIcon />
+					<Toggle onClick={toggleLens} size={"sm"} variant={"ghost"}>
+						<Search />
 					</Toggle>
 				</div>
 			</TooltipTrigger>
 			<TooltipContent>
-				<p>Toggle logo grid</p>
+				<p>Toggle Image Lens</p>
 			</TooltipContent>
 		</Tooltip>
 	);

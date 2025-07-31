@@ -15,13 +15,13 @@ export type Props = {
 function BrandingNavigation({ posts }: Props) {
 	return (
 		<ScrollArea
-			className="p-4 pb-0 flex flex-col gap-2 min-h-32 border-b"
+			className="px-4 flex flex-col gap-2 min-h-32 border-b"
 			data-lenis-prevent
 		>
 			{BrandingProjectMap.map((post) => (
 				<div key={post.slug}>
 					<Link
-						className="py-2 flex gap-4 items-center text-xs text-muted-foreground"
+						className="py-2 flex gap-4 items-center text-sm text-muted-foreground"
 						href={`/work/branding/${post.slug}`}
 					>
 						<EyeIcon className=" text-muted-foreground" width={12} />

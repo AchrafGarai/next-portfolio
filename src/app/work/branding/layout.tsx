@@ -12,22 +12,27 @@ import {
 	FramerLogoIcon,
 } from "@radix-ui/react-icons";
 
-import { BrushIcon, MousePointer2, SquareIcon, TypeIcon } from "lucide-react";
+import {
+	BrushIcon,
+	MousePointer2,
+	PaletteIcon,
+	SquareIcon,
+	TypeIcon,
+} from "lucide-react";
 import Image from "next/image";
 import type { ReactNode } from "react";
+import ScrollLink from "@/components/ui/scroll-link";
+import { LensToggle } from "@/components/toolbars/lens-toggle";
+import ArtboardLink from "@/components/toolbars/artboard-link";
+import ProjectsNav from "@/components/toolbars/project-arbaord-navigation";
+import { BrandingProjectMap } from "@/data/branding/projects";
+import ProjectPalette from "@/components/toolbars/project-palette";
 
-const posts = [
-	{
-		slug: "aichor",
-		title: "AIchor",
-	},
-	{
-		slug: "lofi-app",
-		title: "Lofi App",
-	},
-];
-
-function Layout({ children }: { children: ReactNode }) {
+async function Layout({
+	children,
+}: {
+	children: ReactNode;
+}) {
 	return (
 		<div className="flex  grow relative">
 			<div className="flex grow gap-6 w-full relative items-start">
@@ -48,21 +53,11 @@ function Layout({ children }: { children: ReactNode }) {
 								<TypeIcon />
 							</Button>
 						</span>
-						<span>
-							<Button size={"sm"} variant={"ghost"}>
-								<SquareIcon />
-							</Button>
-						</span>
-
+						<ProjectPalette />
 						<GridToggle />
-						<span>
-							<Button size={"sm"} variant={"ghost"}>
-								<BrushIcon />
-							</Button>
-						</span>
-						<span>
-							<EyeDropperLens />
-						</span>
+						<LensToggle />
+
+						<EyeDropperLens />
 					</div>
 				</div>
 				{/* main section - canvas  */}
@@ -87,13 +82,7 @@ function Layout({ children }: { children: ReactNode }) {
 								</Button>
 							</div>
 						</div>
-
-						<div className="flex gap-3 p-4 border-b">
-							<span className="text-sm">Projects</span>
-							<span className="text-sm text-m ">Artboards</span>
-						</div>
-
-						<BrandingNavigation posts={posts} />
+						<ProjectsNav />
 						<div className="grow " />
 					</div>
 					<div className="p-4 py-1  flex items-center justify-between border-t">

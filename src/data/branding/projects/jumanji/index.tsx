@@ -6,6 +6,7 @@ import ProjectHighlight from "@/components/projects/project-highlight";
 import React from "react";
 import { SectionTitle } from "@/components/projects/section-title";
 import LogoGrid from "@/components/projects/logo-grid";
+import LensImage from "@/components/projects/lens-image";
 
 export const metaData: ProjectMetadata = {
 	slug: "jumanji",
@@ -42,6 +43,16 @@ export const metaData: ProjectMetadata = {
 			themed: true,
 		},
 	],
+	palette: [
+		{
+			name: "Primary",
+			value: "#61fdf8",
+		},
+		{
+			name: "Primary",
+			value: "#61fdf8",
+		},
+	],
 };
 
 export function Content() {
@@ -56,7 +67,7 @@ export function Content() {
 				</p>
 			</ProjectHighlight>
 
-			<Image
+			<LensImage
 				src={"/branding/jumanji/jumanji-banner.png"}
 				width={2000}
 				height={488}
@@ -80,20 +91,22 @@ export function Content() {
 					responsiveness, and smooth interactions across the app.
 				</p>
 			</StudyStep>
-			<Image
+
+			<LensImage
 				src={"/branding/jumanji/mockup-1.jpg"}
 				width={2250}
 				height={1500}
 				alt="Aichor "
 			/>
 
-			<SectionTitle
-				subtitle={"Logo Showcase"}
-				title={"Aichor"}
-				tag={""}
-				className="mt-32"
-			/>
-
+			<section id="logo-showcase">
+				<SectionTitle
+					subtitle={"Logo Showcase"}
+					title={"Aichor"}
+					tag={""}
+					className="mt-32"
+				/>
+			</section>
 			<div className="grid gap-8 grid-cols-2  ">
 				<LogoGrid logos={metaData.logos} projectName={metaData.slug} />
 			</div>
@@ -136,6 +149,7 @@ export function Content() {
 				text="Aichor - The AI platform"
 				src={"/branding/jumanji/mockup-2.jpg"}
 			/>
+
 			<ProjectHighlight title="Result">
 				<p>
 					Lorem ipsum dolor sit amet consectetur. Maecenas ac turpis semper cras

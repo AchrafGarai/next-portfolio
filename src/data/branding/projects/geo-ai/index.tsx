@@ -9,6 +9,7 @@ import ProjectInfo from "@/components/projects/project-info";
 import ProjectHighlight from "@/components/projects/project-highlight";
 import React from "react";
 import LogoGrid from "@/components/projects/logo-grid";
+import LensImage from "@/components/projects/lens-image";
 
 export const metaData: ProjectMetadata = {
 	slug: "geo-ai",
@@ -45,6 +46,16 @@ export const metaData: ProjectMetadata = {
 			themed: true,
 		},
 	],
+	palette: [
+		{
+			name: "Primary",
+			value: "#61fdf8",
+		},
+		{
+			name: "Primary",
+			value: "#61fdf8",
+		},
+	],
 };
 
 export function Content() {
@@ -58,7 +69,8 @@ export function Content() {
 					accessibility, and responsive performance across devices.
 				</p>
 			</ProjectHighlight>
-			<Image
+
+			<LensImage
 				src={"/branding/geo-ai/covers.png"}
 				width={2250}
 				height={1500}
@@ -81,19 +93,23 @@ export function Content() {
 					responsiveness, and smooth interactions across the app.
 				</p>
 			</StudyStep>
-			<Image
+
+			<LensImage
 				src={"/branding/geo-ai/mockup-2.jpg"}
 				width={2000}
 				height={488}
 				quality={100}
 				alt="Aichor "
 			/>
-			<SectionTitle
-				subtitle={"Logo Showcase"}
-				title={"Aichor"}
-				tag={""}
-				className="mt-32"
-			/>
+
+			<section id="logo-showcase">
+				<SectionTitle
+					subtitle={"Logo Showcase"}
+					title={"Aichor"}
+					tag={""}
+					className="mt-32"
+				/>
+			</section>
 
 			<div className="grid gap-8 grid-cols-2  ">
 				<LogoGrid logos={metaData.logos} projectName={metaData.slug} />
@@ -137,6 +153,7 @@ export function Content() {
 				text="Aichor - The AI platform"
 				src={"/branding/geo-ai/mockup-1.jpg"}
 			/>
+
 			<ProjectHighlight title="Result">
 				<p>
 					Lorem ipsum dolor sit amet consectetur. Maecenas ac turpis semper cras

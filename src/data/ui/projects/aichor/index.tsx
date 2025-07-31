@@ -10,7 +10,6 @@ import ThemedImage from "@/components/projects/themed-image";
 import TransitionCard from "@/components/projects/transition-card";
 import ProjectInfo from "@/components/projects/project-info";
 import ProjectHighlight from "@/components/projects/project-highlight";
-import React from "react";
 
 export const metaData: ProjectMetadata = {
 	slug: "aichor",
@@ -57,6 +56,7 @@ export function Content() {
 					},
 				]}
 			/>
+
 			<ProjectHighlight title="Challenge">
 				<p>
 					The aim was to create a unique visual identity that reflects

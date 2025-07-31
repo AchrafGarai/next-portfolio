@@ -9,6 +9,7 @@ import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import React from "react";
+import LensImage from "@/components/projects/lens-image";
 
 async function Page({
 	params,
@@ -24,13 +25,14 @@ async function Page({
 
 	return (
 		<>
-			<Logo3d
-				title={metadata.slug}
-				color={metadata.color}
-				content={metadata.title}
-				material={metadata?.material}
-			/>
-
+			<section id="logo">
+				<Logo3d
+					title={metadata.slug}
+					color={metadata.color}
+					content={metadata.title}
+					material={metadata?.material}
+				/>
+			</section>
 			<SectionTitle
 				title={metadata.title}
 				subtitle="About"
@@ -40,15 +42,15 @@ async function Page({
 				<p className="mt-6 text-2xl">{metadata.description}</p>
 			</SectionTitle>
 
-			<div className="mx-auto max-w-screen">
-				<Image
+			<section className="mx-auto max-w-screen" id="visual">
+				<LensImage
 					src={metadata.coverImage}
 					alt=""
 					width={1920}
 					height={1080}
 					className="rounded-2xl"
 				/>
-			</div>
+			</section>
 
 			<Content />
 		</>

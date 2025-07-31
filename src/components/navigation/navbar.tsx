@@ -8,7 +8,7 @@ export type IconProps = React.HTMLAttributes<SVGElement>;
 
 export function Navbar() {
 	return (
-		<div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-8 z-50">
+		<div className="sticky mt-[-90px] bottom-8 inset-x-0 z-50 flex justify-center ">
 			<Dock direction="middle">
 				<DockIcon>
 					<Link href={"/"}>

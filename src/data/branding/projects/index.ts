@@ -17,6 +17,11 @@ export type ThemedImageType = {
 	themed: boolean;
 };
 
+export type ColorSwatch = {
+	name: string;
+	value: string;
+};
+
 type MaterialProps = {
 	thickness: number;
 	roughness: number;
@@ -36,6 +41,7 @@ export type ProjectMetadata = {
 	coverImage: string;
 	intro: string;
 	logos: ThemedImageType[];
+	palette: ColorSwatch[];
 };
 
 export const BrandingProjectMap: ProjectMetadata[] = [

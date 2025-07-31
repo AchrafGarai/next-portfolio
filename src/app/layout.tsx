@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${satoshi.variable} ${tanker.variable} antialiased`}>
+			<body className={`${satoshi.className} ${tanker.variable} antialiased`}>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
