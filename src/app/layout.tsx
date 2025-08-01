@@ -4,6 +4,7 @@ import "./globals.css";
 import { ReactLenis } from "@/components/smooth-scroll";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navigation/navbar";
+import { Toaster } from "@/components/ui/sonner";
 
 const satoshi = localFont({
 	src: "./fonts/Satoshi-Variable.woff2",
@@ -37,6 +38,7 @@ export default function RootLayout({
 					<ReactLenis root>{children}</ReactLenis>
 				</ThemeProvider>
 				<Navbar />
+				<Toaster />
 			</body>
 		</html>
 	);

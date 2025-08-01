@@ -12,6 +12,7 @@ import {
 import { PaletteIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useParams } from "next/navigation";
+import SwatchItem from "@/components/toolbars/swatch-item";
 
 function ProjectPalette() {
 	const params = useParams();
@@ -25,13 +26,10 @@ function ProjectPalette() {
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent className=" ml-4">
-				{/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
 				{metadata?.palette.map((color, index) => {
 					return (
-						<>
-							{/* biome-ignore lint/suspicious/noArrayIndexKey: <explanation> */}
-							<SwatchItem key={index} swatch={color} />
-						</>
+						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+						<SwatchItem key={index} swatch={color} />
 					);
 				})}
 			</DropdownMenuContent>
@@ -40,20 +38,3 @@ function ProjectPalette() {
 }
 
 export default ProjectPalette;
-
-type SwatchItemProps = {
-	swatch: ColorSwatch;
-} & React.ComponentProps<typeof DropdownMenuItem>;
-
-function SwatchItem({ swatch, children, ...rest }: SwatchItemProps) {
-	return (
-		<DropdownMenuItem {...rest} className=" flex items-center text-xs">
-			<div
-				className={"w-3 h-3 rounded-sm "}
-				style={{ backgroundColor: swatch.value }}
-			/>
-			<span>{swatch.name}</span>
-			<span className=" text-muted-foreground">{swatch.value}</span>
-		</DropdownMenuItem>
-	);
-}

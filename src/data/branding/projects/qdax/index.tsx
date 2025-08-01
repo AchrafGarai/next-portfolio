@@ -46,11 +46,15 @@ export const metaData: ProjectMetadata = {
 	palette: [
 		{
 			name: "Primary",
-			value: "#0b9e99",
+			value: "#00ACD7",
 		},
 		{
-			name: "Primary",
-			value: "#61fdf8",
+			name: "Secondary",
+			value: "#1C5E83",
+		},
+		{
+			name: "Neutral",
+			value: "#131A20",
 		},
 	],
 };
