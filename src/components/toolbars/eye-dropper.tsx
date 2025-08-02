@@ -9,11 +9,9 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { CheckIcon, PipetteIcon } from "lucide-react";
+import { toast } from "sonner";
 
 export function EyeDropperLens() {
-	const [pickedColor, setPickedColor] = useState<string | null>(null);
-	const [showTooltip, setShowTooltip] = useState(false);
-
 	const handlePick = async () => {
 		if (!("EyeDropper" in window)) {
 			alert("EyeDropper API not supported in this browser.");
@@ -22,30 +20,20 @@ export function EyeDropperLens() {
 
 		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 		const eyeDropper = new (window as any).EyeDropper();
-		try {
-			const result = await eyeDropper.open();
-			const color = result.sRGBHex;
-			setPickedColor(color);
-			await navigator.clipboard.writeText(color);
-			setShowTooltip(true);
-			setTimeout(() => setShowTooltip(false), 1500);
-		} catch (err) {
-			console.error("EyeDropper cancelled or failed.", err);
-		}
+
+		const result = await eyeDropper.open();
+		const color = result.sRGBHex;
+		navigator.clipboard
+			.writeText(color)
+			.then(() => toast.success(`Copied Hex code to clipboard  ${color}`, {}))
+			.catch(() => toast.error("Failed to copy color"));
 	};
 
 	return (
-		<TooltipProvider>
-			<div className="flex flex-col items-center gap-4">
-				<Tooltip open={showTooltip}>
-					<TooltipTrigger asChild>
-						<Button onClick={handlePick} variant="ghost" className="p-2">
-							<PipetteIcon className="w-5 h-5" />
-						</Button>
-					</TooltipTrigger>
-					<TooltipContent side="top">Copied!</TooltipContent>
-				</Tooltip>
-			</div>
-		</TooltipProvider>
+		<div className="flex flex-col items-center gap-4">
+			<Button onClick={handlePick} variant="ghost" className="p-2">
+				<PipetteIcon className="w-5 h-5" />
+			</Button>
+		</div>
 	);
 }

@@ -39,7 +39,7 @@ function Layout({ children }: { children: ReactNode }) {
 					/>
 					<Menubar className="rounded-none bg-background w-full border-none text-xs shadow-none">
 						<MenubarMenu>
-							<MenubarTrigger className="text-sm">File</MenubarTrigger>
+							<MenubarTrigger className="text-sm">Article</MenubarTrigger>
 							<MenubarContent>
 								<MenubarItem>
 									New Tab <MenubarShortcut>⌘T</MenubarShortcut>
@@ -50,9 +50,6 @@ function Layout({ children }: { children: ReactNode }) {
 								<MenubarSeparator />
 								<MenubarItem>Print</MenubarItem>
 							</MenubarContent>
-						</MenubarMenu>
-						<MenubarMenu>
-							<MenubarTrigger className="text-sm">Edit</MenubarTrigger>
 						</MenubarMenu>
 					</Menubar>
 				</div>
@@ -68,30 +65,7 @@ function Layout({ children }: { children: ReactNode }) {
 
 			<div className="flex grow w-full">
 				{/* Side navigation  */}
-				<div className=" bg-background border-r flex flex-col gap-2 p-2 py-4 text-muted-foreground h-screen pt-16 sticky top-0">
-					<div className="grow flex  flex-col gap-2 ">
-						<Button size={"sm"} variant={"ghost"}>
-							<FileIcon />
-						</Button>
-						<Button size={"sm"} variant={"ghost"}>
-							<GitFork />
-						</Button>
-						<Button size={"sm"} variant={"ghost"}>
-							<PlayIcon />
-						</Button>
-						<Button size={"sm"} variant={"ghost"}>
-							<BlocksIcon />
-						</Button>
-					</div>
-					<div className="flex  flex-col gap-2 ">
-						<Button size={"sm"} variant={"ghost"}>
-							<Settings />
-						</Button>
-						<Button size={"sm"} variant={"ghost"}>
-							<User />
-						</Button>
-					</div>
-				</div>
+
 				{/* secondary file nav section - file tree  */}
 				<div className="flex border-r flex-col grow max-w-64 gap-2 p-4 h-screen sticky top-0 pt-16">
 					<Link

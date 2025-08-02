@@ -7,6 +7,8 @@ type UIState = {
 	toggleGrid: () => void;
 	toggleLens: () => void;
 	setLens: (value: boolean) => void;
+	pointerColor: string;
+	setPointerColor: (value: string) => void;
 };
 
 export const useUIStore = create<UIState>((set) => ({
@@ -15,4 +17,6 @@ export const useUIStore = create<UIState>((set) => ({
 	toggleGrid: () => set((state) => ({ showGrid: !state.showGrid })),
 	toggleLens: () => set((state) => ({ lensActive: !state.lensActive })),
 	setLens: (value) => set(() => ({ lensActive: value })),
+	pointerColor: "fill-zinc-900",
+	setPointerColor: (color: string) => set({ pointerColor: color }),
 }));

@@ -38,7 +38,7 @@ export default function RootLayout({
 					<ReactLenis root>{children}</ReactLenis>
 				</ThemeProvider>
 				<Navbar />
-				<Toaster />
+				<Toaster position="top-center" />
 			</body>
 		</html>
 	);

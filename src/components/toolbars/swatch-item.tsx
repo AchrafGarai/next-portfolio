@@ -13,15 +13,18 @@ export default function SwatchItem({
 	children,
 	...rest
 }: SwatchItemProps) {
+	const handleClick = () => {
+		navigator.clipboard
+			.writeText(swatch.value)
+			.then(() => toast.success(`Copied ${swatch.value}`))
+			.catch(() => toast.error("Failed to copy color"));
+	};
+
 	return (
 		<DropdownMenuItem
 			{...rest}
 			className=" flex items-center text-xs"
-			onClick={() =>
-				toast("Event has been created", {
-					description: "Sunday, December 03, 2023 at 9:00 AM",
-				})
-			}
+			onClick={handleClick}
 		>
 			<div
 				className={"w-3 h-3 rounded-sm "}

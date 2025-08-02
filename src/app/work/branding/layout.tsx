@@ -27,6 +27,8 @@ import ArtboardLink from "@/components/toolbars/artboard-link";
 import ProjectsNav from "@/components/toolbars/project-arbaord-navigation";
 import { BrandingProjectMap } from "@/data/branding/projects";
 import ProjectPalette from "@/components/toolbars/project-palette";
+import { Pointer } from "@/components/magicui/pointer";
+import PointerSelect from "@/components/toolbars/pointer-select";
 
 async function Layout({
 	children,
@@ -43,16 +45,7 @@ async function Layout({
 						<div className="mx-auto mb-4  rounded-md flex items-center justify-center font-semibold bg-[#330000] text-[#FF9A00] w-8 h-8">
 							Ag
 						</div>
-						<span>
-							<Button size={"sm"} variant={"ghost"}>
-								<MousePointer2 />
-							</Button>
-						</span>
-						<span>
-							<Button size={"sm"} variant={"ghost"}>
-								<TypeIcon />
-							</Button>
-						</span>
+						<PointerSelect />
 						<ProjectPalette />
 						<GridToggle />
 						<LensToggle />
@@ -61,7 +54,10 @@ async function Layout({
 					</div>
 				</div>
 				{/* main section - canvas  */}
-				<Container>{children}</Container>
+				<Container>
+					<Pointer />
+					{children}
+				</Container>
 				{/* right sidebar - inspector */}
 				<div className="bg-background border-l w-56  sticky top-0 h-screen left-0 z-20 shadow-x flex flex-col justify-between">
 					<div>
