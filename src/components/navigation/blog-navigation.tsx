@@ -5,21 +5,21 @@ import React from "react";
 const posts = getBlogPosts();
 
 function BlogNavigation() {
-	console.log(posts);
 	return (
-		<>
+		<div className="p-2 text-sm">
 			{posts.map((post) => (
-				<Link
+				<div
 					key={post.slug}
-					className="p-2 text-sm font-medium text-muted-foreground"
-					href={`/work/dev/${post.slug}`}
+					className="px-2 py-1 flex-items-center text-muted-foreground hover:text-foreground transition-colors ease-in-out rounded-md"
 				>
-					<span className="truncate inline-block w-full">
-						{post.metadata.title}
-					</span>
-				</Link>
+					<Link className="" href={`/work/dev/${post.slug}`}>
+						<span className="truncate inline-block w-full">
+							{post.metadata.title}
+						</span>
+					</Link>
+				</div>
 			))}
-		</>
+		</div>
 	);
 }
 

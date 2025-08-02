@@ -33,15 +33,13 @@ function PointerSelect() {
 			</DropdownMenuTrigger>
 			<DropdownMenuContent className="ml-4">
 				{pointerColors.map(({ bgClass, fillClass, label }) => (
-					<>
-						<DropdownMenuItem
-							key={fillClass}
-							onClick={() => SetPointer(fillClass)}
-						>
-							<div className={`w-3 h-3 border-b ${bgClass} rounded-sm`} />
-							<span>{label}</span>
-						</DropdownMenuItem>
-					</>
+					<DropdownMenuItem
+						key={fillClass}
+						onClick={() => SetPointer(fillClass)}
+					>
+						<div className={`w-3 h-3 border ${bgClass} rounded-sm`} />
+						<span className=" text-sm ">{label}</span>
+					</DropdownMenuItem>
 				))}
 			</DropdownMenuContent>
 		</DropdownMenu>

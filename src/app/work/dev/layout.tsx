@@ -27,7 +27,7 @@ import BlogNavigation from "@/components/navigation/blog-navigation";
 
 function Layout({ children }: { children: ReactNode }) {
 	return (
-		<div className="h-screen flex flex-col ">
+		<div className=" flex flex-col ">
 			<div className="flex gap-4 bg-background px-3 py-2 border-b justify-between items-center fixed top-0 w-full z-20">
 				<div className="flex grow">
 					<Image
@@ -35,7 +35,7 @@ function Layout({ children }: { children: ReactNode }) {
 						alt=""
 						width={32}
 						height={32}
-						className="mr-6"
+						className="mr-2"
 					/>
 					<Menubar className="rounded-none bg-background w-full border-none text-xs shadow-none">
 						<MenubarMenu>
@@ -57,7 +57,7 @@ function Layout({ children }: { children: ReactNode }) {
 					My Web Dev Projects
 				</div>
 				<div className="flex grow justify-end ">
-					<Button size={"sm"} className=" rounded-full">
+					<Button size={"sm"} variant={"outline"} className=" rounded-full">
 						Share
 					</Button>
 				</div>
@@ -67,53 +67,17 @@ function Layout({ children }: { children: ReactNode }) {
 				{/* Side navigation  */}
 
 				{/* secondary file nav section - file tree  */}
-				<div className="flex border-r flex-col grow max-w-64 gap-2 p-4 h-screen sticky top-0 pt-16">
-					<Link
-						className="p-2 text-sm font-medium hover:text-muted-foreground "
-						href={""}
-					>
-						<span className="truncate inline-block w-full">
-							Nextjs Setup with Clerk
-						</span>
-					</Link>
-					<Link
-						className="p-2 text-sm font-medium text-muted-foreground"
-						href={""}
-					>
-						<span className="truncate inline-block w-full">
-							Radiant: A beautiful new marketing site template
-						</span>
-					</Link>
+				<div className="flex border-r flex-col grow max-w-48 gap-4 h-screen sticky top-0 pt-16">
 					<BlogNavigation />
-					{/* 					<ul className="flex flex-col grow max-w-64 gap-2">
-						{allPosts.map((post) => (
-							<Link
-								key={post._meta.path}
-								className="p-2 text-sm font-medium text-muted-foreground"
-								href={`/work/dev/${post.slug}`}
-							>
-								<span className="truncate inline-block w-full">
-									{post.title}
-								</span>
-							</Link>
-						))}
-					</ul> */}
+					<div className="grow " />
+					<div className="flex items-center gap-2 border-t p-2">
+						<span className="text-xs flex-grow font-medium">Theme</span>
+						<ThemeToggle />
+					</div>
 				</div>
 
 				{/* main section - canvas  */}
 				<div className="grow h-full p-6 pt-16">{children}</div>
-
-				{/* right sidebar - inspector */}
-				<div className="flex flex-col h-screen bg-background border-l pt-16 sticky top-0">
-					<div className="grow flex  flex-col gap-2 px-2 py-2 ">
-						<Button size={"sm"} variant={"ghost"}>
-							<ChatBubbleIcon />
-						</Button>
-					</div>
-					<div className="flex justify-center mb-4">
-						<ThemeToggle />
-					</div>
-				</div>
 			</div>
 		</div>
 	);
