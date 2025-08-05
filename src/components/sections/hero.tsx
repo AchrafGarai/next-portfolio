@@ -11,7 +11,10 @@ function HeroSection() {
 				<LeftTitle />
 				<RightTitle />
 
-				<div className="absolute top-0 left-0 w-full h-full bg-indigo-500">
+				<div
+					className="absolute top-0 left-0 w-full h-full bg-indigo-500"
+					style={{ clipPath: "polygon(16% 9%, 84% 22%, 100% 91%, 0 56%)" }}
+				>
 					<Image
 						src={"/branding/lofiapp/mockup-2.jpg"}
 						fill
