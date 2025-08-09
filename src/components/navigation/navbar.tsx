@@ -19,7 +19,7 @@ const navItems: NavItem[] = [
 export function Navbar() {
 	return (
 		<div className="sticky mt-[-90px] bottom-8 inset-x-0 z-50 flex justify-center ">
-			<div className="dark flex p-3 px-4 w-full max-w-3xl items-center rounded-full border  bg-background/60 dark:bg-neutral-900/60 dark:border border-white/10 backdrop-blur-xl gap-2">
+			<div className=" flex p-3 px-4 w-full max-w-2xl items-center rounded-full border border-neutral-300/60  bg-background/60 dark:bg-neutral-900/60  dark:border-white/10 backdrop-blur-xl gap-2">
 				{navItems.map((item, i) => (
 					<Link
 						// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
@@ -40,7 +40,7 @@ export function Navbar() {
 				<div className="flex-grow " />
 
 				{/* Separator */}
-				<div className="mx-3 h-6 w-px bg-white/20 " />
+				<div className="mx-3 h-6 w-px bg-border dark:bg-neutral-900/60 " />
 
 				{/* Theme toggle */}
 				<Link
