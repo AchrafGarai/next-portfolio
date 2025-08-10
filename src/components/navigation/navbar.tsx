@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Home, Palette, Pencil, FileText, Sun } from "lucide-react";
 import Link from "next/link";
+import { ThemeToggle } from "../theme-toggle";
 
 interface NavItem {
 	label: string;
@@ -11,9 +12,9 @@ interface NavItem {
 
 const navItems: NavItem[] = [
 	{ label: "Home", icon: Home, href: "/", active: true },
-	{ label: "Design", icon: Palette, href: "/design" },
-	{ label: "Branding", icon: Pencil, href: "/branding" },
-	{ label: "Blog", icon: FileText, href: "/blog" },
+	{ label: "Design", icon: Palette, href: "/work/ui/aichor" },
+	{ label: "Branding", icon: Pencil, href: "/work/branding/aichor" },
+	{ label: "Blog", icon: FileText, href: "/dev" },
 ];
 
 export function Navbar() {
@@ -43,13 +44,10 @@ export function Navbar() {
 				<div className="mx-3 h-6 w-px bg-border dark:bg-neutral-900/60 " />
 
 				{/* Theme toggle */}
-				<Link
-					href={""}
-					className="flex items-center gap-2 rounded-full px-3 py-2 text-sm text-foreground/80 hover:text-foreground"
-				>
-					<Sun className="h-4 w-4" />
+				<div className="flex items-center gap-2 rounded-full text-sm text-foreground/80 hover:text-foreground">
 					<span>Theme</span>
-				</Link>
+					<ThemeToggle />
+				</div>
 			</div>
 		</div>
 	);

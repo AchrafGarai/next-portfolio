@@ -36,9 +36,9 @@ export default function RootLayout({
 					disableTransitionOnChange
 				>
 					<ReactLenis root>{children}</ReactLenis>
+					<Navbar />
+					<Toaster position="top-center" />
 				</ThemeProvider>
-				<Navbar />
-				<Toaster position="top-center" />
 			</body>
 		</html>
 	);

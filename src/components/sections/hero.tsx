@@ -15,7 +15,7 @@ function HeroSection() {
 
 			<div
 				className="absolute top-0 left-0 w-full h-full bg-indigo-500"
-				style={{ clipPath: "polygon(21% 16%, 86% 29%, 100% 86%, 0 60%)" }}
+				style={{ clipPath: "polygon(21% 16%, 86% 29%, 100% 82%, 0 60%)" }}
 			>
 				<Image
 					src={"/branding/lofiapp/mockup-2.jpg"}
@@ -49,7 +49,7 @@ function RightTitle({ className }: { className?: string }) {
 		<div
 			className={cn(
 				className,
-				"absolute bottom-10 left-16 flex justify-between items-center right-16 leading-tight   ",
+				"absolute bottom-24 left-16 flex justify-between items-center right-16 leading-tight   ",
 			)}
 		>
 			<p className="max-w-[600px] dark:text-white">

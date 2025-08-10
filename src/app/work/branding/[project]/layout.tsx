@@ -29,6 +29,7 @@ import { BrandingProjectMap } from "@/data/branding/projects";
 import ProjectPalette from "@/components/toolbars/project-palette";
 import { Pointer } from "@/components/magicui/pointer";
 import PointerSelect from "@/components/toolbars/pointer-select";
+import BrandingToolBar from "@/components/toolbars/branding-toolbar";
 
 async function Layout({
 	children,
@@ -39,20 +40,7 @@ async function Layout({
 		<div className="flex  grow relative">
 			<div className="flex grow gap-6 w-full relative items-start">
 				{/* Side navigation  */}
-
-				<div className="flex flex-col   bg-background border-r sticky right-0 top-0 h-screen  shadow-xs ">
-					<div className="flex flex-col w-fit gap-2  p-2 ">
-						<div className="mx-auto mb-4  rounded-md flex items-center justify-center font-semibold bg-[#330000] text-[#FF9A00] w-8 h-8">
-							Ag
-						</div>
-						<PointerSelect />
-						<ProjectPalette />
-						<GridToggle />
-						<LensToggle />
-
-						<EyeDropperLens />
-					</div>
-				</div>
+				<BrandingToolBar />
 				{/* main section - canvas  */}
 				<Container>
 					<Pointer />
