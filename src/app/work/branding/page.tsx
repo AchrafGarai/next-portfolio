@@ -5,6 +5,7 @@ import CurvedLoop from "@/components/magicui/circle-text";
 import { Container } from "@/components/ui/container";
 import ListSection from "@/components/sections/list-section";
 import Image from "next/image";
+import { ProjectsGrid } from "@/components/sections/projects-grid";
 function Page() {
 	return (
 		<>
@@ -23,20 +24,9 @@ function Page() {
 						dolorem excepturi necessitatibus voluptates? Sequi, natus eos.
 					</div>
 				</Container>
-				<ListSection
-					title="Every pixel is built with user’s feedback in mind"
-					subtitle="Every feature in AIchor is shaped by real feedback, helping us build a tool people actually enjoy using every day."
-					components={[
-						<Image
-							className="w-full h-[450px] object-cover"
-							src={"/branding/aichor/mockup-1.jpg"}
-							alt={""}
-							width={1200}
-							height={1200}
-							key={"1"}
-						/>,
-					]}
-				/>
+				<div className="min-h-screen mt-32">
+					<ProjectsGrid />
+				</div>
 			</div>
 		</>
 	);
