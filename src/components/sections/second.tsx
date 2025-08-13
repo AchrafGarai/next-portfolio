@@ -4,12 +4,21 @@ function SecondSection() {
 	return (
 		<section className="h-screen">
 			<div className="relative w-full h-full">
-				<MasketContent />
+				{/* Unmasked foreground */}
+				<MaskedContent>
+					<p>Hello world</p>
+					<h2 className="text-9xl font-tanker">Redefine gaming</h2>
+				</MaskedContent>
+
+				{/* Masked foreground */}
 				<div
 					className="relative w-full h-full bg-indigo-500"
 					style={{ clipPath: "polygon(41% 38%, 56% 34%, 60% 73%, 43% 58%)" }}
 				>
-					<MasketContent className=" z-20 text-background " />
+					<MaskedContent className="z-20 text-background">
+						<p>Hello world</p>
+						<h2 className="text-9xl font-tanker">Redefine gaming</h2>
+					</MaskedContent>
 				</div>
 			</div>
 		</section>
@@ -18,7 +27,12 @@ function SecondSection() {
 
 export default SecondSection;
 
-function MasketContent({ className }: { className?: string }) {
+interface MaskedContentProps {
+	className?: string;
+	children: React.ReactNode;
+}
+
+function MaskedContent({ className, children }: MaskedContentProps) {
 	return (
 		<div
 			className={cn(
@@ -26,8 +40,7 @@ function MasketContent({ className }: { className?: string }) {
 				className,
 			)}
 		>
-			<p>Hello world</p>
-			<h2 className=" text-9xl font-tanker">Redefine gaming</h2>
+			{children}
 		</div>
 	);
 }
