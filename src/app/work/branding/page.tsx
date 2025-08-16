@@ -9,6 +9,7 @@ import { ProjectsGrid } from "@/components/sections/projects-grid";
 import { ProjectsList } from "@/components/sections/project-list";
 import { ProjectsList2 } from "@/components/sections/project-list-2";
 import Stack from "@/components/magicui/stack-cards";
+import MaskedHeader from "@/components/sections/masked-header";
 const images = [
 	{
 		id: 1,
@@ -41,25 +42,11 @@ function Page() {
 							cardsData={images}
 						/>
 					</div> */}
-					<div className="relative min-h-screen">
-						<div className=" z-0 ">
-							{/* Background image */}
-							<Image
-								src="/branding/lofiapp/mockup-2.jpg"
-								fill
-								className="object-cover absolute w-full h-full"
-								alt=""
-							/>
-							<div className=" absolute inset-0 bg-black/40" />
-						</div>
+					<MaskedHeader src={"/branding/lofiapp/mockup-2.jpg"}>
+						<p>Hello world</p>
+						<h2 className="text-9xl font-tanker">Redefine gaming</h2>
+					</MaskedHeader>
 
-						{/* Overlay content */}
-						<div className="absolute inset-0 flex justify-between py-24">
-							<Container>
-								<h1 className="text-9xl text-white font-tanker">Branding</h1>
-							</Container>
-						</div>
-					</div>
 					<CurvedLoop
 						curveAmount={-300}
 						interactive={false}
