@@ -10,6 +10,7 @@ import { ProjectsList } from "@/components/sections/project-list";
 import { ProjectsList2 } from "@/components/sections/project-list-2";
 import Stack from "@/components/magicui/stack-cards";
 import MaskedHeader from "@/components/sections/masked-header";
+import ScrollImage from "@/components/projects/scroll-image";
 const images = [
 	{
 		id: 1,
@@ -44,28 +45,39 @@ function Page() {
 					</div> */}
 					<MaskedHeader src={"/branding/lofiapp/mockup-2.jpg"}>
 						<p>Hello world</p>
-						<h2 className="text-9xl font-tanker">Redefine gaming</h2>
+						<h2 className="text-9xl font-tanker">Branding Projects</h2>
 					</MaskedHeader>
-
-					<CurvedLoop
-						curveAmount={-300}
-						interactive={false}
-						marqueeText="Welcome to React Bits ✦"
-						className="font-tanker tracking-wide "
-					/>
-					<Container>
-						<div className="max-w-xl mt-[-300px] mr-0">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-							commodi repellendus doloribus autem recusandae omnis officiis
-							architecto, quam, reprehenderit molestias repudiandae maxime et
-							dolorem excepturi necessitatibus voluptates? Sequi, natus eos.
-						</div>
-					</Container>
+					<div className=" grid grid-cols-2 gap-4 justify-center items-center p-8 w-full">
+						<h2 className="text-9xl font-tanker flex-grow">
+							Branding Projects
+						</h2>
+						<p className="flex-grow">
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non vero
+							cum impedit suscipit voluptatem quia quam recusandae numquam
+							accusantium est? Deleniti quo sit repellat totam modi nostrum
+							magnam ab laborum.
+						</p>
+					</div>
 				</div>
 				<div className="min-h-screen my-64">
 					<ProjectsGrid />
 					{/* 	<ProjectsList2 /> */}
 				</div>
+				<CurvedLoop
+					curveAmount={-300}
+					interactive={false}
+					marqueeText="Branding Projects✦"
+					className="font-tanker tracking-wide "
+				/>
+
+				<Container className="mt-[-400px] mb-64 ">
+					<div className="max-w-xl mr-0">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+						commodi repellendus doloribus autem recusandae omnis officiis
+						architecto, quam, reprehenderit molestias repudiandae maxime et
+						dolorem excepturi necessitatibus voluptates? Sequi, natus eos.
+					</div>
+				</Container>
 			</div>
 		</>
 	);
