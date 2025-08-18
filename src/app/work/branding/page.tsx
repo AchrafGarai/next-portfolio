@@ -5,7 +5,7 @@ import CurvedLoop from "@/components/magicui/circle-text";
 import { Container } from "@/components/ui/container";
 import ListSection from "@/components/sections/list-section";
 import Image from "next/image";
-import { BrandingProjectsGrid } from "@/components/sections/projects-grid";
+import { BrandingProjectsGrid } from "@/components/sections/branding-projects-grid";
 import { ProjectsList } from "@/components/sections/project-list";
 import { ProjectsList2 } from "@/components/sections/project-list-2";
 import Stack from "@/components/magicui/stack-cards";
@@ -13,24 +13,7 @@ import MaskedHeader from "@/components/sections/masked-header";
 import ScrollImage from "@/components/projects/scroll-image";
 import BrandingHeader from "@/components/sections/branding-header";
 import { BrandingProjectMap } from "@/data/branding/projects";
-const images = [
-	{
-		id: 1,
-		img: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format",
-	},
-	{
-		id: 2,
-		img: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format",
-	},
-	{
-		id: 3,
-		img: "https://images.unsplash.com/photo-1452626212852-811d58933cae?q=80&w=500&auto=format",
-	},
-	{
-		id: 4,
-		img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=500&auto=format",
-	},
-];
+
 function Page() {
 	return (
 		<>
@@ -53,7 +36,7 @@ function Page() {
  */}
 					<BrandingHeader
 						imageSrc="/branding/lofiapp/mockup-2.jpg"
-						title="Branding Projects"
+						title="Branding"
 						description=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem error
 						nobis veritatis, dolor ex voluptatem aut dolorem ea officia voluptas
 						necessitatibus? Qui assumenda vel odit eum perferendis, aut velit?
@@ -68,7 +51,6 @@ function Page() {
 				</div>
 				<div className="min-h-screen my-64">
 					<BrandingProjectsGrid projects={BrandingProjectMap} />
-					{/* 	<ProjectsList2 /> */}
 				</div>
 				<CurvedLoop
 					curveAmount={-300}

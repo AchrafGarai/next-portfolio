@@ -26,7 +26,7 @@ function Page() {
 			<CurvedLoop
 				curveAmount={-300}
 				interactive={false}
-				marqueeText="Branding Projects✦"
+				marqueeText="Design Engineering Projects✦"
 				className="font-tanker tracking-wide "
 			/>
 

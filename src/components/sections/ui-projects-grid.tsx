@@ -26,6 +26,26 @@ const Card = ({ title, tag, thumbnail: img, slug, className }: props) => {
 	);
 };
 
+const Card2 = ({ title, tag, coverImage, slug, className }: props) => {
+	return (
+		<div
+			className={`flex flex-col items-center gap-16 rounded-2xl p-8 border bg-accent ${className ?? ""}`}
+		>
+			<Link href={`/work/ui/${slug}`}>
+				<div className="mx-auto">
+					<Image src={coverImage} alt={""} width={1200} height={760} />
+				</div>
+			</Link>
+			<div className="flex px-4 gap-4 justify-between w-full">
+				<span className=" text-xl uppercase font-semibold">{title}</span>
+				<span className="text-xl uppsercase font-medium text-muted-foreground">
+					{tag}
+				</span>
+			</div>
+		</div>
+	);
+};
+
 export function UIProjectsGrid() {
 	return (
 		<div className="p-8 grid grid-cols-2 gap-8">
