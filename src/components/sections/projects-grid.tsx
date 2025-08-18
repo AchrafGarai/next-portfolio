@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/magicui/marquee";
 import Image from "next/image";
+import { BrandingProjectMap } from "@/data/branding/projects";
+import Link from "next/link";
 const reviews = [
 	{
 		name: "Jumanji",
@@ -28,25 +30,21 @@ const reviews = [
 	},
 ];
 
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
-
-const ReviewCard = ({
-	img,
-	name,
-}: {
-	img: string;
-	name: string;
-}) => {
+const firstRow = BrandingProjectMap.slice(0, BrandingProjectMap.length / 2);
+const secondRow = BrandingProjectMap.slice(BrandingProjectMap.length / 2);
+type props = (typeof BrandingProjectMap)[number];
+const ReviewCard = ({ title, tag, coverImage: img, slug }: props) => {
 	return (
 		<div className=" flex flex-col gap-4 mr-8 ">
-			<div className="relative w-[30vw] h-[40vh]">
-				<Image src={img} alt={""} fill className="object-cover" />
-			</div>
+			<Link href={`/work/branding/${slug}`}>
+				<div className="relative w-[30vw] h-[40vh]">
+					<Image src={img} alt={""} fill className="object-cover" />
+				</div>
+			</Link>
 			<div className="flex px-4 gap-4 justify-between">
-				<span className=" text-xl uppercase font-semibold">{name}</span>
+				<span className=" text-xl uppercase font-semibold">{title}</span>
 				<span className="text-xl uppsercase font-medium text-muted-foreground">
-					Saas
+					{tag}
 				</span>
 			</div>
 		</div>
@@ -57,13 +55,13 @@ export function ProjectsGrid() {
 	return (
 		<div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
 			<Marquee pauseOnHover className="[--duration:20s] mb-24">
-				{firstRow.map((review) => (
-					<ReviewCard key={review.name} {...review} />
+				{firstRow.map((project) => (
+					<ReviewCard key={project.title} {...project} />
 				))}
 			</Marquee>
 			<Marquee reverse pauseOnHover className="[--duration:20s]">
-				{secondRow.map((review) => (
-					<ReviewCard key={review.name} {...review} />
+				{secondRow.map((project) => (
+					<ReviewCard key={project.title} {...project} />
 				))}
 			</Marquee>
 

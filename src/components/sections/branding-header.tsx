@@ -1,0 +1,67 @@
+import React from "react";
+import Image from "next/image";
+function BrandingHeader() {
+	return (
+		<>
+			<div className="relative w-full h-[50vh]">
+				{/* Background image */}
+				<Image
+					src="/branding/lofiapp/mockup-2.jpg"
+					alt="Subway Ad"
+					fill
+					className="object-cover"
+					priority
+				/>
+
+				{/* Black overlay */}
+				<div className="absolute inset-0 bg-black/30" />
+
+				{/* Futuristic grid overlay */}
+				<div className="absolute inset-0 flex items-center justify-center">
+					{/* Vertical + horizontal lines */}
+					<div className="absolute inset-0">
+						{/* Center cross */}
+						<div className="absolute top-1/2 left-0 w-full border-t border-white/40" />
+						<div className="absolute left-1/2 top-0 h-full border-l border-white/40" />
+
+						{/* Outer frame */}
+						<div className="absolute inset-0 border border-white/30" />
+					</div>
+
+					{/* Corner squares */}
+					<div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-white" />
+					<div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-white" />
+					<div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-white" />
+					<div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-white" />
+
+					{/* Center square */}
+					<div className="w-3 h-3 bg-white" />
+
+					{/* Futuristic corner text */}
+					<div className="absolute top-2 left-2 text-xs tracking-widest text-white/70">
+						CLIENT_01
+					</div>
+					<div className="absolute top-2 right-2 text-xs tracking-widest text-white/70">
+						PROJECT_AICHOR
+					</div>
+					<div className="absolute bottom-2 left-2 text-xs tracking-widest text-white/70">
+						BRND_001
+					</div>
+					<div className="absolute bottom-2 right-2 text-xs tracking-widest text-white/70">
+						STATUS_OK
+					</div>
+				</div>
+			</div>
+			<div className=" grid grid-cols-2 gap-4 justify-center items-center p-8 w-full">
+				<h2 className="text-9xl font-tanker flex-grow">Branding Projects</h2>
+				<p className="flex-grow">
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non vero cum
+					impedit suscipit voluptatem quia quam recusandae numquam accusantium
+					est? Deleniti quo sit repellat totam modi nostrum magnam ab laborum.
+				</p>
+			</div>
+		</>
+	);
+}
+
+export default BrandingHeader;

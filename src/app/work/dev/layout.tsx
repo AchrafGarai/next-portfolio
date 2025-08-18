@@ -24,6 +24,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import BlogNavigation from "@/components/navigation/blog-navigation";
+import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
 
 function Layout({ children }: { children: ReactNode }) {
 	return (
@@ -72,7 +73,7 @@ function Layout({ children }: { children: ReactNode }) {
 					<div className="grow " />
 					<div className="flex items-center gap-2 border-t p-2">
 						<span className="text-xs flex-grow font-medium">Theme</span>
-						<ThemeToggle />
+						<AnimatedThemeToggler />
 					</div>
 				</div>
 

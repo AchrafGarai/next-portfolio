@@ -11,6 +11,7 @@ import { ProjectsList2 } from "@/components/sections/project-list-2";
 import Stack from "@/components/magicui/stack-cards";
 import MaskedHeader from "@/components/sections/masked-header";
 import ScrollImage from "@/components/projects/scroll-image";
+import BrandingHeader from "@/components/sections/branding-header";
 const images = [
 	{
 		id: 1,
@@ -43,21 +44,13 @@ function Page() {
 							cardsData={images}
 						/>
 					</div> */}
-					<MaskedHeader src={"/branding/lofiapp/mockup-2.jpg"}>
+
+					{/* <MaskedHeader src={"/branding/lofiapp/mockup-2.jpg"}>
 						<p>Hello world</p>
 						<h2 className="text-9xl font-tanker">Branding Projects</h2>
 					</MaskedHeader>
-					<div className=" grid grid-cols-2 gap-4 justify-center items-center p-8 w-full">
-						<h2 className="text-9xl font-tanker flex-grow">
-							Branding Projects
-						</h2>
-						<p className="flex-grow">
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non vero
-							cum impedit suscipit voluptatem quia quam recusandae numquam
-							accusantium est? Deleniti quo sit repellat totam modi nostrum
-							magnam ab laborum.
-						</p>
-					</div>
+ */}
+					<BrandingHeader />
 				</div>
 				<div className="min-h-screen my-64">
 					<ProjectsGrid />

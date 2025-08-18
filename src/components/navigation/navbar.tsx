@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { Home, Palette, Pencil, FileText, Sun } from "lucide-react";
 import Link from "next/link";
 import { ThemeToggle } from "../theme-toggle";
+import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
 
 interface NavItem {
 	label: string;
@@ -13,8 +14,8 @@ interface NavItem {
 const navItems: NavItem[] = [
 	{ label: "Home", icon: Home, href: "/", active: true },
 	{ label: "Design", icon: Palette, href: "/work/ui/aichor" },
-	{ label: "Branding", icon: Pencil, href: "/work/branding/aichor" },
-	{ label: "Blog", icon: FileText, href: "/dev" },
+	{ label: "Branding", icon: Pencil, href: "/work/branding" },
+	{ label: "Blog", icon: FileText, href: "/work/dev" },
 ];
 
 export function Navbar() {
@@ -46,7 +47,8 @@ export function Navbar() {
 				{/* Theme toggle */}
 				<div className="flex items-center gap-2 rounded-full text-sm text-foreground/80 hover:text-foreground">
 					<span>Theme</span>
-					<ThemeToggle />
+					{/* 	<ThemeToggle /> */}
+					<AnimatedThemeToggler />
 				</div>
 			</div>
 		</div>

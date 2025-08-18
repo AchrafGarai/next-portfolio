@@ -30,6 +30,7 @@ import ProjectPalette from "@/components/toolbars/project-palette";
 import { Pointer } from "@/components/magicui/pointer";
 import PointerSelect from "@/components/toolbars/pointer-select";
 import BrandingToolBar from "@/components/toolbars/branding-toolbar";
+import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
 
 async function Layout({
 	children,

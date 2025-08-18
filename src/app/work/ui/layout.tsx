@@ -1,3 +1,4 @@
+import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
 import { Pointer } from "@/components/magicui/pointer";
 import UiNavigation from "@/components/navigation/ui-navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -79,7 +80,7 @@ function Layout({ children }: { children: ReactNode }) {
 
 					<div className="p-4 py-1 border-b flex items-center justify-between">
 						<span className="text-xs text-muted-foreground">Theme</span>
-						<ThemeToggle />
+						<AnimatedThemeToggler />
 					</div>
 				</div>
 			</div>
