@@ -3,6 +3,7 @@ import BrandingGalley from "@/components/sections/branding-callery";
 import { CodeGallery } from "@/components/sections/code-gallery";
 import Footer from "@/components/sections/footer";
 import HeroSection from "@/components/sections/hero";
+import MaskedHeader from "@/components/sections/masked-header";
 import { ProjectGallery } from "@/components/sections/project-gallery";
 import SecondSection from "@/components/sections/second";
 import SkillTags from "@/components/sections/skill-tags";
@@ -16,7 +17,11 @@ export default function Home() {
 			</div>
 			<section>
 				<HeroSection />
-				<SecondSection />
+				{/* <SecondSection /> */}
+				<MaskedHeader src={"/branding/lofiapp/mockup-2.jpg"}>
+					<p>Hello world</p>
+					<h2 className="text-9xl font-tanker">Redefine gaming</h2>
+				</MaskedHeader>
 				<ProjectGallery />
 				<CodeGallery />
 				<BrandingGalley />

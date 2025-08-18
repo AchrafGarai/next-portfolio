@@ -1,4 +1,6 @@
 "use client";
+import { BrandingProjectMap } from "@/data/branding/projects";
+import { UIProjectMap } from "@/data/ui/projects";
 import {
 	Environment,
 	Image,
@@ -132,11 +134,12 @@ function Rig(props: {
 	}
 }
 
-function Carousel({ radius = 1.4, count = 8 }) {
+function Carousel({ radius = 1.4, count = 6 }) {
 	return Array.from({ length: count }, (_, i) => (
 		<Card
+			// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 			key={i}
-			url={`01.png`}
+			url={BrandingProjectMap[i].coverImage}
 			position={[
 				Math.sin((i / count) * Math.PI * 2) * radius,
 				0,
@@ -188,7 +191,7 @@ function Card({
 			onPointerOut={pointerOut}
 			{...props}
 		>
-			<bentPlaneGeometry args={[0.1, 1, 1, 20, 20]} />
+			<bentPlaneGeometry args={[0.1, 1.3, 1, 20, 20]} />
 		</Image>
 	);
 }
