@@ -58,6 +58,7 @@ export const AnimatedThemeToggler = ({ className }: props) => {
 			className={cn(className)}
 			type="button"
 			variant={"ghost"}
+			size={"sm"}
 		>
 			{isDarkMode ? <SunDim size={20} /> : <Moon size={20} />}
 		</Button>

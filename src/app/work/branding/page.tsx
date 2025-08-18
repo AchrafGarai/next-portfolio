@@ -12,6 +12,7 @@ import Stack from "@/components/magicui/stack-cards";
 import MaskedHeader from "@/components/sections/masked-header";
 import ScrollImage from "@/components/projects/scroll-image";
 import BrandingHeader from "@/components/sections/branding-header";
+import { BrandingProjectMap } from "@/data/branding/projects";
 const images = [
 	{
 		id: 1,
@@ -50,10 +51,23 @@ function Page() {
 						<h2 className="text-9xl font-tanker">Branding Projects</h2>
 					</MaskedHeader>
  */}
-					<BrandingHeader />
+					<BrandingHeader
+						imageSrc="/branding/lofiapp/mockup-2.jpg"
+						title="Branding Projects"
+						description=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem error
+						nobis veritatis, dolor ex voluptatem aut dolorem ea officia voluptas
+						necessitatibus? Qui assumenda vel odit eum perferendis, aut velit?
+						Animi."
+						cornerTexts={{
+							topLeft: "CLIENT_01",
+							topRight: "PROJECT_AICHOR",
+							bottomLeft: "BRND_001",
+							bottomRight: "STATUS_OK",
+						}}
+					/>
 				</div>
 				<div className="min-h-screen my-64">
-					<ProjectsGrid />
+					<ProjectsGrid projects={BrandingProjectMap} />
 					{/* 	<ProjectsList2 /> */}
 				</div>
 				<CurvedLoop

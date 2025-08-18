@@ -13,7 +13,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
 	{ label: "Home", icon: Home, href: "/", active: true },
-	{ label: "Design", icon: Palette, href: "/work/ui/aichor" },
+	{ label: "Design", icon: Palette, href: "/work/ui" },
 	{ label: "Branding", icon: Pencil, href: "/work/branding" },
 	{ label: "Blog", icon: FileText, href: "/work/dev" },
 ];
