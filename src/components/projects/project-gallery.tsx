@@ -191,7 +191,7 @@ function Card({
 			onPointerOut={pointerOut}
 			{...props}
 		>
-			<bentPlaneGeometry args={[0.1, 1.3, 1, 20, 20]} />
+			<bentPlaneGeometry args={[0.1, 1.3, 0.8, 20, 20]} />
 		</Image>
 	);
 }
