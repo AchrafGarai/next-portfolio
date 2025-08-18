@@ -26,6 +26,7 @@ export const metaData: ProjectMetadata = {
 	description:
 		"Designing a forward-looking, branded UI system to support AIchor's intelligent interface for technical researchers and developers.",
 	coverImage: "/geo-ai/hero.png",
+	thumbnail: "/geo-ai/mockup.jpg",
 	intro: "Biometric login redesign using WebAuthn.",
 	screens: [
 		{ key: "home", title: "Home" },

@@ -23,7 +23,7 @@ const BrandingHeader: React.FC<BrandingHeaderProps> = ({
 }) => {
 	return (
 		<>
-			<div className="relative w-full h-[50vh]">
+			<div className="relative w-full h-[70vh]">
 				{/* Background image */}
 				<Image
 					src={imageSrc}
@@ -77,7 +77,7 @@ const BrandingHeader: React.FC<BrandingHeaderProps> = ({
 				</div>
 			</div>
 
-			<div className="grid grid-cols-2 gap-4 justify-center items-center p-8 w-full">
+			<div className="grid grid-cols-2 gap-4 justify-center items-center p-8 w-full mb-40 ">
 				<h2 className="text-9xl font-tanker flex-grow">{title}</h2>
 				<p className="flex-grow">{description}</p>
 			</div>

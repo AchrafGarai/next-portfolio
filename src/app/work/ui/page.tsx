@@ -1,5 +1,6 @@
 import CurvedLoop from "@/components/magicui/circle-text";
 import BrandingHeader from "@/components/sections/branding-header";
+import { UIProjectsGrid } from "@/components/sections/ui-projects-grid";
 import { Container } from "@/components/ui/container";
 
 function Page() {
@@ -19,6 +20,9 @@ function Page() {
 					bottomRight: "STATUS_OK",
 				}}
 			/>
+
+			<UIProjectsGrid />
+
 			<CurvedLoop
 				curveAmount={-300}
 				interactive={false}

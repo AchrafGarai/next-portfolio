@@ -18,6 +18,7 @@ export const metaData: ProjectMetadata = {
 	description:
 		"Designing a forward-looking, branded UI system to support AIchor's intelligent interface for technical researchers and developers.",
 	coverImage: "/hackages/hero.png",
+	thumbnail: "/hackages/mockup.jpg",
 	intro: "Biometric login redesign using WebAuthn.",
 	screens: [
 		{ key: "home", title: "Home" },

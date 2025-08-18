@@ -5,7 +5,7 @@ import CurvedLoop from "@/components/magicui/circle-text";
 import { Container } from "@/components/ui/container";
 import ListSection from "@/components/sections/list-section";
 import Image from "next/image";
-import { ProjectsGrid } from "@/components/sections/projects-grid";
+import { BrandingProjectsGrid } from "@/components/sections/projects-grid";
 import { ProjectsList } from "@/components/sections/project-list";
 import { ProjectsList2 } from "@/components/sections/project-list-2";
 import Stack from "@/components/magicui/stack-cards";
@@ -67,7 +67,7 @@ function Page() {
 					/>
 				</div>
 				<div className="min-h-screen my-64">
-					<ProjectsGrid projects={BrandingProjectMap} />
+					<BrandingProjectsGrid projects={BrandingProjectMap} />
 					{/* 	<ProjectsList2 /> */}
 				</div>
 				<CurvedLoop

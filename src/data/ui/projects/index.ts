@@ -26,6 +26,7 @@ export type ProjectMetadata = {
 	tag: string;
 	description: string;
 	coverImage: string;
+	thumbnail: string;
 	intro: string;
 	screens: screen[];
 };

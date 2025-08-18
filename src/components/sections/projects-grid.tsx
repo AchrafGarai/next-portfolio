@@ -7,35 +7,9 @@ import type {
 } from "@/data/branding/projects";
 import Link from "next/link";
 import { Button } from "../ui/button";
-const reviews = [
-	{
-		name: "Jumanji",
-		img: "/branding/jumanji/mockup-1.jpg",
-	},
-	{
-		name: "Geo-AI Hack",
-		img: "/branding/geo-ai/mockup-3.jpg",
-	},
-	{
-		name: "Qdax",
-		img: "/branding/qdax/mockup-3.jpg",
-	},
-	{
-		name: "Mava",
-		img: "/branding/mava/mockup-1.jpg",
-	},
-	{
-		name: "Aichor",
-		img: "/branding/Aichor/mockup-2.jpg",
-	},
-	{
-		name: "Lofi-app",
-		img: "/branding/lofiapp/mockup-2.jpg",
-	},
-];
 
 type props = (typeof BrandingProjectMap)[number];
-const ReviewCard = ({ title, tag, coverImage: img, slug }: props) => {
+const Card = ({ title, tag, coverImage: img, slug }: props) => {
 	return (
 		<div className=" flex flex-col gap-4 mr-8 ">
 			<Link href={`/work/branding/${slug}`}>
@@ -56,19 +30,21 @@ const ReviewCard = ({ title, tag, coverImage: img, slug }: props) => {
 	);
 };
 
-export function ProjectsGrid({ projects }: { projects: ProjectMetadata[] }) {
+export function BrandingProjectsGrid({
+	projects,
+}: { projects: ProjectMetadata[] }) {
 	const firstRow = projects.slice(0, projects.length / 2);
 	const secondRow = projects.slice(projects.length / 2);
 	return (
 		<div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
 			<Marquee pauseOnHover className="[--duration:20s] mb-24">
 				{firstRow.map((project) => (
-					<ReviewCard key={project.title} {...project} />
+					<Card key={project.title} {...project} />
 				))}
 			</Marquee>
 			<Marquee reverse pauseOnHover className="[--duration:20s]">
 				{secondRow.map((project) => (
-					<ReviewCard key={project.title} {...project} />
+					<Card key={project.title} {...project} />
 				))}
 			</Marquee>
 
