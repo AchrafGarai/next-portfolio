@@ -177,7 +177,7 @@ function Card({
 				0.2,
 				delta,
 			);
-			easing.damp(ref.current.material, "zoom", hovered ? 1 : 1.5, 0.2, delta);
+			easing.damp(ref.current.material, "zoom", hovered ? 1 : 1.2, 0.2, delta);
 		}
 	});
 
@@ -201,7 +201,7 @@ function Banner(props: any) {
 	const ref = useRef<THREE.Mesh>(null);
 
 	// Load texture and set wrapS and wrapT
-	const texture = useTexture("/01.png") as THREE.Texture;
+	const texture = useTexture("/banner.png") as THREE.Texture;
 	texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
 	// Handle scroll position
