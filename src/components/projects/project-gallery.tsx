@@ -16,14 +16,18 @@ import {
 	useFrame,
 } from "@react-three/fiber";
 import { easing } from "maath";
-import React, { useEffect, useState } from "react";
+import React, { type JSX, useEffect, useState } from "react";
 import { useRef } from "react";
 import * as THREE from "three";
+import { Button } from "../ui/button";
+import { Arrow } from "@radix-ui/react-dropdown-menu";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useSpring } from "motion/react";
 
 // Paul West @prisoner849 https://discourse.threejs.org/u/prisoner849
 // https://discourse.threejs.org/t/simple-curved-plane/26647/10
 class BentPlaneGeometry extends THREE.PlaneGeometry {
-	constructor(radius: number, ...args: any) {
+	constructor(radius: number, ...args: number[]) {
 		super(...args);
 		const p = this.parameters;
 		const hw = p.width * 0.5;
@@ -59,15 +63,16 @@ export class MeshSineMaterial extends THREE.MeshBasicMaterial {
 		this.setValues(parameters);
 		this.time = { value: 0 };
 	}
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	onBeforeCompile(shader: any) {
 		shader.uniforms.time = this.time;
 		shader.vertexShader = `
-      uniform float time;
-      ${shader.vertexShader}
-    `;
+	  uniform float time;
+	  ${shader.vertexShader}
+	`;
 		shader.vertexShader = shader.vertexShader.replace(
 			"#include <begin_vertex>",
-			`vec3 transformed = vec3(position.x, position.y + sin(time + uv.x * PI * 4.0) / 4.0, position.z);`,
+			"vec3 transformed = vec3(position.x, position.y + sin(time + uv.x * PI * 4.0) / 4.0, position.z);",
 		);
 	}
 }
@@ -80,49 +85,91 @@ declare module "@react-three/fiber" {
 		meshSineMaterial: {
 			attach?: string;
 			args?: ConstructorParameters<typeof MeshSineMaterial>;
-			[key: string]: any; // Allow additional props for flexibility
+			[key: string]: unknown; // Allow additional props for flexibility
 		};
 		bentPlaneGeometry: {
 			attach?: string;
 			args?: ConstructorParameters<typeof BentPlaneGeometry>;
-			[key: string]: any; // Allow additional props for flexibility
+			[key: string]: unknown; // Allow additional props for flexibility
 		};
 	}
 }
 
 export const Gallery = () => {
 	return (
-		<Canvas camera={{ position: [0, 0, 100], fov: 15 }}>
-			{/* <fog attach="fog" args={["#a79", 8.5, 12]} /> */}
-			{/* <ScrollControls pages={4} infinite></ScrollControls> */}
-			<ScrollControls pages={0} infinite>
-				<Rig rotation={[0, 0, 0.15]}>
-					<Carousel />
-				</Rig>
-				<Banner position={[0, -0.15, 0]} />
-			</ScrollControls>
-			{/* <Environment preset="dawn" background blur={0.5} /> */}
-		</Canvas>
+		<div className="relative w-full h-screen">
+			{/* Buttons */}
+			<div className="absolute inset-0 flex items-center justify-between px-6 pointer-events-none">
+				<Button
+					variant={"secondary"}
+					onClick={() => window.dispatchEvent(new CustomEvent("rotate-left"))}
+				>
+					<ArrowLeft />
+				</Button>
+				<Button
+					variant={"secondary"}
+					onClick={() => window.dispatchEvent(new CustomEvent("rotate-right"))}
+				>
+					<ArrowRight />
+				</Button>
+			</div>
+			<Canvas camera={{ position: [0, 0, 100], fov: 15 }}>
+				<fog attach="fog" args={["#222222", 8.5, 12]} />
+				{/* <ScrollControls pages={4} infinite></ScrollControls> */}
+				<ScrollControls pages={0} infinite>
+					<Rig rotation={[0, 0, 0.15]}>
+						<Carousel />
+					</Rig>
+					<Banner position={[0, -0.15, 0]} />
+				</ScrollControls>
+			</Canvas>
+		</div>
 	);
 };
 
 function Rig(props: {
 	rotation?: [number, number, number];
-	[key: string]: any; // Allow additional props
+	[key: string]: unknown; // Allow additional props
 }) {
 	const ref = useRef<THREE.Group>(null);
 	const scroll = useScroll();
+
+	// Smooth spring rotation
+	const rotation = useSpring(0, {
+		stiffness: 60,
+		damping: 15,
+		mass: 0.5,
+	});
+
+	// Function to apply a "push" (positive or negative)
+	const pushRotation = (force: number) => {
+		rotation.set(rotation.get() + force);
+	};
+
+	// Apply spring value to rig in the render loop
+	useFrame(() => {
+		if (ref.current) {
+			ref.current.rotation.y = rotation.get();
+		}
+	});
+
 	useFrame((state, delta: number | undefined) => {
-		/*     if (ref.current) {
-      ref.current.rotation.y = -scroll.offset * (Math.PI * 2); // Rotate contents
-    } */
+		const safeDelta = delta ?? 0;
+
+		if (ref.current) {
+			// Constant slow rotation
+			const base = ref.current.rotation.y + safeDelta * 0.15;
+			// Add spring rotation
+			ref.current.rotation.y = base + rotation.get();
+		}
+
 		if (state.events.update) {
 			state.events.update(); // Raycasts every frame rather than on pointer-move
 			easing.damp3(
 				state.camera.position,
 				[-state.pointer.x * 2, state.pointer.y + 1.5, 10],
 				0.3,
-				delta,
+				safeDelta,
 			);
 			// Move camera
 			state.camera.lookAt(0, 0, 0); // Look at center
@@ -167,7 +214,7 @@ function Card({
 
 	const pointerOut = () => hover(false);
 
-	useFrame((state: any, delta: number | undefined) => {
+	useFrame((state, delta) => {
 		if (ref.current) {
 			easing.damp3(ref.current.scale, hovered ? 1.15 : 1, 0.1, delta);
 			easing.damp(
@@ -177,7 +224,7 @@ function Card({
 				0.2,
 				delta,
 			);
-			easing.damp(ref.current.material, "zoom", hovered ? 1 : 1.2, 0.2, delta);
+			easing.damp(ref.current.material, "zoom", hovered ? 1 : 1.5, 0.2, delta);
 		}
 	});
 
@@ -196,7 +243,7 @@ function Card({
 	);
 }
 
-function Banner(props: any) {
+function Banner(props: JSX.IntrinsicElements["mesh"]) {
 	// Use useRef to refer to the mesh
 	const ref = useRef<THREE.Mesh>(null);
 
@@ -208,10 +255,10 @@ function Banner(props: any) {
 	const scroll = useScroll();
 
 	// Use useFrame to update mesh properties each frame
-	useFrame((state: any, delta: number) => {
+	useFrame((state, delta) => {
 		if (ref.current) {
 			// Ensure the material is set properly
-			const material = ref.current.material as any;
+			const material = ref.current.material as MeshSineMaterial;
 			if (material.time) {
 				material.time.value += Math.abs(scroll.delta) * 4;
 			}
