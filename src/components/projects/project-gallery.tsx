@@ -102,13 +102,15 @@ export const Gallery = () => {
 	return (
 		<div className="relative w-full h-screen">
 			{/* Buttons */}
-			<div className="absolute z- inset-0 flex items-center justify-between px-6">
+			<div className="absolute z-10 left-0">
 				<Button
 					variant={"outline"}
 					onClick={() => rigRef.current?.pushRotation(1)}
 				>
 					<ArrowLeft />
 				</Button>
+			</div>
+			<div className="absolute z-10 right-0">
 				<Button
 					variant={"outline"}
 					onClick={() => rigRef.current?.pushRotation(-1)}
@@ -123,7 +125,7 @@ export const Gallery = () => {
 					<Rig rigRef={rigRef} rotation={[0, 0, 0.15]}>
 						<Carousel />
 					</Rig>
-					{/* 	<Banner position={[0, -0.15, 0]} /> */}
+					{/* 					<Banner position={[0, -0.15, 0]} /> */}
 				</ScrollControls>
 			</Canvas>
 		</div>
@@ -140,7 +142,7 @@ function Rig(props: {
 
 	useImperativeHandle(props.rigRef, () => ({
 		pushRotation(force: number) {
-			velocity.current += force * 0.04; // push in direction
+			velocity.current += force * 5; // accumulate push force
 		},
 	}));
 
@@ -148,13 +150,19 @@ function Rig(props: {
 		const safeDelta = delta ?? 0;
 
 		if (groupRef.current) {
-			// Constant slow rotation
-			const base = groupRef.current.rotation.y + safeDelta * 0.15;
-			// Add spring rotation
+			// Constant slow base rotation
+			let base = groupRef.current.rotation.y + safeDelta * 0.15;
+
+			// Apply velocity
+			base += velocity.current * safeDelta;
+
+			// Write back rotation
 			groupRef.current.rotation.y = base;
+
+			// Apply damping (friction)
+			velocity.current *= 0.92; // lower = stronger damping
+			if (Math.abs(velocity.current) < 0.0001) velocity.current = 0;
 		}
-		// apply friction to gradually slow down
-		velocity.current *= 0.95;
 
 		if (state.events.update) {
 			state.events.update(); // Raycasts every frame rather than on pointer-move
@@ -174,7 +182,7 @@ function Rig(props: {
 	}
 }
 
-function Carousel({ radius = 1.4, count = 6 }) {
+function Carousel({ radius = 1.3, count = 6 }) {
 	return Array.from({ length: count }, (_, i) => (
 		<Card
 			// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
@@ -189,7 +197,7 @@ function Carousel({ radius = 1.4, count = 6 }) {
 		/>
 	));
 }
-
+// Simple approach: Use two separate Image components
 function Card({
 	url,
 	...props
@@ -203,74 +211,76 @@ function Card({
 		e.stopPropagation();
 		hover(true);
 	};
-	const ref = useRef<THREE.Mesh>(null);
+	const frontRef = useRef<THREE.Mesh>(null);
+	const backRef = useRef<THREE.Mesh>(null);
 
 	const pointerOut = () => hover(false);
 
 	useFrame((state, delta) => {
-		if (ref.current) {
-			easing.damp3(ref.current.scale, hovered ? 1.15 : 1, 0.1, delta);
+		if (frontRef.current && backRef.current) {
+			const scale = hovered ? 1.15 : 1;
+			easing.damp3(frontRef.current.scale, scale, 0.1, delta);
+			easing.damp3(backRef.current.scale, scale, 0.1, delta);
+
+			// Apply hover effects to both materials
 			easing.damp(
-				ref.current.material,
+				frontRef.current.material,
 				"radius",
 				hovered ? 0.25 : 0.1,
 				0.2,
 				delta,
 			);
-			easing.damp(ref.current.material, "zoom", hovered ? 1 : 1.2, 0.2, delta);
+			easing.damp(
+				frontRef.current.material,
+				"zoom",
+				hovered ? 1 : 1.2,
+				0.2,
+				delta,
+			);
+			easing.damp(
+				backRef.current.material,
+				"radius",
+				hovered ? 0.25 : 0.1,
+				0.2,
+				delta,
+			);
+			easing.damp(
+				backRef.current.material,
+				"zoom",
+				hovered ? 1 : 1.2,
+				0.2,
+				delta,
+			);
 		}
 	});
 
 	return (
-		<Image
-			ref={ref}
-			url={url}
-			transparent
-			side={THREE.DoubleSide}
-			onPointerOver={pointerOver}
-			onPointerOut={pointerOut}
-			{...props}
-		>
-			<bentPlaneGeometry args={[0.1, 1.3, 0.8, 20, 20]} />
-		</Image>
-	);
-}
+		<group {...props}>
+			{/* Front face */}
+			<Image
+				ref={frontRef}
+				url={url}
+				transparent
+				position={[0, 0, 0.001]} // Slight forward offset
+				onPointerOver={pointerOver}
+				onPointerOut={pointerOut}
+			>
+				<bentPlaneGeometry args={[0.1, 1.3, 0.8, 20, 20]} />
+			</Image>
 
-function Banner(props: JSX.IntrinsicElements["mesh"]) {
-	// Use useRef to refer to the mesh
-	const ref = useRef<THREE.Mesh>(null);
-
-	// Load texture and set wrapS and wrapT
-	const texture = useTexture("/banner.png") as THREE.Texture;
-	texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-
-	// Handle scroll position
-	const scroll = useScroll();
-
-	// Use useFrame to update mesh properties each frame
-	useFrame((state, delta) => {
-		if (ref.current) {
-			// Ensure the material is set properly
-			const material = ref.current.material as MeshSineMaterial;
-			if (material.time) {
-				material.time.value += Math.abs(scroll.delta) * 4;
-			}
-			if (material.map) {
-				material.map.offset.x += delta / 2;
-			}
-		}
-	});
-
-	return (
-		<mesh ref={ref} {...props}>
-			<cylinderGeometry args={[1.6, 1.6, 0.14, 128, 16, true]} />
-			<meshSineMaterial
-				map={texture}
-				map-anisotropy={16}
-				map-repeat={[30, 1]}
-				side={THREE.DoubleSide}
-				toneMapped={false}
-			/>
-		</mesh>
+			{/* Back face - rotated 180 degrees around Y axis to flip it */}
+			<Image
+				ref={backRef}
+				url={url}
+				transparent
+				position={[0, 0, -0.001]} // Slight backward offset
+				rotation={[0, Math.PI, 0]}
+				scale={[1, 1]} // Flip the Z-scale to make the bend curve outward
+				onPointerOver={pointerOver}
+				onPointerOut={pointerOut}
+			>
+				<bentPlaneGeometry args={[0.1, 1.3, 0.8, 20, 20]} />
+			</Image>
+		</group>
 	);
 }

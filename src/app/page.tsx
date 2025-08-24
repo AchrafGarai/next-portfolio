@@ -1,6 +1,6 @@
 "use client";
 import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
-import { ProjectGallery2 } from "@/components/projects/project-line-gallery";
+import { Gallery } from "@/components/projects/project-gallery";
 import BrandingGalley from "@/components/sections/branding-callery";
 import { CodeGallery } from "@/components/sections/code-gallery";
 import Footer from "@/components/sections/footer";
@@ -10,6 +10,7 @@ import { ProjectGallery } from "@/components/sections/project-gallery";
 import SecondSection from "@/components/sections/second";
 import SkillTags from "@/components/sections/skill-tags";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Container } from "@/components/ui/container";
 
 export default function Home() {
 	return (
@@ -24,17 +25,32 @@ export default function Home() {
 					<p>Hello world</p>
 					<h2 className="text-9xl font-tanker">Redefine gaming</h2>
 				</MaskedHeader>
-				<ProjectGallery />
-				<ProjectGallery2 />
-				<CodeGallery />
-				<BrandingGalley />
-				<div className="relative flex w-full flex-col items-center justify-center overflow-hidden uppercase min-h-screen">
-					<VelocityScroll defaultVelocity={1}>
+				{/* <ProjectGallery /> */}
+				<div className="relative flex w-full flex-col items-center justify-center overflow-hidden min-h-screen">
+					<div className="w-full absolute z-10">
+						<Gallery />
+					</div>
+					<Container className="absolute h-full w-full flex flex-col justify-between py-24">
+						<p className=" text-lg max-w-md text-muted-foreground">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eius
+							voluptate nostrum necessitatibus delectus sit nesciunt temporibus
+						</p>
+						<div className="flex justify-end">
+							<p className=" text-lg text-right max-w-md text-muted-foreground">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
+								eius voluptate nostrum necessitatibus delectus sit nesciunt
+							</p>
+						</div>
+					</Container>
+					<VelocityScroll defaultVelocity={1} numRows={1}>
 						From Vision to Interaction * Seamlessly Engineered
 					</VelocityScroll>
 					<div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background " />
 					<div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
 				</div>
+				<CodeGallery />
+				<BrandingGalley />
+
 				<SkillTags />
 				<Footer />
 			</section>
