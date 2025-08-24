@@ -16,7 +16,8 @@ import {
 	useFrame,
 } from "@react-three/fiber";
 import { easing } from "maath";
-import React, { type JSX, useEffect, useState } from "react";
+import type React from "react";
+import { type JSX, useImperativeHandle, useState } from "react";
 import { useRef } from "react";
 import * as THREE from "three";
 import { Button } from "../ui/button";
@@ -96,19 +97,21 @@ declare module "@react-three/fiber" {
 }
 
 export const Gallery = () => {
+	const rigRef = useRef<{ pushRotation: (force: number) => void }>(null);
+
 	return (
 		<div className="relative w-full h-screen">
 			{/* Buttons */}
-			<div className="absolute inset-0 flex items-center justify-between px-6 pointer-events-none">
+			<div className="absolute z- inset-0 flex items-center justify-between px-6">
 				<Button
-					variant={"secondary"}
-					onClick={() => window.dispatchEvent(new CustomEvent("rotate-left"))}
+					variant={"outline"}
+					onClick={() => rigRef.current?.pushRotation(1)}
 				>
 					<ArrowLeft />
 				</Button>
 				<Button
-					variant={"secondary"}
-					onClick={() => window.dispatchEvent(new CustomEvent("rotate-right"))}
+					variant={"outline"}
+					onClick={() => rigRef.current?.pushRotation(-1)}
 				>
 					<ArrowRight />
 				</Button>
@@ -117,10 +120,10 @@ export const Gallery = () => {
 				<fog attach="fog" args={["#222222", 8.5, 12]} />
 				{/* <ScrollControls pages={4} infinite></ScrollControls> */}
 				<ScrollControls pages={0} infinite>
-					<Rig rotation={[0, 0, 0.15]}>
+					<Rig rigRef={rigRef} rotation={[0, 0, 0.15]}>
 						<Carousel />
 					</Rig>
-					<Banner position={[0, -0.15, 0]} />
+					{/* 	<Banner position={[0, -0.15, 0]} /> */}
 				</ScrollControls>
 			</Canvas>
 		</div>
@@ -128,40 +131,30 @@ export const Gallery = () => {
 };
 
 function Rig(props: {
-	rotation?: [number, number, number];
 	[key: string]: unknown; // Allow additional props
+	rigRef: React.Ref<{ pushRotation: (force: number) => void }>;
 }) {
-	const ref = useRef<THREE.Group>(null);
-	const scroll = useScroll();
+	const groupRef = useRef<THREE.Group>(null);
+	// 1️⃣ Define velocity ref
+	const velocity = useRef(0);
 
-	// Smooth spring rotation
-	const rotation = useSpring(0, {
-		stiffness: 60,
-		damping: 15,
-		mass: 0.5,
-	});
-
-	// Function to apply a "push" (positive or negative)
-	const pushRotation = (force: number) => {
-		rotation.set(rotation.get() + force);
-	};
-
-	// Apply spring value to rig in the render loop
-	useFrame(() => {
-		if (ref.current) {
-			ref.current.rotation.y = rotation.get();
-		}
-	});
+	useImperativeHandle(props.rigRef, () => ({
+		pushRotation(force: number) {
+			velocity.current += force * 0.04; // push in direction
+		},
+	}));
 
 	useFrame((state, delta: number | undefined) => {
 		const safeDelta = delta ?? 0;
 
-		if (ref.current) {
+		if (groupRef.current) {
 			// Constant slow rotation
-			const base = ref.current.rotation.y + safeDelta * 0.15;
+			const base = groupRef.current.rotation.y + safeDelta * 0.15;
 			// Add spring rotation
-			ref.current.rotation.y = base + rotation.get();
+			groupRef.current.rotation.y = base;
 		}
+		// apply friction to gradually slow down
+		velocity.current *= 0.95;
 
 		if (state.events.update) {
 			state.events.update(); // Raycasts every frame rather than on pointer-move
@@ -176,8 +169,8 @@ function Rig(props: {
 		}
 	});
 
-	if (ref) {
-		return <group ref={ref} {...props} />;
+	if (groupRef) {
+		return <group ref={groupRef} {...props} />;
 	}
 }
 
@@ -224,7 +217,7 @@ function Card({
 				0.2,
 				delta,
 			);
-			easing.damp(ref.current.material, "zoom", hovered ? 1 : 1.5, 0.2, delta);
+			easing.damp(ref.current.material, "zoom", hovered ? 1 : 1.2, 0.2, delta);
 		}
 	});
 

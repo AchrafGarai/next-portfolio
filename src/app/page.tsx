@@ -1,4 +1,6 @@
+"use client";
 import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
+import { ProjectGallery2 } from "@/components/projects/project-line-gallery";
 import BrandingGalley from "@/components/sections/branding-callery";
 import { CodeGallery } from "@/components/sections/code-gallery";
 import Footer from "@/components/sections/footer";
@@ -23,6 +25,7 @@ export default function Home() {
 					<h2 className="text-9xl font-tanker">Redefine gaming</h2>
 				</MaskedHeader>
 				<ProjectGallery />
+				<ProjectGallery2 />
 				<CodeGallery />
 				<BrandingGalley />
 				<div className="relative flex w-full flex-col items-center justify-center overflow-hidden uppercase min-h-screen">
