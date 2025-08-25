@@ -30,7 +30,7 @@ export function Logo3d({
 	material?: MaterialProps;
 }) {
 	const { theme } = useTheme();
-	const bg = theme === "light" ? "hsl(0,0%, 97%)" : "hsl(0 ,0%, 3.9%)";
+	const bg = theme === "light" ? "hsl(0,0%, 97%)" : "hsl(0 ,0%, 0%)";
 	return (
 		<Canvas style={{ height: "85vh" }}>
 			<Model
