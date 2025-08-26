@@ -102,16 +102,16 @@ export const Gallery = () => {
 	return (
 		<div className="relative w-full h-screen">
 			{/* Buttons */}
-			<div className="absolute z-10 left-0">
+			<div className="absolute z-10 flex gap-4 justify-center inset-x-0 bottom-32">
 				<Button
+					className="rounded-full w-8"
 					variant={"outline"}
 					onClick={() => rigRef.current?.pushRotation(1)}
 				>
 					<ArrowLeft />
 				</Button>
-			</div>
-			<div className="absolute z-10 right-0">
 				<Button
+					className="rounded-full w-8"
 					variant={"outline"}
 					onClick={() => rigRef.current?.pushRotation(-1)}
 				>

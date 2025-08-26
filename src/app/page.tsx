@@ -30,13 +30,17 @@ export default function Home() {
 					<div className="w-full absolute z-10">
 						<Gallery />
 					</div>
-					<Container className="absolute h-full w-full flex flex-col justify-between py-24">
-						<p className=" text-lg max-w-md text-muted-foreground">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eius
-							voluptate nostrum necessitatibus delectus sit nesciunt temporibus
-						</p>
+					<Container className="absolute h-full w-full flex flex-col justify-between py-36">
+						<div className="flex justify-between items-center">
+							<p className=" max-w-sm text-sm text-muted-foreground uppercase">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
+								eius voluptate nostrum necessitatibus delectus sit nesciunt
+								temporibus
+							</p>
+							<h2 className=" text-2xl font-semibold uppercase">Branding_01</h2>
+						</div>
 						<div className="flex justify-end">
-							<p className=" text-lg text-right max-w-md text-muted-foreground">
+							<p className="text-sm text-right max-w-sm text-muted-foreground uppercase">
 								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
 								eius voluptate nostrum necessitatibus delectus sit nesciunt
 							</p>
