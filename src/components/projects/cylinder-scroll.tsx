@@ -2,7 +2,6 @@
 import { UIProjectMap } from "@/data/ui/projects";
 import { Image, OrthographicCamera } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import { useControls } from "leva";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
 // Take first 4 thumbnails
@@ -20,7 +19,7 @@ export const Cylinder = ({
 	const groupRef = useRef<THREE.Group>(null);
 	const numPlanes = 8;
 	const angleStep = (2 * Math.PI) / numPlanes;
-	const radius = 1.5;
+	const radius = 1.25;
 
 	// Generate default placeholder images if none provided
 	const defaultImages = Array.from(
@@ -33,21 +32,14 @@ export const Cylinder = ({
 			groupRef.current.rotation.x += 0.003;
 		}
 	});
-	const tposition = useControls({
-		x: { value: -1.2, min: -3, max: 3, step: 0.05 },
-		y: { value: 0.1, min: -3, max: 3, step: 0.1 },
-		z: { value: 1, min: -3, max: 3, step: 0.1 },
-	});
-	const zoom = useControls({
-		zoom: { value: 500, min: 0, max: 1000, step: 10 },
-	});
+
 	const { viewport } = useThree();
 	return (
 		<>
 			<OrthographicCamera
 				makeDefault
-				position={[tposition.x, tposition.y, tposition.z]}
-				zoom={zoom.zoom}
+				position={[-1.2, 0.1, 1]}
+				zoom={500}
 				/* 	zoom={500} Default */
 				rotation={[0, 0, -0.4]}
 			/>
