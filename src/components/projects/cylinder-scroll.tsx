@@ -1,10 +1,15 @@
 "use client";
+import { UIProjectMap } from "@/data/ui/projects";
 import { Image, OrthographicCamera } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { useControls } from "leva";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
+// Take first 4 thumbnails
+const firstFour = UIProjectMap.slice(0, 4).map((p) => p.thumbnail);
 
+// Repeat them twice
+const Images = [...firstFour, ...firstFour];
 export const Cylinder = ({
 	className,
 	images = [],
@@ -29,14 +34,14 @@ export const Cylinder = ({
 		}
 	});
 	const tposition = useControls({
-		x: { value: -1.0, min: -3, max: 3, step: 0.05 },
+		x: { value: -1.2, min: -3, max: 3, step: 0.05 },
 		y: { value: 0.1, min: -3, max: 3, step: 0.1 },
 		z: { value: 1, min: -3, max: 3, step: 0.1 },
 	});
 	const zoom = useControls({
-		zoom: { value: 390, min: 0, max: 1000, step: 10 },
+		zoom: { value: 500, min: 0, max: 1000, step: 10 },
 	});
-
+	const { viewport } = useThree();
 	return (
 		<>
 			<OrthographicCamera
@@ -74,10 +79,12 @@ export const Cylinder = ({
 					return (
 						<Image
 							key={uniqueKey}
-							url={imageUrl}
+							url={Images[index]}
 							position={[x, 0, z]}
-							rotation={euler}
-							scale={[1, 2]} // Width, height, depth
+							rotation={[euler.x, euler.y, euler.z + Math.PI / 2]}
+							scale={[1.75, 1]} // Width, height, depth
+							segments={32} // Add segments for bending
+							radius={0.05}
 						/>
 					);
 				})}
