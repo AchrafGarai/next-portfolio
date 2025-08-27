@@ -1,6 +1,7 @@
 "use client";
 import { Image, OrthographicCamera } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import { useControls } from "leva";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
 
@@ -24,16 +25,25 @@ export const Cylinder = ({
 
 	useFrame((state, delta: number | undefined) => {
 		if (groupRef.current) {
-			groupRef.current.rotation.x += 0.001;
+			groupRef.current.rotation.x += 0.003;
 		}
+	});
+	const tposition = useControls({
+		x: { value: -1.0, min: -3, max: 3, step: 0.05 },
+		y: { value: 0.1, min: -3, max: 3, step: 0.1 },
+		z: { value: 1, min: -3, max: 3, step: 0.1 },
+	});
+	const zoom = useControls({
+		zoom: { value: 390, min: 0, max: 1000, step: 10 },
 	});
 
 	return (
 		<>
 			<OrthographicCamera
 				makeDefault
-				position={[0, 0, 0]}
-				zoom={500}
+				position={[tposition.x, tposition.y, tposition.z]}
+				zoom={zoom.zoom}
+				/* 	zoom={500} Default */
 				rotation={[0, 0, -0.4]}
 			/>
 			<group ref={groupRef} position={[0, 0, 0]} rotation={[0, 0, 11]}>

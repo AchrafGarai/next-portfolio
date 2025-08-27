@@ -6,8 +6,6 @@ import { CodeGallery } from "@/components/sections/code-gallery";
 import Footer from "@/components/sections/footer";
 import HeroSection from "@/components/sections/hero";
 import MaskedHeader from "@/components/sections/masked-header";
-import { ProjectGallery } from "@/components/sections/project-gallery";
-import SecondSection from "@/components/sections/second";
 import SkillTags from "@/components/sections/skill-tags";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Container } from "@/components/ui/container";
@@ -53,6 +51,7 @@ export default function Home() {
 					<div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
 				</div>
 				<CodeGallery />
+
 				<BrandingGalley />
 
 				<SkillTags />
