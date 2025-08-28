@@ -2,82 +2,81 @@
 import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/magicui/marquee";
 import Image from "next/image";
-import { useControls } from "leva";
+import { useScroll, useSpring, useTransform, motion } from "motion/react";
+import { useRef } from "react";
 import { UIProjectMap } from "@/data/ui/projects";
-const reviews = [
-	{
-		img: "/branding/lofiapp/mockup-1.jpg",
-	},
-	{
-		img: "/branding/lofiapp/mockup-2.jpg",
-	},
-	{
-		img: "/branding/lofiapp/mockup-2.jpg",
-	},
-];
 
-const ReviewCard = ({
-	img,
-}: {
-	img: string;
-}) => {
+// Mock data - replace with your UIProjectMap
+
+const ReviewCard = ({ img }: { img: string }) => {
 	return (
-		<div className=" relative  w-3xl h-[400px]">
-			<Image
-				fill
-				objectFit="cover"
-				className=" object-cover"
-				alt=""
-				src={img}
-			/>
+		<div className="relative w-[800px] h-[500px]">
+			<Image fill objectFit="cover" className="object-cover" alt="" src={img} />
 		</div>
 	);
 };
 
 export function BrandingGallery2() {
-	const tposition = useControls({
-		translateX: { value: 500, min: -500, max: 500, step: 0.05 },
-		translateY: { value: -15, min: -500, max: 500, step: 0.1 },
-		translateZ: { value: 90, min: -500, max: 500, step: 0.1 },
-		rotateX: { value: 26, min: -90, max: 90, step: 1 },
-		rotateY: { value: -40, min: -90, max: 90, step: 1 },
-		rotateZ: { value: 15, min: -90, max: 90, step: 1 },
+	const containerRef = useRef<HTMLDivElement>(null);
+
+	// Track scroll progress
+	const { scrollYProgress } = useScroll({
+		target: containerRef,
+		offset: ["start end", "end center"],
 	});
+
+	// Create smooth spring animations
+	const springConfig = { damping: 15, stiffness: 100 };
+
+	// Transform values based on scroll progress
+
+	const rotateX = useTransform(scrollYProgress, [0, 1], [60, 0]);
+	const rotateY = useTransform(scrollYProgress, [0, 1], [5, 0]);
+	const rotateZ = useTransform(scrollYProgress, [0, 1], [-20, 0]);
+
+	// Apply spring animation to the transforms
+
+	const smoothRotateX = useSpring(rotateX, springConfig);
+	const smoothRotateY = useSpring(rotateY, springConfig);
+	const smoothRotateZ = useSpring(rotateZ, springConfig);
+
 	return (
-		<div
-			className={
-				"relative flex h-screen w-full flex-row items-center justify-center gap-4 overflow-hidden "
-			}
-		>
-			<div
-				className={
-					"relative flex h-screen w-full flex-row items-center justify-center gap-4 overflow-hidden "
-				}
-			>
+		<div ref={containerRef} className="relative">
+			{/* Add some height for scrolling */}
+			<div className="h-screen">
 				<div
-					className="flex flex-row items-center gap-4"
-					style={{
-						transform: `translateX(${tposition.translateX}px) translateY(${tposition.translateY}px) translateZ(${tposition.translateZ}px) rotateX(${tposition.rotateX}deg) rotateY(${tposition.rotateY}deg) rotateZ(${tposition.rotateZ}deg)`,
-						transformStyle: "preserve-3d",
-					}}
+					className={
+						"sticky top-0  flex h-screen w-full flex-row items-center justify-center gap-4 overflow-hidden"
+					}
 				>
-					<Marquee pauseOnHover vertical className="[--duration:20s]">
-						{UIProjectMap.map((project, index) => (
-							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-							<ReviewCard key={index} img={project.thumbnail} />
-						))}
-					</Marquee>
-					<Marquee reverse pauseOnHover vertical className="[--duration:20s]">
-						{UIProjectMap.map((project, index) => (
-							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-							<ReviewCard key={index} img={project.thumbnail} />
-						))}
-					</Marquee>
+					<div
+						className={
+							"relative flex h-screen w-full flex-row items-center justify-center gap-4 overflow-hidden"
+						}
+					>
+						<motion.div
+							className="flex flex-row justify-between gap-4"
+							style={{
+								transform: useTransform(
+									[smoothRotateX, smoothRotateY, smoothRotateZ],
+									([rx, ry, rz]) =>
+										`translateX(500px) translateY(0px) translateZ(0px) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg)`,
+								),
+								transformStyle: "preserve-3d",
+							}}
+						>
+							<Marquee pauseOnHover vertical className="[--duration:20s]">
+								{UIProjectMap.map((project, index) => (
+									// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+									<ReviewCard key={index} img={project.thumbnail} />
+								))}
+							</Marquee>
+						</motion.div>
+					</div>
+					<div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background" />
+					<div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background" />
 				</div>
 			</div>
-
-			<div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background" />
-			<div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background" />
 		</div>
 	);
 }

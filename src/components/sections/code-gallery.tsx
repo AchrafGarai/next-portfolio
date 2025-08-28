@@ -7,12 +7,13 @@ import { EffectComposer } from "@react-three/postprocessing";
 import { useTheme } from "next-themes";
 import { Container } from "../ui/container";
 import { Button } from "../ui/button";
+import CurvedLoop from "../magicui/circle-text";
 
 export function CodeGallery() {
 	const { theme } = useTheme();
 
 	const bgColor = theme === "dark" ? "#000000" : "#ffffff";
-	const fluidColor = theme === "dark" ? "#616161" : "#333333";
+	const fluidColor = theme === "dark" ? "#131313" : "#333333";
 	return (
 		<section className=" min-h-screen flex flex-col gap-6 my-32">
 			<Container className=" flex flex-col gap-6 z-10 flex-grow justify-between py-32">
@@ -44,18 +45,7 @@ export function CodeGallery() {
 				<Canvas>
 					<EffectComposer>
 						<Fluid
-							radius={0.04}
-							curl={2}
-							swirl={2}
-							distortion={1}
-							force={2}
-							pressure={0.94}
-							densityDissipation={0.98}
-							velocityDissipation={0.99}
-							intensity={0.3}
-							rainbow={false}
-							blend={0}
-							showBackground={true}
+							showBackground={false}
 							backgroundColor={bgColor}
 							fluidColor={fluidColor}
 						/>

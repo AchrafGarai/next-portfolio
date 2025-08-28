@@ -53,34 +53,6 @@ export default function Home() {
 					<div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
 				</div>
 				<CodeGallery />
-				<div className=" min-h-screen min-w-screen relative">
-					<div className=" absolute z-10 inset-0 h-full w-full">
-						<Container className=" flex flex-col gap-6 z-10 h-full flex-grow justify-between py-32">
-							<span className=" text-xs uppercase text-muted-foreground">
-								Branding -110
-							</span>
-							<div className=" flex flex-col gap-6 items-start">
-								<h3 className="text-9xl font-tanker">Branding</h3>
-								<p className=" uppercase text-sm text-muted-foreground max-w-lg">
-									Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-									Animi ut saepe odit rem dolores? Placeat, dolores inventore.
-									Error eligendi
-								</p>
-								<Button
-									variant={"glass"}
-									size={"lg"}
-									className="rounded-full text-primary"
-								>
-									Explore Projects
-								</Button>
-							</div>
-							<span className=" text-xs uppercase text-muted-foreground">
-								Branding -110
-							</span>
-						</Container>
-					</div>
-					<BrandingGallery2 />
-				</div>
 
 				<BrandingGalley />
 
