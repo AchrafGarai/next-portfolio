@@ -1,6 +1,7 @@
 "use client";
 import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
 import { BrandingGallery2 } from "@/components/projects/branding-gallery";
+import HorizontalScrollGallery from "@/components/projects/horizontal-gallery";
 import { Gallery } from "@/components/projects/project-gallery";
 import BrandingGalley from "@/components/sections/branding-callery";
 import { CodeGallery } from "@/components/sections/code-gallery";
@@ -8,6 +9,7 @@ import Footer from "@/components/sections/footer";
 import HeroSection from "@/components/sections/hero";
 import MaskedHeader from "@/components/sections/masked-header";
 import SkillTags from "@/components/sections/skill-tags";
+
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
@@ -52,8 +54,8 @@ export default function Home() {
 					<div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background " />
 					<div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
 				</div>
-				<CodeGallery />
-
+				{/* <CircularArcGallery /> */}
+				<HorizontalScrollGallery />
 				<BrandingGalley />
 
 				<SkillTags />
