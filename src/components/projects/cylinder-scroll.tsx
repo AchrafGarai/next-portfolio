@@ -2,48 +2,62 @@
 import { UIProjectMap } from "@/data/ui/projects";
 import { Image, OrthographicCamera } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import { useRef, useMemo } from "react";
+import { useRef } from "react";
 import * as THREE from "three";
+
 // Take first 4 thumbnails
 const firstFour = UIProjectMap.slice(0, 4).map((p) => p.thumbnail);
 
 // Repeat them twice
 const Images = [...firstFour, ...firstFour];
+
 export const Cylinder = ({
 	className,
-	images = [],
+	cameraPosition,
+	cameraRotation,
+	cameraZoom,
+	groupPosition,
+	groupRotation,
+	reverse = false,
 }: {
 	className?: string;
-	images?: string[]; // Array of image URLs
+	images?: string[];
+	cameraPosition: [number, number, number];
+	cameraRotation: [number, number, number];
+	cameraZoom: number;
+	groupPosition: [number, number, number];
+	groupRotation: [number, number, number];
+	reverse?: boolean;
 }) => {
 	const groupRef = useRef<THREE.Group>(null);
 	const numPlanes = 8;
 	const angleStep = (2 * Math.PI) / numPlanes;
 	const radius = 1.25;
+	const direction = reverse ? -1 : 1;
 
 	// Generate default placeholder images if none provided
 	const defaultImages = Array.from(
 		{ length: numPlanes },
-		(_, i) => "/branding/lofiapp/mockup-2.jpg",
+		() => "/branding/lofiapp/mockup-2.jpg",
 	);
 
-	useFrame((state, delta: number | undefined) => {
+	useFrame(() => {
 		if (groupRef.current) {
-			groupRef.current.rotation.x += 0.003;
+			groupRef.current.rotation.x += 0.003 * direction;
 		}
 	});
 
-	const { viewport } = useThree();
+	useThree();
+
 	return (
 		<>
 			<OrthographicCamera
 				makeDefault
-				position={[-1.2, 0.1, 1]}
-				zoom={500}
-				/* 	zoom={500} Default */
-				rotation={[0, 0, -0.4]}
+				position={cameraPosition}
+				zoom={cameraZoom}
+				rotation={cameraRotation}
 			/>
-			<group ref={groupRef} position={[0, 0, 0]} rotation={[0, 0, 11]}>
+			<group ref={groupRef} position={groupPosition} rotation={groupRotation}>
 				{Array.from({ length: numPlanes }, (_, index) => {
 					const uniqueKey = `image-${index}-${Math.random()}`;
 					const angle = angleStep * index;
@@ -65,7 +79,7 @@ export const Cylinder = ({
 						),
 					);
 
-					// Get the image for this plane (cycle through available images)
+					// Get the image for this plane
 					const imageUrl = defaultImages[index % defaultImages.length];
 
 					return (
@@ -74,8 +88,8 @@ export const Cylinder = ({
 							url={Images[index]}
 							position={[x, 0, z]}
 							rotation={[euler.x, euler.y, euler.z + Math.PI / 2]}
-							scale={[1.75, 1]} // Width, height, depth
-							segments={32} // Add segments for bending
+							scale={[1.75, 1]}
+							segments={32}
 							radius={0.05}
 						/>
 					);
