@@ -43,7 +43,7 @@ export const Cylinder = ({
 
 	useFrame(() => {
 		if (groupRef.current) {
-			groupRef.current.rotation.x += 0.003 * direction;
+			groupRef.current.rotation.x += 0.008 * direction;
 		}
 	});
 

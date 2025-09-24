@@ -2,7 +2,6 @@
 
 import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
 import { BrandingGallery2 } from "@/components/projects/branding-gallery";
-import CircularGallery from "@/components/projects/circular-gallery";
 import HorizontalScrollGallery from "@/components/projects/horizontal-gallery";
 import { Gallery } from "@/components/projects/project-gallery";
 import BrandingGalley from "@/components/sections/branding-callery";
@@ -61,8 +60,8 @@ export default function Home() {
 					</div>
 				}
 				<CodeGallery />
-				{/* <CircularArcGallery /> */}
-				<HorizontalScrollGallery />
+
+				{/* <HorizontalScrollGallery /> */}
 
 				<BrandingGalley />
 
