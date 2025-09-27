@@ -15,12 +15,16 @@ import StackGallery2 from "@/components/sections/stack-gallery-2";
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Container } from "@/components/ui/container";
+import { LightRays } from "@/components/ui/light-rays";
 
 export default function Home() {
 	return (
 		<>
 			<div className=" absolute top-4 right-4 z-50">
 				<ThemeToggle />
+			</div>
+			<div className=" h-[400px] w-full overflow-hidden absolute top-0">
+				<LightRays />
 			</div>
 			<section>
 				<HeroSection />

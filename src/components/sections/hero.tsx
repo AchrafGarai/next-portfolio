@@ -26,8 +26,8 @@ function HeroSection() {
 				<div className="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-black/90" />
 				{/* Foreground titles  */}
 				<div className=" max-w-[1980px] w-full h-full mx-auto relative">
-					<LeftTitle className="z-20  text-white mix-blend-difference " />
-					<RightTitle className="z-20 text-white mix-blend-difference " />
+					<LeftTitle className="z-20  text-white " />
+					<RightTitle className="z-20 text-white " />
 				</div>
 			</div>
 		</div>

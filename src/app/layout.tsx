@@ -18,11 +18,11 @@ const tanker = localFont({
 	weight: "100 900",
 });
 
-/* const orbitron = Orbitron({
+const orbitron = Orbitron({
 	subsets: ["latin"],
 	variable: "--font-heading",
 	weight: ["800", "900"],
-}); */
+});
 
 export const metadata: Metadata = {
 	title: "Create Next App",
