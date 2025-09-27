@@ -5,16 +5,24 @@ import { ReactLenis } from "@/components/smooth-scroll";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navigation/navbar";
 import { Toaster } from "@/components/ui/sonner";
+import { Orbitron } from "next/font/google";
 
 const satoshi = localFont({
 	src: "./fonts/Satoshi-Variable.woff2",
 	variable: "--font-satoshi",
 });
 const tanker = localFont({
-	src: "./fonts/Tanker-Regular.woff2",
-	variable: "--font-tanker",
+	src: "./fonts/Founders Grotesk X-Condensed Bold.otf",
+	/* src: "./fonts/Tanker-Regular.woff2", */
+	variable: "--font-heading",
 	weight: "100 900",
 });
+
+/* const orbitron = Orbitron({
+	subsets: ["latin"],
+	variable: "--font-heading",
+	weight: ["800", "900"],
+}); */
 
 export const metadata: Metadata = {
 	title: "Create Next App",

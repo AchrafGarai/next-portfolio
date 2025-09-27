@@ -96,7 +96,7 @@ const HorizontalScrollGallery = () => {
 				<div className="sticky top-0 h-screen overflow-hidden">
 					<div className=" border-b border-t my-8">
 						<Container className=" flex justify-between items-center gap-8 ">
-							<h2 className=" text-9xl font-tanker"> Engineering</h2>
+							<h2 className=" text-9xl font-heading uppercase"> Engineering</h2>
 							<p className="text-sm uppercase text-muted-foreground max-w-96">
 								Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
 								laborum qui excepturi suscipit, adipisci officiis maiores, natus

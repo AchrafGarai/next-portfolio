@@ -39,7 +39,7 @@ const ReviewCard = ({
 	return (
 		<div className=" relative flex flex-col gap-4 w-full max-w-4xl mx-auto h-[60vh] mb-16 p-16">
 			<Image src={img} alt={""} fill className=" object-cover" quality={100} />
-			<span className=" text-9xl w-full font-tanker uppercase font-medium flex-grow left-[-90px] absolute bottom-3 z-10">
+			<span className=" text-9xl w-full font-heading uppercase uppercase font-medium flex-grow left-[-90px] absolute bottom-3 z-10">
 				{name}
 			</span>
 		</div>

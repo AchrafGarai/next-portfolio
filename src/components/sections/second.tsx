@@ -7,7 +7,7 @@ function SecondSection() {
 				{/* Unmasked foreground */}
 				<MaskedContent>
 					<p>Hello world</p>
-					<h2 className="text-9xl font-tanker">Redefine gaming</h2>
+					<h2 className="text-9xl font-heading uppercase">Redefine gaming</h2>
 				</MaskedContent>
 
 				{/* Masked foreground */}
@@ -17,7 +17,7 @@ function SecondSection() {
 				>
 					<MaskedContent className="z-20 text-background">
 						<p>Hello world</p>
-						<h2 className="text-9xl font-tanker">Redefine gaming</h2>
+						<h2 className="text-9xl font-heading uppercase">Redefine gaming</h2>
 					</MaskedContent>
 				</div>
 			</div>

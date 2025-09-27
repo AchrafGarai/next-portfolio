@@ -1,18 +1,19 @@
 "use client";
 
 import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
-import { BrandingGallery2 } from "@/components/projects/branding-gallery";
-import HorizontalScrollGallery from "@/components/projects/horizontal-gallery";
 import { Gallery } from "@/components/projects/project-gallery";
-import BrandingGalley from "@/components/sections/branding-callery";
+import Testimonial from "@/components/projects/testimonial";
 import { CodeGallery } from "@/components/sections/code-gallery";
 import Footer from "@/components/sections/footer";
 import HeroSection from "@/components/sections/hero";
+import ListSection from "@/components/sections/list-section";
 import MaskedHeader from "@/components/sections/masked-header";
+
 import SkillTags from "@/components/sections/skill-tags";
+import StackGallery from "@/components/sections/stack-gallery";
+import StackGallery2 from "@/components/sections/stack-gallery-2";
 
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 
 export default function Home() {
@@ -26,7 +27,7 @@ export default function Home() {
 				{/* <SecondSection /> */}
 				<MaskedHeader src={"/branding/lofiapp/mockup-2.jpg"}>
 					<p>Hello world</p>
-					<h2 className="text-9xl font-tanker">Redefine gaming</h2>
+					<h2 className="text-9xl font-heading uppercase">Redefine gaming</h2>
 				</MaskedHeader>
 				{/* <ProjectGallery /> */}
 				{
@@ -59,13 +60,34 @@ export default function Home() {
 						<div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
 					</div>
 				}
-				<CodeGallery />
+				{/* <CodeGallery /> */}
+				<StackGallery2 />
 
-				{/* <HorizontalScrollGallery /> */}
-
-				<BrandingGalley />
+				{/* <StackGallery /> */}
+				<ListSection
+					title="Every pixel is built with user’s feedback in mind"
+					subtitle="Every feature in AIchor is shaped by real feedback, helping us build a tool people actually enjoy using every day."
+					components={[
+						<Testimonial
+							text="Saved me hours reading dense papers."
+							imgSrc="/aichor/avatar.png"
+							key="testimonial-1"
+						/>,
+						<Testimonial
+							text="I love using this platform!"
+							imgSrc="/aichor/avatar.png"
+							key="testimonial-2"
+						/>,
+						<Testimonial
+							text="I love using this platform!"
+							imgSrc="/aichor/avatar.png"
+							key="testimonial-3"
+						/>,
+					]}
+				/>
 
 				<SkillTags />
+
 				<Footer />
 			</section>
 		</>

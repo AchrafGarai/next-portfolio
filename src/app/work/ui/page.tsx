@@ -27,7 +27,7 @@ function Page() {
 				curveAmount={-300}
 				interactive={false}
 				marqueeText="Design Engineering Projects✦"
-				className="font-tanker tracking-wide "
+				className="font-heading uppercase tracking-wide "
 			/>
 
 			<Container className="mt-[-400px] mb-64 ">

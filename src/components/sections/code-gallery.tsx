@@ -22,65 +22,52 @@ export function CodeGallery() {
 		groupRotation: { value: [0, 0, 11], step: 0.1 },
 	});
 
-	// Controls for Cylinder 2
-	const cyl2 = useControls("Cylinder 2", {
-		cameraZoom: { value: 360, min: 100, max: 1000, step: 10 },
-		groupPosition: { value: [-3.1, 0.1, 0.4], step: 0.1 },
-		groupRotation: { value: [0, 0, 11], step: 0.1 },
-	});
-
 	return (
-		<section className=" min-h-screen flex flex-col gap-6 my-32">
-			<Container className=" flex flex-col gap-6 z-10 flex-grow justify-between items-center py-32 max-w-2xl text-center">
-				<span className=" text-xs uppercase text-muted-foreground">
-					Branding -110
-				</span>
-				<div className=" flex flex-col items-center gap-6 ">
-					<h3 className="text-9xl font-tanker">Branding</h3>
-					<p className=" uppercase text-sm text-muted-foreground max-w-lg">
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi ut
-						saepe odit rem dolores? Placeat, dolores inventore. Error eligendi
+		<section className=" relative min-h-screen flex flex-col items-center justify-center gap-6 my-32">
+			<Container className="z-20">
+				<h3 className=" text-9xl leading-none font-heading uppercase ">
+					The Art Of
+				</h3>
+				<div className=" flex items-center gap-8">
+					<p className="uppercase text-sm text-muted-foreground max-w-xs">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem minus
+						quam inventore
 					</p>
-					<Button
-						variant={"glass"}
-						size={"lg"}
-						className="rounded-full text-primary grow-0 w-fit"
-					>
-						Explore Projects
-					</Button>
+					<h3 className=" text-9xl leading-none  font-heading uppercase text-right">
+						reinventing
+					</h3>
 				</div>
-				<span className=" text-xs uppercase text-muted-foreground">
-					Branding -110
-				</span>
+				<div className=" flex items-center gap-8">
+					<h3 className=" text-9xl leading-none  font-heading uppercase text-right">
+						Identities
+					</h3>
+					<p className="uppercase text-sm text-muted-foreground max-w-xs">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem minus
+						quam inventore
+					</p>
+				</div>
 			</Container>
 
 			<div className="h-screen w-full absolute z-0">
 				<div className="absolute top-0 z-20 bg-linear-to-b from-background h-36 w-full" />
 				<div className="absolute bottom-0 z-20 bg-linear-to-t from-background h-36 w-full" />
 				<Canvas className="z-10">
-					<EffectComposer>
+					{/* 	<EffectComposer>
 						<Fluid
 							showBackground={false}
 							backgroundColor={bgColor}
 							fluidColor={fluidColor}
-						/>
+						/> */}
 
-						<Cylinder
-							cameraPosition={[-1.2, 0.1, 1]}
-							cameraRotation={[0, 0, -0.4]}
-							cameraZoom={cyl1.cameraZoom}
-							groupPosition={cyl1.groupPosition as [number, number, number]}
-							groupRotation={cyl1.groupRotation as [number, number, number]}
-						/>
-						<Cylinder
-							cameraPosition={[-1.2, 0.1, 1]}
-							cameraRotation={[0, 0, -0.4]}
-							cameraZoom={cyl2.cameraZoom}
-							groupPosition={cyl2.groupPosition as [number, number, number]}
-							groupRotation={cyl2.groupRotation as [number, number, number]}
-							reverse
-						/>
-					</EffectComposer>
+					<Cylinder
+						cameraPosition={[-1.2, 0.1, 1]}
+						cameraRotation={[0, 0, -0.4]}
+						cameraZoom={cyl1.cameraZoom}
+						groupPosition={cyl1.groupPosition as [number, number, number]}
+						groupRotation={cyl1.groupRotation as [number, number, number]}
+					/>
+
+					{/* </EffectComposer> */}
 				</Canvas>
 			</div>
 		</section>

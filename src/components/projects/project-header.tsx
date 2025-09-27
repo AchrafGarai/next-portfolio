@@ -20,7 +20,7 @@ function ProjectHeader({
 					<div className="mb-9 text-left max-w-3xl pl-10  ">
 						<div className=" flex flex-col gap-6">
 							<p className="text-muted-foreground">Case Study</p>
-							<h3 className="text-9xl font-tanker md:leading-[7rem]">
+							<h3 className="text-9xl font-heading uppercase md:leading-[7rem]">
 								{title}
 							</h3>
 						</div>

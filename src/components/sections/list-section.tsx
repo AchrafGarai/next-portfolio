@@ -13,8 +13,8 @@ export default function ListSection({
 }: ListSectionProps) {
 	return (
 		<section className="flex flex-col items-center justify-center relative min-h-[300vh]">
-			<div className="min-h-screen sticky top-0 flex flex-col gap-6 justify-center items-center max-w-[600px] z-0">
-				<h3 className="text-6xl font-tanker text-center">{title}</h3>
+			<div className="min-h-screen sticky top-0 flex flex-col gap-6 justify-center items-center max-w-[600px] z-0 text-center">
+				<h3 className="text-6xl font-heading uppercase text-center">{title}</h3>
 				<p>{subtitle}</p>
 			</div>
 			<div className="h-screen grow w-full max-w-4xl p-6 z-10">

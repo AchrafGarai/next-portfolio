@@ -8,7 +8,7 @@ export function ProjectGallery() {
 					Lorem ipsum dolor sit amet consectetur. Sodales ac tellus eu velit. At
 					vel
 				</p>
-				<h3 className="text-6xl font-tanker text-center">
+				<h3 className="text-6xl font-heading uppercase text-center">
 					Discover the world's largest shared adventure, crafted by everyone
 				</h3>
 			</div>

@@ -17,7 +17,9 @@ function Page() {
 						</span>
 					</div>
 				</div>
-				<h1 className=" font-tanker text-8xl mb-9 ">Building a NextJS blog</h1>
+				<h1 className=" font-heading uppercase text-8xl mb-9 ">
+					Building a NextJS blog
+				</h1>
 				<p className="text-muted-foreground">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam quaerat,
 					veniam praesentium id sunt ratione, alias quidem velit ab libero odit

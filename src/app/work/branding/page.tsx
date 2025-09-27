@@ -31,7 +31,7 @@ function Page() {
 
 					{/* <MaskedHeader src={"/branding/lofiapp/mockup-2.jpg"}>
 						<p>Hello world</p>
-						<h2 className="text-9xl font-tanker">Branding Projects</h2>
+						<h2 className="text-9xl font-heading uppercase">Branding Projects</h2>
 					</MaskedHeader>
  */}
 					<BrandingHeader
@@ -56,7 +56,7 @@ function Page() {
 					curveAmount={-300}
 					interactive={false}
 					marqueeText="Branding Projects✦"
-					className="font-tanker tracking-wide "
+					className="font-heading uppercase tracking-wide "
 				/>
 
 				<Container className="mt-[-400px] mb-64 ">

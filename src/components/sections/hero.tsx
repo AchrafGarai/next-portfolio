@@ -39,7 +39,9 @@ export default HeroSection;
 function LeftTitle({ className }: { className?: string }) {
 	return (
 		<div className={cn("absolute top-10 left-16 leading-tight ", className)}>
-			<h1 className=" text-[10rem] font-bold font-tanker">{LEFT_TITLE}</h1>
+			<h1 className=" text-[10rem] font-bold font-heading uppercase">
+				{LEFT_TITLE}
+			</h1>
 		</div>
 	);
 }
@@ -58,7 +60,9 @@ function RightTitle({ className }: { className?: string }) {
 				vel nisi, similique quasi laboriosam quos exercitationem non veritatis
 				omnis nesciunt.
 			</p>
-			<h1 className=" text-[10rem] font-bold font-tanker ">{RIGHT_TITLE}</h1>
+			<h1 className=" text-[10rem] font-bold font-heading uppercase ">
+				{RIGHT_TITLE}
+			</h1>
 		</div>
 	);
 }
