@@ -1,18 +1,16 @@
 "use client";
 
 import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
+import { AbstractShape } from "@/components/projects/abstract";
+import { Logo3d } from "@/components/projects/logo-3d";
 import { Gallery } from "@/components/projects/project-gallery";
+import ScrollImage from "@/components/projects/scroll-image";
 import Testimonial from "@/components/projects/testimonial";
-import { CodeGallery } from "@/components/sections/code-gallery";
 import Footer from "@/components/sections/footer";
 import HeroSection from "@/components/sections/hero";
 import ListSection from "@/components/sections/list-section";
 import MaskedHeader from "@/components/sections/masked-header";
-
-import SkillTags from "@/components/sections/skill-tags";
-import StackGallery from "@/components/sections/stack-gallery";
 import StackGallery2 from "@/components/sections/stack-gallery-2";
-
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Container } from "@/components/ui/container";
 import { LightRays } from "@/components/ui/light-rays";
@@ -23,15 +21,20 @@ export default function Home() {
 			<div className=" absolute top-4 right-4 z-50">
 				<ThemeToggle />
 			</div>
-			<div className=" h-[400px] w-full overflow-hidden absolute top-0">
+
+			<div className="  h-screen w-full overflow-hidden absolute top-0">
 				<LightRays />
+				<div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background" />
 			</div>
+
 			<section>
 				<HeroSection />
 				{/* <SecondSection /> */}
 				<MaskedHeader src={"/branding/lofiapp/mockup-2.jpg"}>
 					<p>Hello world</p>
-					<h2 className="text-9xl font-heading uppercase">Redefine gaming</h2>
+					<h2 className="text-9xl font-heading uppercase font-bold tracking-tight">
+						Redefine gaming
+					</h2>
 				</MaskedHeader>
 				{/* <ProjectGallery /> */}
 				{
@@ -90,9 +93,19 @@ export default function Home() {
 					]}
 				/>
 
-				<SkillTags />
-
-				<Footer />
+				<ScrollImage
+					text={"Welcome to my world"}
+					src={"/branding/lofiapp/mockup-2.jpg"}
+				/>
+				<div className="relative min-h-screen">
+					<div className=" absolute inset-0 z-0">
+						<AbstractShape color={"#91cfff"} />
+					</div>
+					<div className=" absolute inset-x-0 bottom-0 z-10">
+						<Footer />
+					</div>
+				</div>
+				{/* <Footer /> */}
 			</section>
 		</>
 	);

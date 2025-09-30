@@ -78,7 +78,9 @@ const BrandingHeader: React.FC<BrandingHeaderProps> = ({
 			</div>
 
 			<div className="grid grid-cols-2 gap-4 justify-center items-center p-8 w-full mb-40 ">
-				<h2 className="text-9xl font-heading uppercase flex-grow">{title}</h2>
+				<h2 className="text-9xl font-heading font-bold uppercase flex-grow">
+					{title}
+				</h2>
 				<p className="flex-grow">{description}</p>
 			</div>
 		</>

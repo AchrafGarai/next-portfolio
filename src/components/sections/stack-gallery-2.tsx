@@ -8,7 +8,7 @@ function StackGallery2() {
 		<section className="relative min-h-screen">
 			<Container className=" pb-40 max-w-[1920px]">
 				<div className="sticky top-0 pb-8">
-					<h2 className="text-[24rem] font-heading uppercase text-center">
+					<h2 className="text-[20rem] font-heading font-bold uppercase text-center">
 						Work
 					</h2>
 				</div>
