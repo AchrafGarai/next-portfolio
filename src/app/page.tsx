@@ -14,6 +14,7 @@ import StackGallery2 from "@/components/sections/stack-gallery-2";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Container } from "@/components/ui/container";
 import { LightRays } from "@/components/ui/light-rays";
+import { Suspense } from "react";
 
 export default function Home() {
 	return (
@@ -22,10 +23,10 @@ export default function Home() {
 				<ThemeToggle />
 			</div>
 
-			<div className="  h-screen w-full overflow-hidden absolute top-0">
+			{/* 	<div className="  h-screen w-full overflow-hidden absolute top-0">
 				<LightRays />
 				<div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background" />
-			</div>
+			</div> */}
 
 			<section>
 				<HeroSection />
@@ -40,7 +41,9 @@ export default function Home() {
 				{
 					<div className="relative flex w-full flex-col items-center justify-center overflow-hidden min-h-screen">
 						<div className="w-full absolute z-10">
-							<Gallery />
+							<Suspense fallback={null}>
+								<Gallery />
+							</Suspense>
 						</div>
 						<Container className="absolute h-full w-full flex flex-col justify-between py-36">
 							<div className="flex justify-between items-center">
@@ -99,7 +102,9 @@ export default function Home() {
 				/>
 				<div className="relative min-h-screen">
 					<div className=" absolute inset-0 z-0">
-						<AbstractShape color={"#91cfff"} />
+						<Suspense fallback={null}>
+							<AbstractShape color={"#91cfff"} />
+						</Suspense>
 					</div>
 					<div className=" absolute inset-x-0 bottom-0 z-10">
 						<Footer />

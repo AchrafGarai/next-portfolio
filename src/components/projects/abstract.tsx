@@ -1,22 +1,16 @@
 "use client";
-import { Canvas } from "@react-three/fiber";
-
-import { Environment, PerspectiveCamera } from "@react-three/drei";
-import React, { useRef } from "react";
-import { MeshTransmissionMaterial, useGLTF, Text } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import {
+	Environment,
+	MeshTransmissionMaterial,
+	useGLTF,
+} from "@react-three/drei";
 import * as THREE from "three";
-import { useControls } from "leva";
+import type React from "react";
+import { useRef } from "react";
 import { useTheme } from "next-themes";
 
-type MaterialProps = {
-	thickness: number;
-	roughness: number;
-	transmission: number;
-	ior: number;
-	chromaticAberration: number;
-	backside: boolean;
-};
+type MaterialProps = React.ComponentProps<typeof MeshTransmissionMaterial>;
 
 export function AbstractShape({
 	color,
@@ -27,6 +21,7 @@ export function AbstractShape({
 }) {
 	const { theme } = useTheme();
 	const bg = theme === "light" ? "hsl(0,0%, 97%)" : "hsl(0 ,0%, 0%)";
+
 	return (
 		<Canvas style={{ height: "85vh" }}>
 			<Model matColor={color} material={material} />
@@ -39,32 +34,39 @@ export function AbstractShape({
 
 function Model({
 	matColor,
-
 	material,
 }: {
 	matColor: string;
 	material?: MaterialProps;
 }) {
-	const { theme } = useTheme();
-	const { nodes } = useGLTF("/medias/abstract.glb");
-	const { viewport } = useThree();
-	const object = useRef<THREE.Mesh>(null);
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	const { nodes } = useGLTF("/medias/abstract.glb") as any;
+
+	// refs for each mesh
+	const refs = [
+		useRef<THREE.Mesh>(null),
+		useRef<THREE.Mesh>(null),
+		useRef<THREE.Mesh>(null),
+		useRef<THREE.Mesh>(null),
+	];
+
+	// Different speeds & directions for each mesh
+	const speeds = [
+		[0.01, 0.02, 0], // rotates on x & y
+		[-0.015, 0, 0.01], // opposite direction
+		[0, 0.01, -0.02], // z-axis spin
+		[0.02, -0.01, 0], // mixed
+	];
 
 	useFrame(() => {
-		if (object.current) {
-			object.current.rotation.x += 0.02;
-		}
+		refs.forEach((ref, i) => {
+			if (ref.current) {
+				ref.current.rotation.x += speeds[i][0];
+				ref.current.rotation.y += speeds[i][1];
+				ref.current.rotation.z += speeds[i][2];
+			}
+		});
 	});
-
-	/* 	const materialProps = useControls({
-		thickness: { value: 0.6, min: 0, max: 3, step: 0.05 },
-		roughness: { value: 0.1, min: 0, max: 1, step: 0.1 },
-		transmission: { value: 1, min: 0, max: 1, step: 0.1 },
-		ior: { value: 0.9, min: 0, max: 3, step: 0.1 },
-		chromaticAberration: { value: 0.08, min: 0, max: 1 },
-		backside: { value: false },
-		color: { value: matColor },
-	}); */
 
 	const overrideMaterial = material
 		? { ...material, color: new THREE.Color(matColor) }
@@ -79,17 +81,17 @@ function Model({
 			};
 
 	return (
-		<group ref={object} position={[0, 0, 0]} scale={4} rotation={[0, 10, 0]}>
-			<mesh {...nodes.abstract}>
+		<group scale={4}>
+			<mesh ref={refs[0]} {...nodes.abstract}>
 				<MeshTransmissionMaterial {...overrideMaterial} />
 			</mesh>
-			<mesh ref={object} {...nodes.inner}>
+			<mesh ref={refs[1]} {...nodes.inner}>
 				<MeshTransmissionMaterial {...overrideMaterial} />
 			</mesh>
-			<mesh ref={object} {...nodes.shpere1}>
+			<mesh ref={refs[2]} {...nodes.shpere1}>
 				<MeshTransmissionMaterial {...overrideMaterial} />
 			</mesh>
-			<mesh ref={object} {...nodes.sphere2}>
+			<mesh ref={refs[3]} {...nodes.sphere2}>
 				<MeshTransmissionMaterial {...overrideMaterial} />
 			</mesh>
 		</group>
