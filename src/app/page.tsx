@@ -52,7 +52,7 @@ export default function Home() {
 									eius voluptate nostrum necessitatibus delectus sit nesciunt
 									temporibus
 								</p>
-								<h2 className=" text-2xl font-semibold uppercase">
+								<h2 className=" text-2xl font-semibold font-heading uppercase">
 									Branding_01
 								</h2>
 							</div>
