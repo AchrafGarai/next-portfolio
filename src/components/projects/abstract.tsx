@@ -50,7 +50,7 @@ function Model({
 		useRef<THREE.Mesh>(null),
 	];
 
-	// Different speeds & directions for each mesh
+	// Different speeds & directions for each mesh 2
 	const speeds = [
 		[0.01, 0.02, 0], // rotates on x & y
 		[-0.015, 0, 0.01], // opposite direction
