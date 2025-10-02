@@ -106,11 +106,8 @@ export default function Home() {
 							<AbstractShape color={"#91cfff"} />
 						</Suspense>
 					</div>
-					<div className=" absolute inset-x-0 bottom-0 z-10">
-						<Footer />
-					</div>
+					<Footer />
 				</div>
-				{/* <Footer /> */}
 			</section>
 		</>
 	);

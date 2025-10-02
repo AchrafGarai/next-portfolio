@@ -5,19 +5,38 @@ import { AbstractShape } from "../projects/abstract";
 function Footer() {
 	return (
 		<div className="relative min-h-screen">
-			<div className=" absolute inset-0 z-0">
+			<div className=" absolute inset-0 z-10">
 				<Suspense fallback={null}>
 					<AbstractShape color={"#91cfff"} />
 				</Suspense>
 			</div>
-			<div className=" absolute inset-x-0 bottom-0 z-10">
-				<footer className=" p-8 ">
-					<div className="flex mb-6 justify-between gap-4">
-						<Link href={""}>Hello@achraf.com</Link>
-						<div className=" flex gap-3">
-							<Link href={""}>Instagram</Link>
-							<Link href={""}>Linkedin</Link>
-							<Link href={""}>Blog</Link>
+			<div className=" absolute inset-0 bottom-0 z-20">
+				<footer className="p-8 flex flex-col h-full justify-between ">
+					<div className="flex mb-6 justify-between gap-4 text-sm uppercase `">
+						<Link className="text-muted-foreground" href={""}>
+							Contact
+						</Link>
+						<div className=" flex flex-col gap-2 text-sm uppercase">
+							<Link className="text-muted-foreground" href={""}>
+								Engineering
+							</Link>
+							<Link className="text-muted-foreground" href={""}>
+								Branding
+							</Link>
+							<Link className="text-muted-foreground" href={""}>
+								Blog
+							</Link>
+						</div>
+						<div className=" flex flex-col gap-2 text-sm uppercase">
+							<Link className="text-muted-foreground" href={""}>
+								GitHub
+							</Link>
+							<Link className="text-muted-foreground" href={""}>
+								Linkedin
+							</Link>
+							<Link className="text-muted-foreground" href={""}>
+								Behance
+							</Link>
 						</div>
 					</div>
 

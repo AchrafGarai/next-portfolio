@@ -13,6 +13,7 @@ import MaskedHeader from "@/components/sections/masked-header";
 import ScrollImage from "@/components/projects/scroll-image";
 import BrandingHeader from "@/components/sections/branding-header";
 import { BrandingProjectMap } from "@/data/branding/projects";
+import Footer from "@/components/sections/footer";
 
 function Page() {
 	return (
@@ -68,6 +69,7 @@ function Page() {
 					</div>
 				</Container>
 			</div>
+			<Footer />
 		</>
 	);
 }

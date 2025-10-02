@@ -1,5 +1,6 @@
 import CurvedLoop from "@/components/magicui/circle-text";
 import BrandingHeader from "@/components/sections/branding-header";
+import Footer from "@/components/sections/footer";
 import { UIProjectsGrid } from "@/components/sections/ui-projects-grid";
 import { Container } from "@/components/ui/container";
 
@@ -38,6 +39,7 @@ function Page() {
 					dolorem excepturi necessitatibus voluptates? Sequi, natus eos.
 				</div>
 			</Container>
+			<Footer />
 		</>
 	);
 }
