@@ -4,7 +4,7 @@ import { SectionTitle } from "@/components/projects/section-title";
 import { UIprojectContentMap, UIProjectMap } from "@/data/ui/projects";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
-import React from "react";
+import React, { Suspense } from "react";
 
 async function Page({
 	params,
@@ -20,12 +20,15 @@ async function Page({
 
 	return (
 		<>
-			<Logo3d
+		<Suspense fallback={null}>
+							<Logo3d
 				title={metadata.slug}
 				color={metadata.color}
 				content={metadata.title}
 				material={metadata?.material}
 			/>
+						</Suspense>
+			
 			<SectionTitle
 				title={metadata.title}
 				subtitle="About"

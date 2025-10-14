@@ -4,7 +4,13 @@ import Image from "next/image";
 
 function MaskedHeader({ src, children }: { src: string; children: ReactNode }) {
 	return (
-		<section className="h-screen">
+		<section className="h-screen relative">
+			<Image
+				src={"/grids/grid-c.svg"}
+				fill
+				alt={""}
+				className="object-cover absolute inset-0"
+			/>
 			<div className="relative w-full h-full">
 				<MasketContent>{children}</MasketContent>
 				<div

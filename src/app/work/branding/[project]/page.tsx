@@ -8,7 +8,7 @@ import {
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import React from "react";
+import React, { Suspense } from "react";
 import LensImage from "@/components/projects/lens-image";
 
 async function Page({
@@ -26,12 +26,15 @@ async function Page({
 	return (
 		<>
 			<section id="logo">
+				<Suspense fallback={null}>
 				<Logo3d
 					title={metadata.slug}
 					color={metadata.color}
 					content={metadata.title}
 					material={metadata?.material}
 				/>
+
+				</Suspense>
 			</section>
 			<SectionTitle
 				title={metadata.title}

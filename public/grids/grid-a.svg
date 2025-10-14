@@ -1,0 +1,18 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1953_205)">
+<circle cx="65.2815" cy="1039.52" r="1039.27" stroke="#818181" stroke-opacity="0.35" stroke-width="0.5"/>
+<path d="M1512.03 672.21C1737.69 672.21 1920.63 854.784 1920.63 1080C1920.63 1305.22 1737.69 1487.79 1512.03 1487.79C1286.36 1487.79 1103.42 1305.22 1103.42 1080C1103.42 854.784 1286.36 672.21 1512.03 672.21Z" stroke="#818181" stroke-opacity="0.35" stroke-width="0.5"/>
+<path d="M1512.03 175.25C1737.69 175.25 1920.63 357.824 1920.63 583.04C1920.63 808.256 1737.69 990.83 1512.03 990.83C1286.36 990.83 1103.42 808.256 1103.42 583.04C1103.42 357.824 1286.36 175.25 1512.03 175.25Z" stroke="#818181" stroke-opacity="0.35" stroke-width="0.5"/>
+<path d="M1512.03 -321.71C1737.69 -321.71 1920.63 -139.136 1920.63 86.08C1920.63 311.296 1737.69 493.87 1512.03 493.87C1286.36 493.87 1103.42 311.296 1103.42 86.08C1103.42 -139.136 1286.36 -321.71 1512.03 -321.71Z" stroke="#818181" stroke-opacity="0.35" stroke-width="0.5"/>
+<line x1="1103.75" y1="1080" x2="1104.73" y2="-0.0479932" stroke="#818181" stroke-opacity="0.35" stroke-width="0.5"/>
+<line x1="285.203" y1="1077.95" x2="285.203" y2="23.9523" stroke="#818181" stroke-opacity="0.35" stroke-width="0.5"/>
+<rect opacity="0.6" x="1105" y="574" width="20" height="6" fill="#818181" fill-opacity="0.35"/>
+<rect opacity="0.6" x="1901" y="574" width="20" height="6" fill="#818181" fill-opacity="0.35"/>
+<rect opacity="0.6" x="285" y="574" width="20" height="6" fill="#818181" fill-opacity="0.35"/>
+</g>
+<defs>
+<clipPath id="clip0_1953_205">
+<rect width="1920" height="1080" fill="white"/>
+</clipPath>
+</defs>
+</svg>

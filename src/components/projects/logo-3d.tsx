@@ -93,7 +93,7 @@ function Model({
 	return (
 		<group scale={viewport.width / 3.75}>
 			<Text
-				font={"/fonts/Tanker-Regular.ttf"}
+				font={"/fonts/Parabole.ttf"}
 				position={[0, 0, -1]}
 				fontSize={1}
 				color={theme === "light" ? "black" : "white"}

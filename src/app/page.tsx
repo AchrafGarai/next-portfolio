@@ -14,6 +14,7 @@ import StackGallery2 from "@/components/sections/stack-gallery-2";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Container } from "@/components/ui/container";
 import { LightRays } from "@/components/ui/light-rays";
+import Image from "next/image";
 import { Suspense } from "react";
 
 export default function Home() {
@@ -39,7 +40,13 @@ export default function Home() {
 				</MaskedHeader>
 				{/* <ProjectGallery /> */}
 				{
-					<div className="relative flex w-full flex-col items-center justify-center overflow-hidden min-h-screen">
+					<div className="relative flex w-full flex-col items-center justify-center overflow-hidden min-h-screen border-b">
+						<Image
+							src={"/grids/grid-d.svg"}
+							fill
+							alt={""}
+							className="object-cover absolute inset-0"
+						/>
 						<div className="w-full absolute z-10">
 							<Suspense fallback={null}>
 								<Gallery />
@@ -74,6 +81,7 @@ export default function Home() {
 				<StackGallery2 />
 
 				{/* <StackGallery /> */}
+
 				<ListSection
 					title="Every pixel is built with user’s feedback in mind"
 					subtitle="Every feature in AIchor is shaped by real feedback, helping us build a tool people actually enjoy using every day."

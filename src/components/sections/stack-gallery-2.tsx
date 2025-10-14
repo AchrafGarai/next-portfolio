@@ -5,7 +5,7 @@ import { Container } from "../ui/container";
 
 function StackGallery2() {
 	return (
-		<section className="relative min-h-screen">
+		<section className="relative min-h-screen border-t border-b">
 			<Container className=" pb-40 max-w-[1920px]">
 				<div className="sticky top-0 pb-8">
 					<h2 className="text-[20rem] font-heading font-bold uppercase text-center">
