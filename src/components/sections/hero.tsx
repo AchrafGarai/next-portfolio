@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Container } from "../ui/container";
 import ThemedImage from "@/components/projects/themed-image";
-const LEFT_TITLE = "CREATIVE";
+const LEFT_TITLE = "DESIGN";
 const RIGHT_TITLE = "ENGINEERING";
 
 function HeroSection() {
@@ -56,7 +56,7 @@ export default HeroSection;
 function LeftTitle({ className }: { className?: string }) {
 	return (
 		<div className={cn("absolute top-10 left-16 leading-tight ", className)}>
-			<h1 className=" text-9xl font-bold font-heading uppercase">
+			<h1 className=" text-[10rem] font-bold font-heading uppercase">
 				{LEFT_TITLE}
 			</h1>
 		</div>
@@ -71,13 +71,12 @@ function RightTitle({ className }: { className?: string }) {
 				"absolute bottom-24 left-16 flex justify-between items-center right-16 leading-tight   ",
 			)}
 		>
-			<p className="max-w-[600px]  text-muted-foreground text-sm uppercase tracking-widest">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius recusandae
-				accusantium, cumque perferendis iure, ipsam voluptas animi neque maxime
-				vel nisi, similique quasi laboriosam quos exercitationem non veritatis
-				omnis nesciunt.
+			<p className="max-w-[400px]  text-muted-foreground text-xs uppercase tracking-widest">
+				From imagination to interaction — I engineer digital experiences that
+				push the boundaries of design and technology, shaping a web that’s as
+				dynamic as it is beautiful.
 			</p>
-			<h1 className=" text-9xl font-bold font-heading uppercase ">
+			<h1 className=" text-[10rem] font-bold font-heading uppercase ">
 				{RIGHT_TITLE}
 			</h1>
 		</div>

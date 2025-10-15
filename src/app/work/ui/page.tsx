@@ -10,10 +10,7 @@ function Page() {
 			<BrandingHeader
 				imageSrc="/branding/lofiapp/mockup-2.jpg"
 				title="UI Engineering"
-				description=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem error
-						nobis veritatis, dolor ex voluptatem aut dolorem ea officia voluptas
-						necessitatibus? Qui assumenda vel odit eum perferendis, aut velit?
-						Animi."
+				description="Where design precision meets engineering depth. I craft web and app interfaces that are functional, fluid, and visually alive — blending creativity, performance, and motion into seamless digital experiences."
 				cornerTexts={{
 					topLeft: "CLIENT_01",
 					topRight: "PROJECT_AICHOR",
@@ -33,10 +30,10 @@ function Page() {
 
 			<Container className="mt-[-400px] mb-64 ">
 				<div className="max-w-xl mr-0">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-					commodi repellendus doloribus autem recusandae omnis officiis
-					architecto, quam, reprehenderit molestias repudiandae maxime et
-					dolorem excepturi necessitatibus voluptates? Sequi, natus eos.
+					From pixels to production, I engineer user interfaces that balance
+					beauty with performance. My work bridges design systems, front-end
+					development, and creative experimentation to craft experiences that
+					engage and endure.
 				</div>
 			</Container>
 			<Footer />

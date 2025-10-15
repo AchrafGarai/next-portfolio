@@ -12,52 +12,52 @@ function Footer() {
 					<AbstractShape color={"#91cfff"} />
 				</Suspense>
 			</div>
-				<Image
-							src={"/grids/grid-d.svg"}
-							fill
-							alt={""}
-							className="object-cover absolute inset-0 z-20"
-						/>
+			<Image
+				src={"/grids/grid-d.svg"}
+				fill
+				alt={""}
+				className="object-cover absolute inset-0 z-20"
+			/>
 
-						<ThemedImage
-										lightSrc={"/landscape-light.png"}
-										darkSrc={"/landscape.png"}
-										fill
-										alt={""}
-										className="object-fill absolute inset-0 "
-									/>
+			<ThemedImage
+				lightSrc={"/landscape-light.png"}
+				darkSrc={"/landscape.png"}
+				fill
+				alt={""}
+				className="object-fill absolute inset-0 z-20"
+			/>
 
-										<Image
-							src={"/effects/smoke.svg"}
-							fill
-							alt={""}
-							className="object-cover absolute inset-0 z-10 opacity-0 dark:opacity-30 "
-						/>
+			<Image
+				src={"/effects/smoke.svg"}
+				fill
+				alt={""}
+				className="object-cover absolute inset-0 z-10 opacity-0 dark:opacity-30 "
+			/>
 			<div className=" absolute inset-0 bottom-0 z-20">
 				<footer className="p-8 flex flex-col h-full justify-between ">
 					<div className="flex mb-6 justify-between gap-4 text-sm uppercase `">
-						<Link className="text-muted-foreground" href={""}>
+						<Link className="" href={""}>
 							Contact
 						</Link>
 						<div className=" flex flex-col gap-2 text-sm uppercase">
-							<Link className="text-muted-foreground" href={""}>
+							<Link className="" href={""}>
 								Engineering
 							</Link>
-							<Link className="text-muted-foreground" href={""}>
+							<Link className="" href={""}>
 								Branding
 							</Link>
-							<Link className="text-muted-foreground" href={""}>
+							<Link className="" href={""}>
 								Blog
 							</Link>
 						</div>
 						<div className=" flex flex-col gap-2 text-sm uppercase">
-							<Link className="text-muted-foreground" href={""}>
+							<Link className="" href={""}>
 								GitHub
 							</Link>
-							<Link className="text-muted-foreground" href={""}>
+							<Link className="" href={""}>
 								Linkedin
 							</Link>
-							<Link className="text-muted-foreground" href={""}>
+							<Link className="" href={""}>
 								Behance
 							</Link>
 						</div>

@@ -37,11 +37,8 @@ function Page() {
  */}
 					<BrandingHeader
 						imageSrc="/branding/lofiapp/mockup-2.jpg"
-						title="Branding"
-						description=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem error
-						nobis veritatis, dolor ex voluptatem aut dolorem ea officia voluptas
-						necessitatibus? Qui assumenda vel odit eum perferendis, aut velit?
-						Animi."
+						title="Creative Direction"
+						description="Every identity begins as an idea, then grows into a living system. I craft visual languages that feel dynamic, expressive, and unforgettable, fusing creativity, strategy, and design precision."
 						cornerTexts={{
 							topLeft: "CLIENT_01",
 							topRight: "PROJECT_AICHOR",
@@ -56,16 +53,15 @@ function Page() {
 				<CurvedLoop
 					curveAmount={-300}
 					interactive={false}
-					marqueeText="Branding Projects✦"
+					marqueeText="Creative Direction✦"
 					className="font-heading uppercase tracking-wide "
 				/>
 
 				<Container className="mt-[-400px] mb-64 ">
 					<div className="max-w-xl mr-0">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-						commodi repellendus doloribus autem recusandae omnis officiis
-						architecto, quam, reprehenderit molestias repudiandae maxime et
-						dolorem excepturi necessitatibus voluptates? Sequi, natus eos.
+						Crafting brands that breathe, move, and resonate. I turn vision into
+						visual systems where aesthetics, logic, and motion coexist in
+						harmony.
 					</div>
 				</Container>
 			</div>

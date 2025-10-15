@@ -33,9 +33,9 @@ export default function Home() {
 				<HeroSection />
 				{/* <SecondSection /> */}
 				<MaskedHeader src={"/branding/lofiapp/mockup-2.jpg"}>
-					<p>Hello world</p>
+					<p>Interfaces that move, respond, and inspire.</p>
 					<h2 className="text-9xl font-heading uppercase font-bold tracking-tight">
-						Redefine gaming
+						Digital Alchemy
 					</h2>
 				</MaskedHeader>
 				{/* <ProjectGallery /> */}
@@ -55,9 +55,8 @@ export default function Home() {
 						<Container className="absolute h-full w-full flex flex-col justify-between py-36">
 							<div className="flex justify-between items-center">
 								<p className=" max-w-sm text-sm text-muted-foreground uppercase">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-									eius voluptate nostrum necessitatibus delectus sit nesciunt
-									temporibus
+									Turning ideas into living identities, where vision and design
+									fuse like elements in a spell.
 								</p>
 								<h2 className=" text-2xl font-semibold font-heading uppercase">
 									Branding_01
@@ -65,13 +64,13 @@ export default function Home() {
 							</div>
 							<div className="flex justify-end">
 								<p className="text-sm text-right max-w-sm text-muted-foreground uppercase">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-									eius voluptate nostrum necessitatibus delectus sit nesciunt
+									Crafting brands that breathe, move, and leave a mark simple,
+									bold, unforgettable.
 								</p>
 							</div>
 						</Container>
 						<VelocityScroll defaultVelocity={1} numRows={1}>
-							From Vision to Interaction * Seamlessly Engineered
+							Brand Alchemy
 						</VelocityScroll>
 						<div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background " />
 						<div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
@@ -84,20 +83,20 @@ export default function Home() {
 
 				<ListSection
 					title="Every pixel is built with user’s feedback in mind"
-					subtitle="Every feature in AIchor is shaped by real feedback, helping us build a tool people actually enjoy using every day."
+					subtitle="Creating interfaces that feel intuitive, responsive, and alive."
 					components={[
 						<Testimonial
-							text="Saved me hours reading dense papers."
+							text="Every detail is intentional, every interaction thoughtful."
 							imgSrc="/aichor/avatar.png"
 							key="testimonial-1"
 						/>,
 						<Testimonial
-							text="I love using this platform!"
+							text="He crafts experiences that delight users and elevate the product."
 							imgSrc="/aichor/avatar.png"
 							key="testimonial-2"
 						/>,
 						<Testimonial
-							text="I love using this platform!"
+							text="creativity, precision, and user focus all in one."
 							imgSrc="/aichor/avatar.png"
 							key="testimonial-3"
 						/>,
@@ -105,7 +104,7 @@ export default function Home() {
 				/>
 
 				<ScrollImage
-					text={"Welcome to my world"}
+					text={"Interactive Craft"}
 					src={"/branding/lofiapp/mockup-2.jpg"}
 				/>
 				<div className="relative min-h-screen">
