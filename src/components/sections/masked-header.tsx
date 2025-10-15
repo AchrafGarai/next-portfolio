@@ -1,28 +1,46 @@
+"use client";
 import { cn } from "@/lib/utils";
-import type { ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "motion/react";
 
 function MaskedHeader({ src, children }: { src: string; children: ReactNode }) {
+	const ref = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: ref,
+		offset: ["start start", "end start"],
+	});
+
+	const clipPath = useTransform(
+		scrollYProgress,
+		[0, 0.3],
+		[
+			"polygon(41% 38%, 56% 34%, 60% 73%, 43% 58%)",
+			"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+		],
+	);
+
 	return (
-		<section className="h-screen relative">
+		<section className="h-screen relative" ref={ref}>
 			<Image
 				src={"/grids/grid-c.svg"}
 				fill
-				alt={""}
+				alt=""
 				className="object-cover absolute inset-0"
 			/>
 			<div className="relative w-full h-full">
-				<MasketContent>{children}</MasketContent>
-				<div
-					className="relative w-full h-full bg-indigo-500"
-					style={{ clipPath: "polygon(41% 38%, 56% 34%, 60% 73%, 43% 58%)" }}
+				<MaskedContent>{children}</MaskedContent>
+				<motion.div
+					className="relative w-full h-full"
+					style={{
+						clipPath,
+						WebkitClipPath: clipPath,
+					}}
 				>
-					<Image src={src} alt={""} fill className="object-cover" />
+					<Image src={src} alt="" fill className="object-cover" />
 					<div className="absolute inset-0 bg-black/40" />
-					<MasketContent className=" z-20 text-white ">
-						{children}
-					</MasketContent>
-				</div>
+					<MaskedContent className="z-20 text-white">{children}</MaskedContent>
+				</motion.div>
 			</div>
 		</section>
 	);
@@ -30,7 +48,7 @@ function MaskedHeader({ src, children }: { src: string; children: ReactNode }) {
 
 export default MaskedHeader;
 
-function MasketContent({
+function MaskedContent({
 	className,
 	children,
 }: { className?: string; children?: ReactNode }) {

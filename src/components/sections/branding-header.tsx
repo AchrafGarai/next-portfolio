@@ -23,7 +23,7 @@ const BrandingHeader: React.FC<BrandingHeaderProps> = ({
 }) => {
 	return (
 		<>
-			<div className="relative w-full h-[70vh]">
+			<div className="relative w-full h-[50vh]">
 				{/* Background image */}
 				<Image
 					src={imageSrc}

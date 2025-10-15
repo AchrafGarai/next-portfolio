@@ -4,61 +4,73 @@ import Image from "next/image";
 import { Container } from "../ui/container";
 import { motion, useScroll, useTransform } from "motion/react";
 import ThemedImage from "@/components/projects/themed-image";
+import { useRef } from "react";
+
 const LEFT_TITLE = "DESIGN";
 const RIGHT_TITLE = "ENGINEERING";
 
 function HeroSection() {
-	const { scrollYProgress } = useScroll();
+	const ref = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: ref,
+		offset: ["start start", "end start"], // Animate during scroll through section
+	});
 
 	// Animate clip-path from initial polygon to full rectangle
 	const clipPath = useTransform(
 		scrollYProgress,
-		[0, 0.3], // adjust 0.3 based on how far you want the animation to go
+		[0, 0.3],
 		[
 			"polygon(21% 16%, 86% 29%, 100% 82%, 0 60%)",
 			"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
 		],
 	);
+
 	return (
-		<section className=" relative border-b">
-			<Image
-				src={"/grids/grid-a.svg"}
-				fill
-				alt={""}
-				className="object-cover absolute inset-0"
-			/>
-			<ThemedImage
-				lightSrc={"/landscape-light.png"}
-				darkSrc={"/landscape.png"}
-				fill
-				alt={""}
-				className="object-fill absolute inset-0 "
-			/>
-			<div className="relative h-screen overflow-hidden  inset-0">
-				{/* Background titles */}
-
-				<div className=" max-w-[1980px] mx-auto relative w-full h-full">
-					<LeftTitle />
-					<RightTitle />
-				</div>
-
-				<motion.div
-					className="absolute top-0 left-0 w-full h-full bg-indigo-500"
-					style={{ clipPath: clipPath }}
-				>
-					<Image
-						src={"/branding/lofiapp/mockup-2.jpg"}
-						fill
-						className=" object-cover"
-						alt={""}
-					/>
-					<div className="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-black/90" />
-					{/* Foreground titles  */}
-					<div className=" max-w-[1980px] w-full h-full mx-auto relative">
-						<LeftTitle className="z-20  text-white " />
-						<RightTitle className="z-20 text-white " />
+		<section className="relative border-b h-[200vh]" ref={ref}>
+			<div className="min-h-screen sticky top-0 w-full">
+				<Image
+					src={"/grids/grid-a.svg"}
+					fill
+					alt={""}
+					className="object-cover absolute inset-0"
+				/>
+				<ThemedImage
+					lightSrc={"/landscape-light.png"}
+					darkSrc={"/landscape.png"}
+					fill
+					alt={""}
+					className="object-fill absolute inset-0"
+				/>
+				<div className="relative h-screen overflow-hidden inset-0">
+					{/* Background titles */}
+					<div className="max-w-[1980px] mx-auto relative w-full h-full">
+						<LeftTitle />
+						<RightTitle />
 					</div>
-				</motion.div>
+					<motion.div
+						className="absolute top-0 left-0 w-full h-full bg-indigo-500"
+						style={{
+							// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+							clipPath: clipPath as any,
+							// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+							WebkitClipPath: clipPath as any,
+						}}
+					>
+						<Image
+							src={"/branding/lofiapp/mockup-2.jpg"}
+							fill
+							className="object-cover"
+							alt={""}
+						/>
+						<div className="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-black/90" />
+						{/* Foreground titles */}
+						<div className="max-w-[1980px] w-full h-full mx-auto relative">
+							<LeftTitle className="z-20 text-white" />
+							<RightTitle className="z-20 text-white" />
+						</div>
+					</motion.div>
+				</div>
 			</div>
 		</section>
 	);
