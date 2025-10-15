@@ -1,11 +1,24 @@
+"use client";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Container } from "../ui/container";
+import { motion, useScroll, useTransform } from "motion/react";
 import ThemedImage from "@/components/projects/themed-image";
 const LEFT_TITLE = "DESIGN";
 const RIGHT_TITLE = "ENGINEERING";
 
 function HeroSection() {
+	const { scrollYProgress } = useScroll();
+
+	// Animate clip-path from initial polygon to full rectangle
+	const clipPath = useTransform(
+		scrollYProgress,
+		[0, 0.3], // adjust 0.3 based on how far you want the animation to go
+		[
+			"polygon(21% 16%, 86% 29%, 100% 82%, 0 60%)",
+			"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+		],
+	);
 	return (
 		<section className=" relative border-b">
 			<Image
@@ -29,9 +42,9 @@ function HeroSection() {
 					<RightTitle />
 				</div>
 
-				<div
+				<motion.div
 					className="absolute top-0 left-0 w-full h-full bg-indigo-500"
-					style={{ clipPath: "polygon(21% 16%, 86% 29%, 100% 82%, 0 60%)" }}
+					style={{ clipPath: clipPath }}
 				>
 					<Image
 						src={"/branding/lofiapp/mockup-2.jpg"}
@@ -45,7 +58,7 @@ function HeroSection() {
 						<LeftTitle className="z-20  text-white " />
 						<RightTitle className="z-20 text-white " />
 					</div>
-				</div>
+				</motion.div>
 			</div>
 		</section>
 	);
