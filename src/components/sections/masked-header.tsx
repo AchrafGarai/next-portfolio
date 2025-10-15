@@ -21,26 +21,30 @@ function MaskedHeader({ src, children }: { src: string; children: ReactNode }) {
 	);
 
 	return (
-		<section className="h-screen relative" ref={ref}>
-			<Image
-				src={"/grids/grid-c.svg"}
-				fill
-				alt=""
-				className="object-cover absolute inset-0"
-			/>
-			<div className="relative w-full h-full">
-				<MaskedContent>{children}</MaskedContent>
-				<motion.div
-					className="relative w-full h-full"
-					style={{
-						clipPath,
-						WebkitClipPath: clipPath,
-					}}
-				>
-					<Image src={src} alt="" fill className="object-cover" />
-					<div className="absolute inset-0 bg-black/40" />
-					<MaskedContent className="z-20 text-white">{children}</MaskedContent>
-				</motion.div>
+		<section className="relative min-h-[200vh]" ref={ref}>
+			<div className=" sticky top-0 w-full h-screen">
+				<Image
+					src={"/grids/grid-c.svg"}
+					fill
+					alt=""
+					className="object-cover absolute inset-0"
+				/>
+				<div className="relative w-full h-full">
+					<MaskedContent>{children}</MaskedContent>
+					<motion.div
+						className="relative w-full h-full"
+						style={{
+							clipPath,
+							WebkitClipPath: clipPath,
+						}}
+					>
+						<Image src={src} alt="" fill className="object-cover" />
+						<div className="absolute inset-0 bg-black/40" />
+						<MaskedContent className="z-20 text-white">
+							{children}
+						</MaskedContent>
+					</motion.div>
+				</div>
 			</div>
 		</section>
 	);
