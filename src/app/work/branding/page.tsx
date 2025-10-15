@@ -35,6 +35,7 @@ function Page() {
 						<h2 className="text-9xl font-heading uppercase">Branding Projects</h2>
 					</MaskedHeader>
  */}
+
 					<BrandingHeader
 						imageSrc="/branding/lofiapp/mockup-2.jpg"
 						title="Creative Direction"

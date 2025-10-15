@@ -51,6 +51,23 @@ function getMDXData(dir: fs.PathLike) {
 	});
 }
 
+function getMDXMetaData(dir: fs.PathLike) {
+	const mdxFiles = getMDXFiles(dir);
+	return mdxFiles.map((file) => {
+		const { metadata, content } = readMDXFile(path.join(dir.toString(), file));
+		const slug = path.basename(file, path.extname(file));
+
+		return {
+			metadata,
+			slug,
+		};
+	});
+}
+
 export function getBlogPosts() {
 	return getMDXData(path.join(process.cwd(), "src", "content", "dev"));
+}
+
+export function getBlogPostsMetaData() {
+	return getMDXMetaData(path.join(process.cwd(), "src", "content", "dev"));
 }

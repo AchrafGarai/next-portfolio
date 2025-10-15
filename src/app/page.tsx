@@ -82,7 +82,7 @@ export default function Home() {
 				{/* <StackGallery /> */}
 
 				<ListSection
-					title="Every pixel is built with user’s feedback in mind"
+					title="Endorsed by minds who craft tomorrow’s digital experiences"
 					subtitle="Creating interfaces that feel intuitive, responsive, and alive."
 					components={[
 						<Testimonial

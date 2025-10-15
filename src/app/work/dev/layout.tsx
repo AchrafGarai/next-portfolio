@@ -10,16 +10,7 @@ import {
 	MenubarShortcut,
 	MenubarTrigger,
 } from "@/components/ui/menubar";
-import { ChatBubbleIcon, FileIcon } from "@radix-ui/react-icons";
 
-import {
-	BlocksIcon,
-	FilesIcon,
-	GitFork,
-	PlayIcon,
-	Settings,
-	User,
-} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
