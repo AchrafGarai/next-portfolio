@@ -18,8 +18,11 @@ function Page() {
 					bottomRight: "STATUS_OK",
 				}}
 			/>
-
-			<UIProjectsGrid />
+			<section>
+				<Container className="max-w-[1920px]">
+					<UIProjectsGrid />
+				</Container>
+			</section>
 
 			<CurvedLoop
 				curveAmount={-300}

@@ -100,7 +100,7 @@ export const Gallery = () => {
 	const rigRef = useRef<{ pushRotation: (force: number) => void }>(null);
 
 	return (
-		<div className="relative w-full h-screen">
+		<div className="relative w-full h-[40vh] md:h-[60vh] lg:h-screen">
 			{/* Buttons */}
 			<div className="absolute z-10 flex gap-4 justify-center inset-x-0 bottom-32">
 				<Button

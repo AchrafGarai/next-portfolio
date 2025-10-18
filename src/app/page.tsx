@@ -10,10 +10,9 @@ import Footer from "@/components/sections/footer";
 import HeroSection from "@/components/sections/hero";
 import ListSection from "@/components/sections/list-section";
 import MaskedHeader from "@/components/sections/masked-header";
-import StackGallery2 from "@/components/sections/stack-gallery-2";
+import StackGallery from "@/components/sections/stack-gallery";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Container } from "@/components/ui/container";
-import { LightRays } from "@/components/ui/light-rays";
 import Image from "next/image";
 import { Suspense } from "react";
 
@@ -34,7 +33,7 @@ export default function Home() {
 				{/* <SecondSection /> */}
 				<MaskedHeader src={"/branding/lofiapp/mockup-2.jpg"}>
 					<p>Interfaces that move, respond, and inspire.</p>
-					<h2 className="text-9xl font-heading uppercase font-bold tracking-tight">
+					<h2 className="text-6xl md:text-9xl font-heading uppercase font-bold tracking-tight">
 						Digital Alchemy
 					</h2>
 				</MaskedHeader>
@@ -52,14 +51,14 @@ export default function Home() {
 								<Gallery />
 							</Suspense>
 						</div>
-						<Container className="absolute h-full w-full flex flex-col justify-between py-36">
+						<Container className="absolute h-full w-full flex flex-col justify-between p-4 py-36">
 							<div className="flex justify-between items-center">
 								<p className=" max-w-sm text-sm text-muted-foreground uppercase">
 									Turning ideas into living identities, where vision and design
 									fuse like elements in a spell.
 								</p>
 								<h2 className=" text-2xl font-semibold font-heading uppercase">
-									Branding_01
+									Creative Direction
 								</h2>
 							</div>
 							<div className="flex justify-end">
@@ -76,10 +75,8 @@ export default function Home() {
 						<div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
 					</div>
 				}
-				{/* <CodeGallery /> */}
-				<StackGallery2 />
 
-				{/* <StackGallery /> */}
+				<StackGallery />
 
 				<ListSection
 					title="Endorsed by minds who craft tomorrow’s digital experiences"

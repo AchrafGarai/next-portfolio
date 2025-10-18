@@ -27,7 +27,7 @@ function HeroSection() {
 	);
 
 	return (
-		<section className="relative border-b h-[200vh]" ref={ref}>
+		<section className="relative border-b h-[300vh]" ref={ref}>
 			<div className="min-h-screen sticky top-0 w-full">
 				<Image
 					src={"/grids/grid-a.svg"}
@@ -40,7 +40,7 @@ function HeroSection() {
 					darkSrc={"/landscape.png"}
 					fill
 					alt={""}
-					className="object-fill absolute inset-0"
+					className="object-cover absolute inset-0"
 				/>
 				<div className="relative h-screen overflow-hidden inset-0">
 					{/* Background titles */}
@@ -80,8 +80,8 @@ export default HeroSection;
 
 function LeftTitle({ className }: { className?: string }) {
 	return (
-		<div className={cn("absolute top-10 left-16 leading-tight ", className)}>
-			<h1 className=" text-[10rem] font-bold font-heading uppercase">
+		<div className={cn("absolute top-10 left-4 leading-tight ", className)}>
+			<h1 className=" lg:text-[10rem] md:text-[6rem] text-5xl font-bold font-heading uppercase">
 				{LEFT_TITLE}
 			</h1>
 		</div>
@@ -93,7 +93,7 @@ function RightTitle({ className }: { className?: string }) {
 		<div
 			className={cn(
 				className,
-				"absolute bottom-24 left-16 flex justify-between items-center right-16 leading-tight   ",
+				"absolute lg:bottom-24 bottom-32 left-4 flex flex-col lg:flex-row justify-between gap-4 items-left lg:items-center right-16 leading-tight   ",
 			)}
 		>
 			<p className="max-w-[400px]  text-muted-foreground text-xs uppercase tracking-widest">
@@ -101,7 +101,7 @@ function RightTitle({ className }: { className?: string }) {
 				push the boundaries of design and technology, shaping a web that’s as
 				dynamic as it is beautiful.
 			</p>
-			<h1 className=" text-[10rem] font-bold font-heading uppercase ">
+			<h1 className=" lg:text-[10rem] md:text-[6rem] text-5xl font-bold font-heading uppercase ">
 				{RIGHT_TITLE}
 			</h1>
 		</div>

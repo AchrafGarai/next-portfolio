@@ -13,14 +13,14 @@ const Card = ({ title, tag, coverImage: img, slug }: props) => {
 	return (
 		<div className=" flex flex-col gap-4 mr-8 ">
 			<Link href={`/work/branding/${slug}`}>
-				<div className="relative w-[30vw] h-[40vh]">
+				<div className="relative w-48 h-[6rem] md:w-64 md:h-[8rem] lg:w-[30vw] lg:h-[40vh]">
 					<Image src={img} alt={""} fill className="object-cover" />
 					<div className="opacity-0 hover:opacity-100 absolute indent-0 w-full h-full bg-black/40 flex items-center justify-center transition-opacity ease-in-out">
 						<Button variant={"glass"}>View Project</Button>
 					</div>
 				</div>
 			</Link>
-			<div className="flex px-4 gap-4 justify-between">
+			<div className="flex lg:px-4 gap-2 flex-col md:flex-row justify-between">
 				<span className=" text-xl uppercase font-semibold">{title}</span>
 				<span className="text-xl uppsercase font-medium text-muted-foreground">
 					{tag}

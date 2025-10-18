@@ -48,7 +48,7 @@ function Page() {
 						}}
 					/>
 				</div>
-				<div className="min-h-screen my-64">
+				<div className="my-8 lg:my-64">
 					<BrandingProjectsGrid projects={BrandingProjectMap} />
 				</div>
 				<CurvedLoop

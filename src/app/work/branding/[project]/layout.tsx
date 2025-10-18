@@ -72,7 +72,8 @@ async function Layout({
 					</div>
 					<div className="p-4 py-1  flex items-center justify-between border-t">
 						<span className="text-xs ">Theme</span>
-						<ThemeToggle />
+
+						<AnimatedThemeToggler />
 					</div>
 				</div>
 			</div>

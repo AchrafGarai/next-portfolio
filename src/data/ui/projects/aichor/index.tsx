@@ -18,7 +18,7 @@ export const metaData: ProjectMetadata = {
 	color: "#6cd0ff",
 	tag: "Saas",
 	description:
-		"Designing a forward-looking, branded UI system to support AIchor's intelligent interface for technical researchers and developers.",
+		"Aichor.ai is a platform designed to help teams build, deploy, and monitor machine learning models more intuitively through a unified web interface. My task was to design and engineer the entire UI layer — building a scalable design system and implementing it in production using Next.js, Tailwind CSS, and shadcn/ui.",
 	coverImage: "/aichor/aichor-hero.png",
 	thumbnail: "/aichor/aichor-mockup.jpg",
 	intro: "Biometric login redesign using WebAuthn.",
@@ -60,10 +60,11 @@ export function Content() {
 
 			<ProjectHighlight title="Challenge">
 				<p>
-					The aim was to create a unique visual identity that reflects
-					intelligence and reliability, while building a scalable,
-					developer-friendly UI system. We also focused on consistent motion,
-					accessibility, and responsive performance across devices.
+					The challenge was to turn Aichor’s complex product vision into a
+					cohesive coded design language that worked seamlessly for both
+					designers and engineers. I needed to build consistency without
+					limiting flexibility, ensuring performance, accessibility, and unity
+					across all interface elements.
 				</p>
 			</ProjectHighlight>
 
@@ -78,11 +79,11 @@ export function Content() {
 
 			<StudyStep title="Process">
 				<p className=" text-muted-foreground text-2xl">
-					The process began with exploring visual themes and layout systems that
-					aligned with the brand’s AI focus. I collaborated closely with
-					designers and developers to translate these ideas into reusable
-					components using Tailwind CSS and Framer Motion, ensuring consistency,
-					responsiveness, and smooth interactions across the app.
+					I started by identifying key user flows and refining the visual
+					structure through quick prototypes. Once the foundation was clear, I
+					brought the designs to life using Next.js, Tailwind, and shadcn/ui.
+					Working iteratively, I documented, tested, and refined each component
+					to ensure design and development stayed perfectly aligned.
 				</p>
 				<p className=" text-muted-foreground">
 					The process began with exploring visual themes and layout systems that
@@ -97,32 +98,27 @@ export function Content() {
 				<div className="flex flex-col gap-4 mt-2">
 					<span>Focus</span>
 					<p className=" text-muted-foreground">
-						The process began with exploring visual themes and layout systems
-						that aligned with the brand’s AI focus. I collaborated closely with
-						designers and developers to translate these ideas into reusable
-						components using Tailwind CSS and Framer Motion, ensuring
-						consistency, responsiveness, and smooth interactions across the app.
+						The focus was on building a robust foundation before expanding to
+						full pages—starting with atomic components, then assembling them
+						into patterns and templates. Design and development ran in parallel,
+						with constant validation through coded prototypes.
 					</p>
 				</div>
 
 				<div className="flex flex-col gap-4 mt-2">
 					<span>Division</span>
 					<p className=" text-muted-foreground">
-						To avoid chaos, we clearly split responsibilities. While other team
-						members focused on backend and infrastructure, I led the
-						implementation of the UI system, CSS architecture, and interaction
-						polish. I worked closely with the frontend team to integrate the
-						components and ship features with consistency.
+						Execution centered on speed and reusability: I defined tokens and
+						themes early, built out base components, and progressively layered
+						complexity, ensuring each element was responsive and accessible.
 					</p>
 				</div>
 
 				<div className="flex flex-col gap-4 mt-2">
 					<span>Execution</span>
 					<p className=" text-muted-foreground">
-						Every screen, every component was built with performance and clarity
-						in mind. Animations were kept purposeful. Visual hierarchy was tuned
-						for technical users. And collaboration with QA ensured that every
-						interaction worked as intended across devices.
+						As components matured, I integrated them into the Next.js structure,
+						connecting data and state logic to make the UI fully functional.
 					</p>
 				</div>
 			</StudyStep>
@@ -154,10 +150,13 @@ export function Content() {
 				<p className="text-2xl mb-12 text-left ">
 					To build the design system for AIchor
 					<span className=" text-muted-foreground">
-						, I started by identifying common UI patterns and aligning them with
-						the brand’s tone intelligent, minimal, and responsive. I focused on
-						creating scalable components with a consistent layout grid, clear
-						spacing rules, and accessible color and typography choices.
+						The design system became the backbone of the entire interface. It
+						unified colors, typography, spacing, and motion through Tailwind
+						tokens, while shadcn/ui provided a flexible architecture for
+						component variants. Each element—whether designed or coded—followed
+						shared principles of clarity, consistency, and accessibility. The
+						result was a design language that looked cohesive in Figma and
+						behaved identically in production.
 					</span>
 				</p>
 				<ThemedImage
@@ -198,9 +197,11 @@ export function Content() {
 			/>
 			<ProjectHighlight title="Result">
 				<p>
-					Lorem ipsum dolor sit amet consectetur. Maecenas ac turpis semper cras
-					velit vulputate congue viverra. Maecenas nulla odio fringilla mi arcu
-					faucibus ultrices cras. Tempus phasellus urna.222
+					The result was a scalable, production-ready UI that accelerated
+					development, improved visual harmony, and strengthened collaboration
+					between designers and engineers. The system now supports rapid
+					iteration and a consistent experience across all of Aichor’s machine
+					learning tools.
 				</p>
 			</ProjectHighlight>
 		</>

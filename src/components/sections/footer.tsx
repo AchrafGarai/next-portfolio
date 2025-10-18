@@ -24,7 +24,7 @@ function Footer() {
 				darkSrc={"/landscape.png"}
 				fill
 				alt={""}
-				className="object-fill absolute inset-0 z-20"
+				className="object-cover absolute inset-0 z-20"
 			/>
 
 			<Image
@@ -41,10 +41,10 @@ function Footer() {
 						</Link>
 						<div className=" flex flex-col gap-2 text-sm uppercase">
 							<Link className="" href={""}>
-								Engineering
+								Design Engineering
 							</Link>
 							<Link className="" href={""}>
-								Branding
+								Creative direction
 							</Link>
 							<Link className="" href={""}>
 								Blog
@@ -63,7 +63,7 @@ function Footer() {
 						</div>
 					</div>
 
-					<h2 className=" font-heading text-[17.3vw] max-w-screen font-bold uppercase">
+					<h2 className=" font-heading text-[15.3vw] md:text-[16.3vw] lg:text-[17.3vw] max-w-screen font-bold uppercase">
 						Let's Talk
 					</h2>
 				</footer>

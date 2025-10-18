@@ -20,9 +20,9 @@ export default function ScrollImage({
 	});
 
 	// Animate width & height from small box to full screen
-	const width = useTransform(smoothProgress, [0, 1], ["24rem", "100vw"]);
-	const height = useTransform(smoothProgress, [0, 1], ["30rem", "100vh"]);
-	const borderRadius = useTransform(smoothProgress, [0, 1], ["4rem", "0rem"]);
+	const width = useTransform(smoothProgress, [0, 1], ["30rem", "100vw"]);
+	const height = useTransform(smoothProgress, [0, 1], ["24rem", "100vh"]);
+	const borderRadius = useTransform(smoothProgress, [0, 1], ["3rem", "0rem"]);
 
 	return (
 		<div ref={ref} className="relative min-h-[300vh]">

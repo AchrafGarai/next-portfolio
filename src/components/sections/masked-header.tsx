@@ -21,7 +21,7 @@ function MaskedHeader({ src, children }: { src: string; children: ReactNode }) {
 	);
 
 	return (
-		<section className="relative min-h-[200vh]" ref={ref}>
+		<section className="relative min-h-[300vh]" ref={ref}>
 			<div className=" sticky top-0 w-full h-screen">
 				<Image
 					src={"/grids/grid-c.svg"}

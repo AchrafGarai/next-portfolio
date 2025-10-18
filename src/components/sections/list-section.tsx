@@ -28,7 +28,9 @@ export default function ListSection({
 
 			{/* Sticky content block */}
 			<div className="sticky top-0 flex flex-col gap-6 justify-center items-center min-h-screen max-w-[700px] text-center z-10">
-				<h3 className="text-6xl font-heading uppercase">{title}</h3>
+				<h3 className=" text-3xl md:text-5xl lg:text-6xl font-heading uppercase">
+					{title}
+				</h3>
 				<p>{subtitle}</p>
 			</div>
 

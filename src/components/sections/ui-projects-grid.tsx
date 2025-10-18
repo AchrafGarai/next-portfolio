@@ -7,7 +7,7 @@ import { Button } from "../ui/button";
 type props = (typeof UIProjectMap)[number] & { className?: string };
 const Card = ({ title, tag, thumbnail: img, slug, className }: props) => {
 	return (
-		<div className={`flex flex-col gap-4 mr-8 ${className ?? ""}`}>
+		<div className={`flex flex-col gap-4  ${className ?? ""}`}>
 			<Link href={`/work/ui/${slug}`}>
 				<div className="">
 					<Image src={img} alt={""} width={1920} height={1080} />
@@ -48,14 +48,14 @@ const Card2 = ({ title, tag, coverImage, slug, className }: props) => {
 
 export function UIProjectsGrid() {
 	return (
-		<div className="p-8 grid grid-cols-2 gap-8">
+		<div className="lg:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
 			{UIProjectMap.map((project, i) => {
 				const isFullWidth = i === 0 || i === 3;
 				return (
 					<Card
 						key={project.title}
 						{...project}
-						className={isFullWidth ? "col-span-2" : ""}
+						className={isFullWidth ? "md:col-span-2" : ""}
 					/>
 				);
 			})}

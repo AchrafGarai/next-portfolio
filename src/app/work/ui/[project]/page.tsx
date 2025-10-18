@@ -20,20 +20,20 @@ async function Page({
 
 	return (
 		<>
-		<Suspense fallback={null}>
-							<Logo3d
-				title={metadata.slug}
-				color={metadata.color}
-				content={metadata.title}
-				material={metadata?.material}
-			/>
-						</Suspense>
-			
+			<Suspense fallback={null}>
+				<Logo3d
+					title={metadata.slug}
+					color={metadata.color}
+					content={metadata.title}
+					material={metadata?.material}
+				/>
+			</Suspense>
+
 			<SectionTitle
 				title={metadata.title}
 				subtitle="About"
 				tag={metadata.tag}
-				className="my-64"
+				className="my-8 lg;my-64"
 			>
 				<p className="mt-6 text-2xl">{metadata.description}</p>
 			</SectionTitle>
